@@ -27,7 +27,7 @@ dth = 0.01;
 space = linspace(0,99.99,10000);
 H_th = zeros(size(space));
 H_th(abs(space)<fch) = 1;
-h_th = iift(H_th, 'symmetric');
+h_th = ifft(H_th, 'symmetric');
 
 %Filtered signal
 Y_th = X.*H_th;
@@ -50,7 +50,7 @@ R_th_2 = 1/4*(rectpuls((w-1/2)/(2*wc))) + 1/4*(rectpuls(w/(2*wc))+rectpuls((w-1)
 wc = 2*pi*fc;
 [b,a] = butter(10,2*wc,'s');
 H_es = (polyval(b,fh)./polyval(a,fh));
-h_es = iift(H_es, 'symmetric');
+h_es = ifft(H_es, 'symmetric');
 
 %Filtered signal
 Y_es = X.*H_es;
