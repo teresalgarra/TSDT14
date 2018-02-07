@@ -193,77 +193,77 @@ R_es_2_bl_bl = abs(fft(r_es_2_bl_bl));
 %%Systems%%
 
 %Filter
-figure;
+figure;     %1
 plot(w,H_es, 'm');
 %Filter absolute value
-figure;
+figure;     %2
 plot(w,abs(H_es), 'b');
 %Filter in time domain
-figure;
+figure;     %3
 plot(t,h_es, 'c');
 
 %Filtered signal
-figure;
+figure;     %4
 plot(f,Y_th, 'm');
 %Filtered signal absolute value
-figure;
+figure;     %5
 plot(f,abs(Y_th), 'b');
 %Filtered signal in time domain
-figure;
+figure;     %6
 plot(t,y_th, 'c');
 
 %Initial PSD
-figure;
+figure;     %7
 plot(w, R_th_1, 'm'); xlim([0,1]);
 
 %First System PSD
-figure;
+figure;     %8
 plot(w, R_th_1, 'm'); xlim([0,1]);
 
 %Second System PSD
-figure;
+figure;     %9
 plot(w, R_th_2, 'b'); xlim([0,1]);
 
 %%Estimated Calculations%%
 
 %Filtered signal
-figure;
+figure;     %10
 plot(f,Y_es), 'm';
 %Filtered signal absolute value
-figure;
+figure;     %11
 plot(f,abs(Y_es), 'b');
 %Filtered signal in time domain
-figure;
+figure;     %12
 plot(t,y_es, 'c');
 %First System in time domain
-figure;
+figure;     %13
 plot(t,y_es_1, 'm');
 %First System
-figure;
+figure;     %14
 plot(t,Y_es_1, 'm');
 %First System absolute value
-figure;
+figure;     %15
 plot(t,abs(Y_es_1), 'm');
 %Second System in time domain
-figure;
+figure;     %16
 plot(t,y_es_2, 'm');
 %Second System
-figure;
+figure;     %17
 plot(t,Y_es_2, 'm');
 %Second System absolute value
-figure;
+figure;     %18
 plot(t,abs(Y_es_2), 'm');
 
 %First System PSD
-figure;
+figure;     %19
 plot(w, R_es_1_ba, 'b'); xlim([0,1]);
-figure;
+figure;     %20
 plot(w, R_es_1_bl, 'c'); xlim([0,1]);
 
 %Second System PSD
-figure;
+figure;     %21
 plot(w, R_es_2_ba, 'b'); xlim([0,1]);
-figure;
+figure;     %22
 plot(w, R_es_2_bl, 'c'); xlim([0,1]);
 
 %%Smoothed Calculations%%
@@ -273,63 +273,63 @@ plot(w, R_es_2_bl, 'c'); xlim([0,1]);
 %First System PSD%
 
 %Rectangular window
-figure;
+figure;     %23
 plot(w, R_es_1_ba_re, 'm'); xlim([0,1]);
-figure;
+figure;     %24
 plot(w, R_es_1_bl_re, 'b'); xlim([0,1]);
 
 %Triangular window
-figure;
+figure;     %25
 plot(w, R_es_1_ba_tr, 'm'); xlim([0,1]);
-figure;
+figure;     %26
 plot(w, R_es_1_bl_tr, 'b'); xlim([0,1]);
 
 %Hamming window
-figure;
+figure;     %27
 plot(w, R_es_1_ba_ha, 'm'); xlim([0,1]);
-figure;
+figure;     %28
 plot(w, R_es_1_bl_ha, 'b'); xlim([0,1]);
 
 %Bartlett window
-figure;
+figure;     %29
 plot(w, R_es_1_ba_ba, 'm'); xlim([0,1]);
-figure;
+figure;     %30
 plot(w, R_es_1_bl_ba, 'b'); xlim([0,1]);
 
 %Blackmanharris window
-figure;
+figure;     %31
 plot(w, R_es_1_ba_bl, 'm'); xlim([0,1]);
-figure;
+figure;     %32
 plot(w, R_es_1_bl_bl, 'b'); xlim([0,1]);
 
 %Second System PSD%
 
 %Rectangular window
-figure;
+figure;     %33
 plot(w, R_es_2_ba_re, 'm'); xlim([0,1]);
-figure;
+figure;     %34
 plot(w, R_es_2_bl_re, 'b'); xlim([0,1]);
 
 %Triangular window
-figure;
+figure;     %35
 plot(w, R_es_2_ba_tr, 'm'); xlim([0,1]);
-figure;
+figure;     %36
 plot(w, R_es_2_bl_tr, 'b'); xlim([0,1]);
 
 %Hamming window
-figure;
+figure;     %37
 plot(w, R_es_2_ba_ha, 'm'); xlim([0,1]);
-figure;
+figure;     %38
 plot(w, R_es_2_bl_ha, 'b'); xlim([0,1]);
 
 %Bartlett window
-figure;
+figure;     %39
 plot(w, R_es_2_ba_ba, 'm'); xlim([0,1]);
-figure;
+figure;     %40
 plot(w, R_es_2_bl_ba, 'b'); xlim([0,1]);
 
 %Blackmanharris window
-figure;
+figure;     %41
 plot(w, R_es_2_ba_bl, 'm'); xlim([0,1]);
-figure;
+figure;     %42
 plot(w, R_es_2_bl_bl, 'b'); xlim([0,1]);

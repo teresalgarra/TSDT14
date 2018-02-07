@@ -32,8 +32,6 @@ h_th = iift(H_th, 'symmetric');
 Y_th = X.*H_th;
 y_th = ifft(Y_th,'symmetric');
 
-t0 = (2*pi*(wc+0.2));
-
 %First PSD
 R_th = zeros(1,N);
 R_th(abs(w) <wc ) = 1;
@@ -49,6 +47,7 @@ R_th_hw = 1/(4*pi)*(tripuls(w/(4*wc))+tripuls((w-1)/(4*wc)))+...
 R_th_hw(1) = R_th_hw(1)+wc/pi;
 
 %AM-SC Modulator PSD
+t0 = (2*pi*(wc+0.2));
 t1=t0/(2*pi);
 R_th_am = 1/4*(rectpuls((w-t1)/(2*wc))+rectpuls((w-1-t1)/(2*wc))) + 1/4*(rectpuls((w+t1)/(2*wc))+rectpuls((w-1+t1)/(2*wc)));
 
@@ -71,7 +70,7 @@ Y_es_sq = abs(fft(y_es_sq));
 r_es_sq_ba = es_bartlett(y_es_sq);
 R_es_sq_ba = abs(fft(r_es_sq_ba));
 
-r_es_sq_bl = es_bartlett(y_es_sq);
+r_es_sq_bl = es_blackman(y_es_sq);
 R_es_sq_bl = abs(fft(r_es_sq_bl));
 
 %Half-Wave Rectifier PSD
@@ -81,7 +80,7 @@ Y_es_hw = abs(fft(y_es_hw));
 r_es_hw_ba = es_bartlett(y_es_hw);
 R_es_hw_ba = abs(fft(r_es_hw_ba));
 
-r_es_hw_bl = es_bartlett(y_es_hw);
+r_es_hw_bl = es_blackman(y_es_hw);
 R_es_hw_bl = abs(fft(r_es_hw_bl));
 
 %AM-SC Modulator PSD
@@ -91,7 +90,7 @@ Y_es_am = abs(fft(y_es_am));
 r_es_am_ba = es_bartlett(y_es_am);
 R_es_am_ba = abs(fft(r_es_am_ba));
 
-r_es_am_bl = es_bartlett(y_es_am);
+r_es_am_bl = es_blackman(y_es_am);
 R_es_am_bl = abs(fft(r_es_am_bl));
 
 %%Smoothed Calculations%%
@@ -99,9 +98,6 @@ R_es_am_bl = abs(fft(r_es_am_bl));
 %Squarer%
 
 %Rectangular window
-r_es_sq_re = window_re(r_es_sq);
-R_es_sq_re = abs(fft(r_es_sq_re));
-
 r_es_sq_ba_re = window_re(r_es_sq_ba);
 R_es_sq_ba_re = abs(fft(r_es_sq_ba_re));
 
@@ -109,9 +105,6 @@ r_es_sq_bl_re = window_re(r_es_sq_bl);
 R_es_sq_bl_re = abs(fft(r_es_sq_bl_re));
 
 %Triangular window
-r_es_sq_tr = window_tr(r_es_sq);
-R_es_sq_tr = abs(fft(r_es_sq_tr));
-
 r_es_sq_ba_tr = window_tr(r_es_sq_ba);
 R_es_sq_ba_tr = abs(fft(r_es_sq_ba_tr));
 
@@ -119,9 +112,6 @@ r_es_sq_bl_tr = window_tr(r_es_sq_bl);
 R_es_sq_bl_tr = abs(fft(r_es_sq_bl_tr));
 
 %Hamming window
-r_es_sq_ha = window_ha(r_es_sq);
-R_es_sq_ha = abs(fft(r_es_sq_ha));
-
 r_es_sq_ba_ha = window_ha(r_es_sq_ba);
 R_es_sq_ba_ha = abs(fft(r_es_sq_ba_ha));
 
@@ -129,9 +119,6 @@ r_es_sq_bl_ha = window_ha(r_es_sq_bl);
 R_es_sq_bl_ha = abs(fft(r_es_sq_bl_ha));
 
 %Bartlett window
-r_es_sq_ba = window_ba(r_es_sq);
-R_es_sq_ba = abs(fft(r_es_sq_ba));
-
 r_es_sq_ba_ba = window_ba(r_es_sq_ba);
 R_es_sq_ba_ba = abs(fft(r_es_sq_ba_ba));
 
@@ -139,9 +126,6 @@ r_es_sq_bl_ba = window_ba(r_es_sq_bl);
 R_es_sq_bl_ba = abs(fft(r_es_sq_bl_ba));
 
 %Blackmanharris window
-r_es_sq_bl = window_bl(r_es_sq);
-R_es_sq_bl = abs(fft(r_es_sq_bl));
-
 r_es_sq_ba_bl = window_bl(r_es_sq_ba);
 R_es_sq_ba_bl = abs(fft(r_es_sq_ba_bl));
 
@@ -151,9 +135,6 @@ R_es_sq_bl_bl = abs(fft(r_es_sq_bl_bl));
 %Half-Wave Rectifier%
 
 %Rectangular window
-r_es_hw_re = window_re(r_es_hw);
-R_es_hw_re = abs(fft(r_es_hw_re));
-
 r_es_hw_ba_re = window_re(r_es_hw_ba);
 R_es_hw_ba_re = abs(fft(r_es_hw_ba_re));
 
@@ -161,9 +142,6 @@ r_es_hw_bl_re = window_re(r_es_hw_bl);
 R_es_hw_bl_re = abs(fft(r_es_hw_bl_re));
 
 %Triangular window
-r_es_hw_tr = window_tr(r_es_hw);
-R_es_hw_tr = abs(fft(r_es_hw_tr));
-
 r_es_hw_ba_tr = window_tr(r_es_hw_ba);
 R_es_hw_ba_tr = abs(fft(r_es_hw_ba_tr));
 
@@ -171,9 +149,6 @@ r_es_hw_bl_tr = window_tr(r_es_hw_bl);
 R_es_hw_bl_tr = abs(fft(r_es_hw_bl_tr));
 
 %Hamming window
-r_es_hw_ha = window_ha(r_es_hw);
-R_es_hw_ha = abs(fft(r_es_hw_ha));
-
 r_es_hw_ba_ha = window_ha(r_es_hw_ba);
 R_es_hw_ba_ha = abs(fft(r_es_hw_ba_ha));
 
@@ -181,9 +156,6 @@ r_es_hw_bl_ha = window_ha(r_es_hw_bl);
 R_es_hw_bl_ha = abs(fft(r_es_hw_bl_ha));
 
 %Bartlett window
-r_es_hw_ba = window_ba(r_es_hw);
-R_es_hw_ba = abs(fft(r_es_hw_ba));
-
 r_es_hw_ba_ba = window_ba(r_es_hw_ba);
 R_es_hw_ba_ba = abs(fft(r_es_hw_ba_ba));
 
@@ -191,9 +163,6 @@ r_es_hw_bl_ba = window_ba(r_es_hw_bl);
 R_es_hw_bl_ba = abs(fft(r_es_hw_bl_ba));
 
 %Blackmanharris window
-r_es_hw_bl = window_bl(r_es_hw);
-R_es_hw_bl = abs(fft(r_es_hw_bl));
-
 r_es_hw_ba_bl = window_bl(r_es_hw_ba);
 R_es_hw_ba_bl = abs(fft(r_es_hw_ba_bl));
 
@@ -203,9 +172,6 @@ R_es_hw_bl_bl = abs(fft(r_es_hw_bl_bl));
 %AM-SC Modulator%
 
 %Rectangular window
-r_es_am_re = window_re(r_es_am);
-R_es_am_re = abs(fft(r_es_am_re));
-
 r_es_am_ba_re = window_re(r_es_am_ba);
 R_es_am_ba_re = abs(fft(r_es_am_ba_re));
 
@@ -213,9 +179,6 @@ r_es_am_bl_re = window_re(r_es_am_bl);
 R_es_am_bl_re = abs(fft(r_es_am_bl_re));
 
 %Triangular window
-r_es_am_tr = window_tr(r_es_am);
-R_es_am_tr = abs(fft(r_es_am_tr));
-
 r_es_am_ba_tr = window_tr(r_es_am_ba);
 R_es_am_ba_tr = abs(fft(r_es_am_ba_tr));
 
@@ -223,9 +186,6 @@ r_es_am_bl_tr = window_tr(r_es_am_bl);
 R_es_am_bl_tr = abs(fft(r_es_am_bl_tr));
 
 %Hamming window
-r_es_am_ha = window_ha(r_es_am);
-R_es_am_ha = abs(fft(r_es_am_ha));
-
 r_es_am_ba_ha = window_ha(r_es_am_ba);
 R_es_am_ba_ha = abs(fft(r_es_am_ba_ha));
 
@@ -233,9 +193,6 @@ r_es_am_bl_ha = window_ha(r_es_am_bl);
 R_es_am_bl_ha = abs(fft(r_es_am_bl_ha));
 
 %Bartlett window
-r_es_am_ba = window_ba(r_es_am);
-R_es_am_ba = abs(fft(r_es_am_ba));
-
 r_es_am_ba_ba = window_ba(r_es_am_ba);
 R_es_am_ba_ba = abs(fft(r_es_am_ba_ba));
 
@@ -243,15 +200,11 @@ r_es_am_bl_ba = window_ba(r_es_am_bl);
 R_es_am_bl_ba = abs(fft(r_es_am_bl_ba));
 
 %Blackmanharris window
-r_es_am_bl = window_bl(r_es_am);
-R_es_am_bl = abs(fft(r_es_am_bl));
-
 r_es_am_ba_bl = window_bl(r_es_am_ba);
 R_es_am_ba_bl = abs(fft(r_es_am_ba_bl));
 
 r_es_am_bl_bl = window_bl(r_es_am_bl);
 R_es_am_bl_bl = abs(fft(r_es_am_bl_bl));
-
 
 %%Historiograms%%
 
@@ -265,221 +218,185 @@ l = linspace(0,1,L);
 %%Systems%%
 
 %Filter
-figure;
+figure;     %1
 plot(w,H_es, 'm');
 %Filter absolute value
-figure;
+figure;     %2
 plot(w,abs(H_es), 'b');
 %Filter in time domain
-figure;
+figure;     %3
 plot(t,h_es, 'c');
 
 %Filtered signal
-figure;
+figure;     %4
 plot(f,Y_th, 'm');
 %Filtered signal absolute value
-figure;
+figure;     %5
 plot(f,abs(Y_th), 'b');
 %Filtered signal in time domain
-figure;
+figure;     %6
 plot(t,y_th, 'c');
 
 %Squarer PSD
-figure;
-plot(w, R_th_sq, 'm');
+figure;     %7
+plot(w, R_th_sq, 'm'); xlim([0,1]);
 
 %Half-Wave Rectifier PSD
-figure;
-plot(w, R_th_hw, 'b');
+figure;     %8
+plot(w, R_th_hw, 'b'); xlim([0,1]);
 
 %AM-SC Modulator PSD
-figure;
-plot(w, R_th_am, 'c');
+figure;     %9
+plot(w, R_th_am, 'c'); xlim([0,1]);
 
 %%Estimated Calculations%%
 
 %Filtered signal
-figure;
+figure;     %10
 plot(f,Y_es), 'm';
 %Filtered signal absolute value
-figure;
+figure;     %11
 plot(f,abs(Y_es), 'b');
 %Filtered signal in time domain
-figure;
+figure;     %12
 plot(t,y_es, 'c');
 %Squarer signal in time domain
-figure;
+figure;     %13
 plot(t,y_es_sq, 'm');
 %Half-Wave signal in time domain
-figure;
+figure;     %14
 plot(t,y_es_hw, 'b');
 %AM_SC Modulator signal in time domain
-figure;
+figure;     %15
 plot(t,y_es_am, 'c');
 
 %Squarer PSD
-figure;
-plot(w, R_es_sq, 'm');
-figure;
-plot(w, R_es_sq_ba, 'b');
-figure;
-plot(w, R_es_sq_bl, 'c');
+figure;     %16
+plot(w, R_es_sq_ba, 'm'); xlim([0,1]);
+figure;     %17
+plot(w, R_es_sq_bl, 'b'); xlim([0,1]);
 
 %Half-Wave Rectifier PSD
-figure;
-plot(w, R_es_hw, 'm');
-figure;
-plot(w, R_es_hw_ba, 'b');
-figure;
-plot(w, R_es_hw_bl, 'c');
+figure;     %18
+plot(w, R_es_hw_ba, 'm'); xlim([0,1]);
+figure;     %19
+plot(w, R_es_hw_bl, 'b'); xlim([0,1]);
 
 %AM-SC Modulator PSD
-figure;
-plot(w, R_es_am, 'm');
-figure;
-plot(w, R_es_am_ba, 'b');
-figure;
-plot(w, R_es_am_bl, 'c');
+figure;     %20
+plot(w, R_es_am_ba, 'm'); xlim([0,1]);
+figure;     %21
+plot(w, R_es_am_bl, 'b'); xlim([0,1]);
 
 %%Smoothed Calculations%%
 
 %Squarer PSD%
 
 %Rectangular window
-figure;
-plot(w, R_es_sq_re, 'm');
-figure;
-plot(w, R_es_sq_ba_re, 'b');
-figure;
-plot(w, R_es_sq_bl_re, 'c');
+figure;     %22
+plot(w, R_es_sq_ba_re, 'm'); xlim([0,1]);
+figure;     %23
+plot(w, R_es_sq_bl_re, 'b'); xlim([0,1]);
 
 %Triangular window
-figure;
-plot(w, R_es_sq_tr, 'm');
-figure;
-plot(w, R_es_sq_ba_tr, 'b');
-figure;
-plot(w, R_es_sq_bl_tr, 'c');
+figure;     %24
+plot(w, R_es_sq_ba_tr, 'm'); xlim([0,1]);
+figure;     %25
+plot(w, R_es_sq_bl_tr, 'b'); xlim([0,1]);
 
 %Hamming window
-figure;
-plot(w, R_es_sq_ha, 'm');
-figure;
-plot(w, R_es_sq_ba_ha, 'b');
-figure;
-plot(w, R_es_sq_bl_ha, 'c');
+figure;     %26
+plot(w, R_es_sq_ba_ha, 'm'); xlim([0,1]);
+figure;     %27
+plot(w, R_es_sq_bl_ha, 'b'); xlim([0,1]);
 
 %Bartlett window
-figure;
-plot(w, R_es_sq_ba, 'm');
-figure;
-plot(w, R_es_sq_ba_ba, 'b');
-figure;
-plot(w, R_es_sq_bl_ba, 'c');
+figure;     %28
+plot(w, R_es_sq_ba_ba, 'm'); xlim([0,1]);
+figure;     %29
+plot(w, R_es_sq_bl_ba, 'b'); xlim([0,1]);
 
 %Blackmanharris window
-figure;
-plot(w, R_es_sq_bl, 'm');
-figure;
-plot(w, R_es_sq_ba_bl, 'b');
-figure;
-plot(w, R_es_sq_bl_bl, 'c');
+figure;     %30
+plot(w, R_es_sq_ba_bl, 'm'); xlim([0,1]);
+figure;     %31
+plot(w, R_es_sq_bl_bl, 'b'); xlim([0,1]);
 
 %Half-Wave Rectifier%
 
 %Rectangular window
-figure;
-plot(w, R_es_hw_re, 'm');
-figure;
-plot(w, R_es_hw_ba_re, 'b');
-figure;
-plot(w, R_es_hw_bl_re, 'c');
+figure;     %32
+plot(w, R_es_hw_ba_re, 'm'); xlim([0,1]);
+figure;     %33
+plot(w, R_es_hw_bl_re, 'b'); xlim([0,1]);
 
 %Triangular window
-figure;
-plot(w, R_es_hw_tr, 'm');
-figure;
-plot(w, R_es_hw_ba_tr, 'b');
-figure;
-plot(w, R_es_hw_bl_tr, 'c');
+figure;     %34
+plot(w, R_es_hw_ba_tr, 'm'); xlim([0,1]);
+figure;     %35
+plot(w, R_es_hw_bl_tr, 'b'); xlim([0,1]);
 
 %Hamming window
-figure;
-plot(w, R_es_hw_ha, 'm');
-figure;
-plot(w, R_es_hw_ba_ha, 'b');
-figure;
-plot(w, R_es_hw_bl_ha, 'c');
+figure;     %36
+plot(w, R_es_hw_ba_ha, 'm'); xlim([0,1]);
+figure;     %37
+plot(w, R_es_hw_bl_ha, 'b'); xlim([0,1]);
 
 %Bartlett window
-figure;
-plot(w, R_es_hw_ba, 'm');
-figure;
-plot(w, R_es_hw_ba_ba, 'b');
-figure;
-plot(w, R_es_hw_bl_ba, 'c');
+figure;     %38
+plot(w, R_es_hw_ba_ba, 'm'); xlim([0,1]);
+figure;     %39
+plot(w, R_es_hw_bl_ba, 'b'); xlim([0,1]);
 
 %Blackmanharris window
-figure;
-plot(w, R_es_hw_bl, 'm');
-figure;
-plot(w, R_es_hw_ba_bl, 'b');
-figure;
-plot(w, R_es_hw_bl_bl, 'c');
+figure;     %40
+plot(w, R_es_hw_ba_bl, 'm'); xlim([0,1]);
+figure;     %41
+plot(w, R_es_hw_bl_bl, 'b'); xlim([0,1]);
 
 %AM-SC Modulator%
 
 %Rectangular window
-figure;
-plot(w, R_es_am_re, 'm');
-figure;
-plot(w, R_es_am_ba_re, 'b');
-figure;
-plot(w, R_es_am_bl_re, 'c');
+figure;     %42
+plot(w, R_es_am_ba_re, 'm'); xlim([0,1]);
+figure;     %43
+plot(w, R_es_am_bl_re, 'b'); xlim([0,1]);
 
 %Triangular window
-figure;
-plot(w, R_es_am_tr, 'm');
-figure;
-plot(w, R_es_am_ba_tr, 'b');
-figure;
-plot(w, R_es_am_bl_tr, 'c');
+figure;     %44
+plot(w, R_es_am_ba_tr, 'm'); xlim([0,1]);
+figure;     %45
+plot(w, R_es_am_bl_tr, 'b'); xlim([0,1]);
 
 %Hamming window
-figure;
-plot(w, R_es_am_ha, 'm');
-figure;
-plot(w, R_es_am_ba_ha, 'b');
-figure;
-plot(w, R_es_am_bl_ha, 'c');
+figure;     %46
+plot(w, R_es_am_ba_ha, 'm'); xlim([0,1]);
+figure;     %47
+plot(w, R_es_am_bl_ha, 'b'); xlim([0,1]);
 
 %Bartlett window
-figure;
-plot(w, R_es_am_ba, 'm');
-figure;
-plot(w, R_es_am_ba_ba, 'b');
-figure;
-plot(w, R_es_am_bl_ba, 'c');
+figure;     %48
+plot(w, R_es_am_ba_ba, 'm'); xlim([0,1]);
+figure;     %49
+plot(w, R_es_am_bl_ba, 'b'); xlim([0,1]);
 
 %Blackmanharris window
-figure;
-plot(w, R_es_am_bl, 'm');
-figure;
-plot(w, R_es_am_ba_bl, 'b');
-figure;
-plot(w, R_es_am_bl_bl, 'c');
+figure;     %50
+plot(w, R_es_am_ba_bl, 'm'); xlim([0,1]);
+figure;     %51
+plot(w, R_es_am_bl_bl, 'b'); xlim([0,1]);
 
 %%Historiograms%
 
 %Filtered signal
-figure;
+figure;     %52
 hist(y_es, L, 'm');
 %Squarer
-figure;
+figure;     %53
 hist(y_es_sq, L, 'b');
 %Half-Wave Rectifier
-figure;
+figure;     %54
 hist(y_es_hw, L, 'c');
 %AM_SC Modulator
-figure;
+figure;     %55
 hist(y_es_am, L, 'g');
