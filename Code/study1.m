@@ -4,7 +4,6 @@ close all;
 
 Ts = 1;
 N = 16;
-fs = 1/dt;
 x=randn(1,2^N);
 X = (1/N)*fft(x);
 Rx = 1;
@@ -16,11 +15,13 @@ fc_hd  = 1; %Si no funciona algo, igual aquí es 10
 fh = 0:0.01:99.99;
 th = 0:0.01:99.99;
 dth = 0.01;
+fsh = 1/dth;
 
 %Plot stuff for the low degree filter
 fl = linspace(0,Ts,2^N);
 tl = linspace(0,Ts,2^N);
 dtl = Ts/2^N;
+fsl = 1/dtl;
 
 %%%HIGH DEGREE FILTER%%%
 
@@ -28,9 +29,9 @@ dtl = Ts/2^N;
 
 %Ideal filter (rectangle)
 space = linspace(0,99.99,10000);
-H_hd_th = zeros(size(space));
-H_hd_th(abs(space)<fch) = 1;
-h_hd_th = iift(H_hd_th, 'symmetric');
+H_hd_th = zeros(size(X));
+H_hd_th(abs(space)<fc_hd) = 1;
+h_hd_th = ifft(H_hd_th, 'symmetric');
 
 %Final signal
 Y_hd_th = X.*H_hd_th;
@@ -52,7 +53,7 @@ R_hd_th_bl = fft(r_hd_th_bl);
 %10th degree filter
 wc_hd = 2*pi*fc_hd;
 [b,a] = butter(10,2*wc_hd,'s');
-H_hd_es = (polyval(b,fh)./polyval(a,fh));
+H_hd_es = (polyval(b,fc_hd)./polyval(a,fc_hd));
 h_hd_es = iift(H_hd_es, 'symmetric');
 
 %Final signal
@@ -75,7 +76,7 @@ R_hd_es_bl = fft(r_hd_es_bl);
 %%Theoretical functions%%
 
 %Basic lowpassfilter (1/(1+j*f/fc))
-H_ld_th = 1./(1-fc_ld*exp(-i*2*pi*f));
+H_ld_th = 1./(1-fc_ld*exp(-i*2*pi*fc_ld));
 h_ld_th = ifft(H_ld_th, 'symmetric');
 
 %Final signal
@@ -85,7 +86,7 @@ y_ld_th = ifft(Y_ld_th,'symmetric');
 
 %Results%
 R_ld_th = abs(H_ld_th).^2 * Rx;
-r_ld_th = ifft(R_ld_th,'symmetric')/dt;
+r_ld_th = ifft(R_ld_th,'symmetric')/dth;
 
 r_ld_th_ba = es_bartlett(y_ld_th);
 R_ld_th_ba = fft(r_ld_th_ba);
@@ -98,7 +99,7 @@ R_ld_th_bl = fft(r_ld_th_bl);
 %First order lowpassfilter
 wc_ld = 2*pi*fc_ld;
 [d,c] = butter(1,2*wc_ld,'s');
-H_ld_es = (polyval(d,fl)./polyval(c,fl));
+H_ld_es = (polyval(d,fc_ld)./polyval(c,fc_ld));
 h_ld_es = iift(H_ld_es, 'symmetric');
 
 %Final signal
@@ -108,7 +109,7 @@ y_ld_es = ifft(Y_ld_es,'symmetric');
 
 %Results%
 R_ld_es = abs(H_ld_es).^2 * Rx;
-r_ld_es = ifft(R_ld_es,'symmetric')/dt;
+r_ld_es = ifft(R_ld_es,'symmetric')/dtl;
 
 r_ld_es_ba = es_bartlett(y_ld_es);
 R_ld_es_ba = fft(r_ld_es_ba);
