@@ -121,7 +121,7 @@ R_ld_es_bl = fft(r_ld_es_bl);
 
 %Noise
 figure;     %1
-plot(t,x, 'm');
+plot(th, x, 'm');
 %Noise in frequency domain
 figure;     %2
 plot(f, X, 'b');
@@ -136,7 +136,7 @@ figure;     %4
 plot(w,abs(H_hd), 'b');
 %Filter in time domain
 figure;     %5
-plot(t,h_hd, 'c');
+plot(th, h_hd, 'c');
 %Final signal
 figure;     %6
 plot(f,Y_hd), 'm';
@@ -145,42 +145,42 @@ figure;     %7
 plot(f,abs(Y_hd), 'b');
 %Final signal in time domain
 figure;     %8
-plot(t,y_hd, 'c');
+plot(th, y_hd, 'c');
 
 %Theoretical ACF
 figure;     %9
-plot(t,r_hd_th, 'm');
+plot(th, r_hd_th, 'm');
 figure;     %10
-stem(t(1:20),r_hd_th(1:20), 'b'); xlim([-0.2,20.2]);
+stem(th(1:20),r_hd_th(1:20), 'b'); xlim([-0.2,20.2]);
 %Theoretical ACF Bartlett
 figure;     %11
-plot(t,r_hd_th_ba, 'm');
+plot(th, r_hd_th_ba, 'm');
 figure;     %12
-stem(t(1:20),r_hd_th_ba(1:20), 'b'); xlim([-0.2,20.2]);
+stem(th(1:20),r_hd_th_ba(1:20), 'b'); xlim([-0.2,20.2]);
 %Theoretical ACF Blackman
 figure;     %13
-plot(t,r_hd_th_bl, 'm');
+plot(th, r_hd_th_bl, 'm');
 figure;     %14
-stem(t(1:20),r_hd_th_bl(1:20), 'b'); xlim([-0.2,20.2]);
+stem(th(1:20),r_hd_th_bl(1:20), 'b'); xlim([-0.2,20.2]);
 %Theoretical PSD
 figure;     %15
 plot(f,R_hd_th, 'c'); xlim([0,1]);
 
 %Estimated ACF
 figure;     %16
-plot(t,r_hd_es, 'm');
+plot(th, r_hd_es, 'm');
 figure;     %17
-stem(t(1:20),r_hd_es(1:20), 'b'); xlim([-0.2,20.2]);
+stem(th(1:20),r_hd_es(1:20), 'b'); xlim([-0.2,20.2]);
 %Estimated ACF Bartlett
 figure;     %18
-plot(t,r_hd_es_ba, 'm');
+plot(th, r_hd_es_ba, 'm');
 figure;     %19
-stem(t(1:20),r_hd_es_ba(1:20), 'b'); xlim([-0.2,20.2]);
+stem(th(1:20),r_hd_es_ba(1:20), 'b'); xlim([-0.2,20.2]);
 %Estimated ACF Blackman
 figure;     %20
-plot(t,r_hd_es_bl, 'm');
+plot(th, r_hd_es_bl, 'm');
 figure;     %21
-stem(t(1:20),r_hd_es_bl(1:20), 'b'); xlim([-0.2,20.2]);
+stem(th(1:20),r_hd_es_bl(1:20), 'b'); xlim([-0.2,20.2]);
 %Estimated PSD
 figure;     %22
 plot(f,R_hd_es, 'c'); xlim([0,1]);
@@ -195,7 +195,7 @@ figure;     %24
 plot(w,abs(H_ld), 'b');
 %Filter in time domain
 figure;     %25
-plot(t,h_ld, 'c');
+plot(tl, h_ld, 'c');
 %Final signal
 figure;     %26
 plot(f,Y_ld, 'm');
@@ -204,42 +204,42 @@ figure;     %27
 plot(f,abs(Y_ld), 'b');
 %Final signal in time domain
 figure;     %28
-plot(t,y_ld, 'c');
+plot(tl, y_ld, 'c');
 
 %Theoretical ACF
 figure;     %29
-plot(t,r_ld_th, 'm');
+plot(tl, r_ld_th, 'm');
 figure;     %30
-stem(t(1:20),r_ld_th(1:20), 'b'); xlim([-0.2,20.2]);
+stem(tl(1:20),r_ld_th(1:20), 'b'); xlim([-0.2,20.2]);
 %Theoretical ACF Bartlett
 figure;     %31
-plot(t,r_ld_th_ba, 'm');
+plot(tl, r_ld_th_ba, 'm');
 figure;     %32
-stem(t(1:20),r_ld_th_ba(1:20), 'b'); xlim([-0.2,20.2]);
+stem(tl(1:20),r_ld_th_ba(1:20), 'b'); xlim([-0.2,20.2]);
 %Theoretical ACF Blackman
 figure;     %33
-plot(t,r_ld_th_bl, 'm');
+plot(tl, r_ld_th_bl, 'm');
 figure;     %34
-stem(t(1:20),r_ld_th_bl(1:20), 'b'); xlim([-0.2,20.2]);
+stem(tl(1:20),r_ld_th_bl(1:20), 'b'); xlim([-0.2,20.2]);
 %Theoretical PSD
 figure;     %35
 plot(f,R_ld_th, 'c'); xlim([0,1]);
 
 %Estimated ACF
 figure;     %36
-plot(t,r_ld_es, 'm');
+plot(tl, r_ld_es, 'm');
 figure;     %37
-stem(t(1:20),r_ld_es(1:20), 'b'); xlim([-0.2,20.2]);
+stem(tl(1:20),r_ld_es(1:20), 'b'); xlim([-0.2,20.2]);
 %Estimated ACF Bartlett
 figure;     %38
-plot(t,r_ld_es_ba, 'm');
+plot(tl, r_ld_es_ba, 'm');
 figure;     %39
-stem(t(1:20),r_ld_es_ba(1:20), 'b'); xlim([-0.2,20.2]);
+stem(tl(1:20),r_ld_es_ba(1:20), 'b'); xlim([-0.2,20.2]);
 %Estimated ACF Blackman
 figure;     %40
-plot(t,r_ld_es_bl, 'm');
+plot(tl, r_ld_es_bl, 'm');
 figure;     %41
-stem(t(1:20),r_ld_es_bl(1:20), 'b'); xlim([-0.2,20.2]);
+stem(tl(1:20),r_ld_es_bl(1:20), 'b'); xlim([-0.2,20.2]);
 %Estimated PSD
 figure;     %42
 plot(f,R_ld_es, 'c'); xlim([0,1]);
