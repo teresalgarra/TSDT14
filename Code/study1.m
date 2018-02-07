@@ -54,7 +54,7 @@ R_hd_th_bl = fft(r_hd_th_bl);
 wc_hd = 2*pi*fc_hd;
 [b,a] = butter(10,2*wc_hd,'s');
 H_hd_es = (polyval(b,fc_hd)./polyval(a,fc_hd));
-h_hd_es = iift(H_hd_es, 'symmetric');
+h_hd_es = ifft(H_hd_es, 'symmetric');
 
 %Final signal
 Y_hd_es = X.*H_hd_es;
@@ -100,7 +100,7 @@ R_ld_th_bl = fft(r_ld_th_bl);
 wc_ld = 2*pi*fc_ld;
 [d,c] = butter(1,2*wc_ld,'s');
 H_ld_es = (polyval(d,fc_ld)./polyval(c,fc_ld));
-h_ld_es = iift(H_ld_es, 'symmetric');
+h_ld_es = ifft(H_ld_es, 'symmetric');
 
 %Final signal
 Y_ld_es = X.*H_ld_es;
