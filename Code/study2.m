@@ -190,19 +190,19 @@ R_ld_bl_bl = abs(fft(r_ld_bl_bl));
 %%Windows%%
 
 %Rectangular window
-figure;
+figure;     %1
 plot(t,w_re, 'm');
 %Triangular window
-figure;
+figure;     %2
 plot(t,w_tr, 'b');
 %Hamming window
-figure;
+figure;     %3
 plot(t,w_ha, 'c');
 %Bartlett window
-figure;
+figure;     %4
 plot(t,w_ba, 'g');
 %Blackman window
-figure;
+figure;     %5
 plot(t,w_bl, 'y');
 
 %%High degree filter%%
@@ -210,125 +210,125 @@ plot(t,w_bl, 'y');
 %Estimations
 
 %Estimated ACF
-figure;
+figure;     %6
 plot(t,r_hd, 'm');
-figure;
+figure;     %7
 stem(t(1:20),r_hd(1:20), 'b'); xlim([-0.2,20.2]);
 %Estimated ACF Bartlett
-figure;
+figure;     %8
 plot(t,r_hd_ba, 'm');
-figure;
+figure;     %9
 stem(t(1:20),r_hd_ba(1:20), 'b'); xlim([-0.2,20.2]);
 %Estimated ACF Blackman
-figure;
+figure;     %10
 plot(t,r_hd_bl, 'm');
-figure;
+figure;     %11
 stem(t(1:20),r_hd_bl(1:20), 'b'); xlim([-0.2,20.2]);
 %Estimated PSD
-figure;
+figure;     %12
 plot(f,R_hd, 'c'); xlim([0,1]);
 
 %Improved functions
 
 %Rectangular window
 %Improved ACF
-figure;
+figure;     %13
 plot(r_hd_re, 'm');
-figure;
+figure;     %14
 stem(t(1:20),r_hd_re(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved ACF Bartlett
-figure;
+figure;     %15
 plot(r_hd_ba_re, 'm');
-figure;
+figure;     %16
 stem(t(1:20),r_hd_ba_re(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved ACF Blackman
-figure;
+figure;     %17
 plot(r_hd_bl_re, 'm');
-figure;
+figure;     %18
 stem(t(1:20),r_hd_bl_re(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved PSD
-figure;
-plot(R_hd_re, 'c');
+figure;     %19
+plot(R_hd_re, 'c'); xlim([0,1]);
 
 %Triangular window
 %Improved ACF
-figure;
+figure;     %20
 plot(r_hd_tr, 'm');
-figure;
+figure;     %21
 stem(t(1:20),r_hd_tr(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved ACF Bartlett
-figure;
+figure;     %22
 plot(r_hd_ba_tr, 'm');
-figure;
+figure;     %23
 stem(t(1:20),r_hd_ba_tr(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved ACF Blackman
-figure;
+figure;     %24
 plot(r_hd_bl_tr, 'm');
-figure;
+figure;     %25
 stem(t(1:20),r_hd_bl_tr(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved PSD
-figure;
-plot(R_hd_tr, 'c');
+figure;     %26
+plot(R_hd_tr, 'c'); xlim([0,1]);
 
 %Hamming window
 %Improved ACF
-figure;
+figure;     %27
 plot(r_hd_ha, 'm');
-figure;
+figure;     %28
 stem(t(1:20),r_hd_ha(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved ACF Bartlett
-figure;
+figure;     %29
 plot(r_hd_ba_ha, 'm');
-figure;
+figure;     %30
 stem(t(1:20),r_hd_ba_ha(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved ACF Blackman
-figure;
+figure;     %31
 plot(r_hd_bl_ha, 'm');
-figure;
+figure;     %32
 stem(t(1:20),r_hd_bl_ha(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved PSD
-figure;
-plot(R_hd_ha, 'c');
+figure;     %33
+plot(R_hd_ha, 'c'); xlim([0,1]);
 
 %Bartlett window
 %Improved ACF
-figure;
+figure;     %34
 plot(r_hd_ba, 'm');
-figure;
+figure;     %35
 stem(t(1:20),r_hd_ba(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved ACF Bartlett
-figure;
+figure;     %36
 plot(r_hd_ba_ba, 'm');
-figure;
+figure;     %37
 stem(t(1:20),r_hd_ba_ba(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved ACF Blackman
-figure;
+figure;     %38
 plot(r_hd_bl_ba, 'm');
-figure;
+figure;     %39
 stem(t(1:20),r_hd_bl_ba(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved PSD
-figure;
-plot(R_hd_ba, 'c');
+figure;     %40
+plot(R_hd_ba, 'c'); xlim([0,1]);
 
 %Blackmanharris window
 %Improved ACF
-figure;
+figure;     %41
 plot(r_hd_bl, 'm');
-figure;
+figure;     %42
 stem(t(1:20),r_hd_bl(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved ACF Bartlett
-figure;
+figure;     %43
 plot(r_hd_ba_bl, 'm');
-figure;
+figure;     %44
 stem(t(1:20),r_hd_ba_bl(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved ACF Blackman
-figure;
+figure;     %45
 plot(r_hd_bl_bl, 'm');
-figure;
+figure;     %46
 stem(t(1:20),r_hd_bl_bl(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved PSD
-figure;
-plot(R_hd_bl, 'c');
+figure;     %47
+plot(R_hd_bl, 'c'); xlim([0,1]);
 
 
 %%Low degree filter%%
@@ -336,122 +336,122 @@ plot(R_hd_bl, 'c');
 %Estimations
 
 %Estimated ACF
-figure;
+figure;     %48
 plot(t,r_ld, 'm');
-figure;
+figure;     %49
 stem(t(1:20),r_ld(1:20), 'b'); xlim([-0.2,20.2]);
 %Estimated ACF Bartlett
-figure;
+figure;     %50
 plot(t,r_ld_ba, 'm');
-figure;
+figure;     %51
 stem(t(1:20),r_ld_ba(1:20), 'b'); xlim([-0.2,20.2]);
 %Estimated ACF Blackman
-figure;
+figure;     %52
 plot(t,r_ld_bl, 'm');
-figure;
+figure;     %53
 stem(t(1:20),r_ld_bl(1:20), 'b'); xlim([-0.2,20.2]);
 %Estimated PSD
-figure;
+figure;     %54
 plot(f,R_ld, 'c'); xlim([0,1]);
 
 %Improved functions
 
 %Rectangular window
 %Improved ACF
-figure;
+figure;     %55
 plot(r_ld_re, 'm');
-figure;
+figure;     %56
 stem(t(1:20),r_ld_re(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved ACF Bartlett
-figure;
+figure;     %57
 plot(r_ld_ba_re, 'm');
-figure;
+figure;     %58
 stem(t(1:20),r_ld_ba_re(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved ACF Blackman
-figure;
+figure;     %59
 plot(r_ld_bl_re, 'm');
-figure;
+figure;     %60
 stem(t(1:20),r_ld_bl_re(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved PSD
-figure;
-plot(R_ld_re, 'c');
+figure;     %61
+plot(R_ld_re, 'c'); xlim([0,1]);
 
 %Triangular window
 %Improved ACF
-figure;
+figure;     %62
 plot(r_ld_tr, 'm');
-figure;
+figure;     %63
 stem(t(1:20),r_ld_tr(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved ACF Bartlett
-figure;
+figure;     %64
 plot(r_ld_ba_tr, 'm');
-figure;
+figure;     %65
 stem(t(1:20),r_ld_ba_tr(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved ACF Blackman
-figure;
+figure;     %66
 plot(r_ld_bl_tr, 'm');
-figure;
+figure;     %67
 stem(t(1:20),r_ld_bl_tr(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved PSD
-figure;
-plot(R_ld_tr, 'c');
+figure;     %68
+plot(R_ld_tr, 'c'); xlim([0,1]);
 
 %Hamming window
 %Improved ACF
-figure;
+figure;     %69
 plot(r_ld_ha, 'm');
-figure;
+figure;     %70
 stem(t(1:20),r_ld_ha(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved ACF Bartlett
-figure;
+figure;     %71
 plot(r_ld_ba_ha, 'm');
-figure;
+figure;     %72
 stem(t(1:20),r_ld_ba_ha(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved ACF Blackman
-figure;
+figure;     %73
 plot(r_ld_bl_ha, 'm');
-figure;
+figure;     %74
 stem(t(1:20),r_ld_bl_ha(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved PSD
-figure;
-plot(R_ld_ha, 'c');
+figure;     %75
+plot(R_ld_ha, 'c'); xlim([0,1]);
 
 %Bartlett window
 %Improved ACF
-figure;
+figure;     %76
 plot(r_ld_ba, 'm');
-figure;
+figure;     %77
 stem(t(1:20),r_ld_ba(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved ACF Bartlett
-figure;
+figure;     %78
 plot(r_ld_ba_ba, 'm');
-figure;
+figure;     %79
 stem(t(1:20),r_ld_ba_ba(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved ACF Blackman
-figure;
+figure;     %80
 plot(r_ld_bl_ba, 'm');
-figure;
+figure;     %81
 stem(t(1:20),r_ld_bl_ba(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved PSD
-figure;
-plot(R_ld_ba, 'c');
+figure;     %82
+plot(R_ld_ba, 'c'); xlim([0,1]);
 
 %Blackmanharris window
 %Improved ACF
-figure;
+figure;     %83
 plot(r_ld_bl, 'm');
-figure;
+figure;     %84
 stem(t(1:20),r_ld_bl(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved ACF Bartlett
-figure;
+figure;     %85
 plot(r_ld_ba_bl, 'm');
-figure;
+figure;     %86
 stem(t(1:20),r_ld_ba_bl(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved ACF Blackman
-figure;
+figure;     %87
 plot(r_ld_bl_bl, 'm');
-figure;
+figure;     %88
 stem(t(1:20),r_ld_bl_bl(1:20), 'b'); xlim([-0.2,20.2]);
 %Improved PSD
-figure;
-plot(R_ld_bl, 'c');
+figure;     %89
+plot(R_ld_bl, 'c'); xlim([0,1]);
