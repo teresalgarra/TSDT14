@@ -1,8 +1,8 @@
 function [y] = window_bl(acf)
 
-N = length(acf);
-w = zeros(1,N);
-w(ceil((N-100)/2):floor((N+100)/2)) = window(@blackmanharris,100);
+L = length(acf);
+w = zeros(1, L);
+w(1, ceil((L-65)/2):floor((L+65)/2)) = window(@blackmanharris,65);
 y = acf.*w;
 
 end

@@ -4,6 +4,7 @@ close all;
 
 Ts = 1;
 N = 16;
+dt = Ts/2^N;
 fs = 1/dt;
 x=randn(1,2^N);
 X = (1/N)*fft(x);
@@ -14,15 +15,14 @@ fc_hd  = 1; %Si no funciona algo, igual aquí es 10
 
 f = linspace(0,Ts,2^N);
 t = linspace(0,Ts,2^N);
-dt = Ts/2^N;
-fs = 1/dt;
 
 %Windows
-w_re = window(@rectwin,100);
-w_tr = window(@triang,100);
-w_ha = window(@hamming,100);
-w_ba = window(@bartlett,100);
-w_bl = window(@blackmanharris,100);
+t_w = linspace(0,Ts,65);
+w_re = window(@rectwin,65);
+w_tr = window(@triang,65);
+w_ha = window(@hamming,65);
+w_ba = window(@bartlett,65);
+w_bl = window(@blackmanharris,65);
 
 %%%HIGH DEGREE FILTER%%%
 
@@ -186,19 +186,19 @@ R_ld_bl_bl = abs(fft(r_ld_bl_bl));
 
 %Rectangular window
 figure;     %1
-plot(t,w_re, 'm');
+plot(t_w,w_re, 'm');
 %Triangular window
 figure;     %2
-plot(t,w_tr, 'b');
+plot(t_w,w_tr, 'b');
 %Hamming window
 figure;     %3
-plot(t,w_ha, 'c');
+plot(t_w,w_ha, 'c');
 %Bartlett window
 figure;     %4
-plot(t,w_ba, 'g');
+plot(t_w,w_ba, 'g');
 %Blackman window
 figure;     %5
-plot(t,w_bl, 'y');
+plot(t_w,w_bl, 'y');
 
 %%High degree filter%%
 
