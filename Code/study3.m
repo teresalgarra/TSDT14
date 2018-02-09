@@ -12,13 +12,8 @@ T = Ts/2^N; %sampling length.
 fc  = 1; %Si no funciona algo, igual aquí es 10
 wc = 0.1;
 
-w = linspace(0,1,2^N);
-n = linspace(0,2^N,2^N);
-
-%Plot stuff
-fh = 0:0.01:99.99;
-th = 0:0.01:99.99;
-dth = 0.01;
+f = linspace(0,Ts,2^N);
+t = linspace(0,Ts,2^N);
 
 %Theoretical Calculations
 
@@ -219,10 +214,10 @@ l = linspace(0,1,L);
 
 %Filter
 figure;     %1
-plot(w,H_es, 'm');
+plot(f,H_es, 'm');
 %Filter absolute value
 figure;     %2
-plot(w,abs(H_es), 'b');
+plot(f,abs(H_es), 'b');
 %Filter in time domain
 figure;     %3
 plot(t,h_es, 'c');
@@ -239,15 +234,15 @@ plot(t,y_th, 'c');
 
 %Squarer PSD
 figure;     %7
-plot(w, R_th_sq, 'm'); xlim([0,1]);
+plot(f, R_th_sq, 'm'); xlim([0,1]);
 
 %Half-Wave Rectifier PSD
 figure;     %8
-plot(w, R_th_hw, 'b'); xlim([0,1]);
+plot(f, R_th_hw, 'b'); xlim([0,1]);
 
 %AM-SC Modulator PSD
 figure;     %9
-plot(w, R_th_am, 'c'); xlim([0,1]);
+plot(f, R_th_am, 'c'); xlim([0,1]);
 
 %%Estimated Calculations%%
 
@@ -272,21 +267,21 @@ plot(t,y_es_am, 'c');
 
 %Squarer PSD
 figure;     %16
-plot(w, R_es_sq_ba, 'm'); xlim([0,1]);
+plot(f, R_es_sq_ba, 'm'); xlim([0,1]);
 figure;     %17
-plot(w, R_es_sq_bl, 'b'); xlim([0,1]);
+plot(f, R_es_sq_bl, 'b'); xlim([0,1]);
 
 %Half-Wave Rectifier PSD
 figure;     %18
-plot(w, R_es_hw_ba, 'm'); xlim([0,1]);
+plot(f, R_es_hw_ba, 'm'); xlim([0,1]);
 figure;     %19
-plot(w, R_es_hw_bl, 'b'); xlim([0,1]);
+plot(f, R_es_hw_bl, 'b'); xlim([0,1]);
 
 %AM-SC Modulator PSD
 figure;     %20
-plot(w, R_es_am_ba, 'm'); xlim([0,1]);
+plot(f, R_es_am_ba, 'm'); xlim([0,1]);
 figure;     %21
-plot(w, R_es_am_bl, 'b'); xlim([0,1]);
+plot(f, R_es_am_bl, 'b'); xlim([0,1]);
 
 %%Smoothed Calculations%%
 
@@ -294,97 +289,97 @@ plot(w, R_es_am_bl, 'b'); xlim([0,1]);
 
 %Rectangular window
 figure;     %22
-plot(w, R_es_sq_ba_re, 'm'); xlim([0,1]);
+plot(f, R_es_sq_ba_re, 'm'); xlim([0,1]);
 figure;     %23
-plot(w, R_es_sq_bl_re, 'b'); xlim([0,1]);
+plot(f, R_es_sq_bl_re, 'b'); xlim([0,1]);
 
 %Triangular window
 figure;     %24
-plot(w, R_es_sq_ba_tr, 'm'); xlim([0,1]);
+plot(f, R_es_sq_ba_tr, 'm'); xlim([0,1]);
 figure;     %25
-plot(w, R_es_sq_bl_tr, 'b'); xlim([0,1]);
+plot(f, R_es_sq_bl_tr, 'b'); xlim([0,1]);
 
 %Hamming window
 figure;     %26
-plot(w, R_es_sq_ba_ha, 'm'); xlim([0,1]);
+plot(f, R_es_sq_ba_ha, 'm'); xlim([0,1]);
 figure;     %27
-plot(w, R_es_sq_bl_ha, 'b'); xlim([0,1]);
+plot(f, R_es_sq_bl_ha, 'b'); xlim([0,1]);
 
 %Bartlett window
 figure;     %28
-plot(w, R_es_sq_ba_ba, 'm'); xlim([0,1]);
+plot(f, R_es_sq_ba_ba, 'm'); xlim([0,1]);
 figure;     %29
-plot(w, R_es_sq_bl_ba, 'b'); xlim([0,1]);
+plot(f, R_es_sq_bl_ba, 'b'); xlim([0,1]);
 
 %Blackmanharris window
 figure;     %30
-plot(w, R_es_sq_ba_bl, 'm'); xlim([0,1]);
+plot(f, R_es_sq_ba_bl, 'm'); xlim([0,1]);
 figure;     %31
-plot(w, R_es_sq_bl_bl, 'b'); xlim([0,1]);
+plot(f, R_es_sq_bl_bl, 'b'); xlim([0,1]);
 
 %Half-Wave Rectifier%
 
 %Rectangular window
 figure;     %32
-plot(w, R_es_hw_ba_re, 'm'); xlim([0,1]);
+plot(f, R_es_hw_ba_re, 'm'); xlim([0,1]);
 figure;     %33
-plot(w, R_es_hw_bl_re, 'b'); xlim([0,1]);
+plot(f, R_es_hw_bl_re, 'b'); xlim([0,1]);
 
 %Triangular window
 figure;     %34
-plot(w, R_es_hw_ba_tr, 'm'); xlim([0,1]);
+plot(f, R_es_hw_ba_tr, 'm'); xlim([0,1]);
 figure;     %35
-plot(w, R_es_hw_bl_tr, 'b'); xlim([0,1]);
+plot(f, R_es_hw_bl_tr, 'b'); xlim([0,1]);
 
 %Hamming window
 figure;     %36
-plot(w, R_es_hw_ba_ha, 'm'); xlim([0,1]);
+plot(f, R_es_hw_ba_ha, 'm'); xlim([0,1]);
 figure;     %37
-plot(w, R_es_hw_bl_ha, 'b'); xlim([0,1]);
+plot(f, R_es_hw_bl_ha, 'b'); xlim([0,1]);
 
 %Bartlett window
 figure;     %38
-plot(w, R_es_hw_ba_ba, 'm'); xlim([0,1]);
+plot(f, R_es_hw_ba_ba, 'm'); xlim([0,1]);
 figure;     %39
-plot(w, R_es_hw_bl_ba, 'b'); xlim([0,1]);
+plot(f, R_es_hw_bl_ba, 'b'); xlim([0,1]);
 
 %Blackmanharris window
 figure;     %40
-plot(w, R_es_hw_ba_bl, 'm'); xlim([0,1]);
+plot(f, R_es_hw_ba_bl, 'm'); xlim([0,1]);
 figure;     %41
-plot(w, R_es_hw_bl_bl, 'b'); xlim([0,1]);
+plot(f, R_es_hw_bl_bl, 'b'); xlim([0,1]);
 
 %AM-SC Modulator%
 
 %Rectangular window
 figure;     %42
-plot(w, R_es_am_ba_re, 'm'); xlim([0,1]);
+plot(f, R_es_am_ba_re, 'm'); xlim([0,1]);
 figure;     %43
-plot(w, R_es_am_bl_re, 'b'); xlim([0,1]);
+plot(f, R_es_am_bl_re, 'b'); xlim([0,1]);
 
 %Triangular window
 figure;     %44
-plot(w, R_es_am_ba_tr, 'm'); xlim([0,1]);
+plot(f, R_es_am_ba_tr, 'm'); xlim([0,1]);
 figure;     %45
-plot(w, R_es_am_bl_tr, 'b'); xlim([0,1]);
+plot(f, R_es_am_bl_tr, 'b'); xlim([0,1]);
 
 %Hamming window
 figure;     %46
-plot(w, R_es_am_ba_ha, 'm'); xlim([0,1]);
+plot(f, R_es_am_ba_ha, 'm'); xlim([0,1]);
 figure;     %47
-plot(w, R_es_am_bl_ha, 'b'); xlim([0,1]);
+plot(f, R_es_am_bl_ha, 'b'); xlim([0,1]);
 
 %Bartlett window
 figure;     %48
-plot(w, R_es_am_ba_ba, 'm'); xlim([0,1]);
+plot(f, R_es_am_ba_ba, 'm'); xlim([0,1]);
 figure;     %49
-plot(w, R_es_am_bl_ba, 'b'); xlim([0,1]);
+plot(f, R_es_am_bl_ba, 'b'); xlim([0,1]);
 
 %Blackmanharris window
 figure;     %50
-plot(w, R_es_am_ba_bl, 'm'); xlim([0,1]);
+plot(f, R_es_am_ba_bl, 'm'); xlim([0,1]);
 figure;     %51
-plot(w, R_es_am_bl_bl, 'b'); xlim([0,1]);
+plot(f, R_es_am_bl_bl, 'b'); xlim([0,1]);
 
 %%Historiograms%
 
