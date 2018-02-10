@@ -3,14 +3,19 @@ clc;
 close all;
 
 N = 16;
+Ts = 1;
+dt = Ts/2^N;
 fs = 1/dt;
 x=randn(1,2^N);
 X = (1/N)*fft(x);
 Rx = 1;
-Ts = 1;
 T = Ts/2^N; %sampling length.
 fc  = 1; %Si no funciona algo, igual aquí es 10
 wc = 0.1;
+fc_hd  = 1;
+
+w = linspace(0, 1, 2^N);
+n = linspace(0, 2^N, 2^N);
 
 f = linspace(0,Ts,2^N);
 t = linspace(0,Ts,2^N);
@@ -19,8 +24,8 @@ t = linspace(0,Ts,2^N);
 
 %Ideal filter (rectangle)
 space = linspace(0,99.99,10000);
-H_th = zeros(size(space));
-H_th(abs(space)<fch) = 1;
+H_th = zeros(size(X));
+H_th(abs(space)<fc_hd) = 1;
 h_th = ifft(H_th, 'symmetric');
 
 %Filtered signal
@@ -51,7 +56,7 @@ R_th_am = 1/4*(rectpuls((w-t1)/(2*wc))+rectpuls((w-1-t1)/(2*wc))) + 1/4*(rectpul
 %10th degree filter
 wc = 2*pi*fc;
 [b,a] = butter(10,2*wc,'s');
-H_es = (polyval(b,fh)./polyval(a,fh));
+H_es = (polyval(b,f)./polyval(a,f));
 h_es = ifft(H_es, 'symmetric');
 
 %Filtered signal

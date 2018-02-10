@@ -3,30 +3,29 @@ clc;
 close all;
 
 N = 16;
+Ts = 1;
+dt = Ts/2^N;
 fs = 1/dt;
 x=randn(1,2^N);
 X = (1/N)*fft(x);
 Rx = 1;
-Ts = 1;
 T = Ts/2^N; %sampling length.
 fc  = 1; %Si no funciona algo, igual aquí es 10
 wc = 0.1;
+fc_hd  = 1;
 
 w = linspace(0,1,2^N);
 n = linspace(0,2^N,2^N);
-t = linspace(0,N-1,N);
 
-%Plot stuff
-fh = 0:0.01:99.99;
-th = 0:0.01:99.99;
-dth = 0.01;
+f = linspace(0,Ts,2^N);
+t = linspace(0,Ts,2^N);
 
 %Theoretical Calculations
 
 %Ideal filter (rectangle)
 space = linspace(0,99.99,10000);
-H_th = zeros(size(space));
-H_th(abs(space)<fch) = 1;
+H_th = zeros(size(X));
+H_th(abs(space)<fc_hd) = 1;
 h_th = ifft(H_th, 'symmetric');
 
 %Filtered signal
@@ -49,7 +48,7 @@ R_th_2 = 1/4*(rectpuls((w-1/2)/(2*wc))) + 1/4*(rectpuls(w/(2*wc))+rectpuls((w-1)
 %10th degree filter
 wc = 2*pi*fc;
 [b,a] = butter(10,2*wc,'s');
-H_es = (polyval(b,fh)./polyval(a,fh));
+H_es = (polyval(b,f)./polyval(a,f));
 h_es = ifft(H_es, 'symmetric');
 
 %Filtered signal
@@ -85,9 +84,6 @@ R_es_2_bl = abs(fft(r_es_2_bl));
 %First System%
 
 %Rectangular window
-r_es_1_re = window_re(r_es_1);
-R_es_1_re = abs(fft(r_es_1_re));
-
 r_es_1_ba_re = window_re(r_es_1_ba);
 R_es_1_ba_re = abs(fft(r_es_1_ba_re));
 
@@ -95,9 +91,6 @@ r_es_1_bl_re = window_re(r_es_1_bl);
 R_es_1_bl_re = abs(fft(r_es_1_bl_re));
 
 %Triangular window
-r_es_1_tr = window_tr(r_es_1);
-R_es_1_tr = abs(fft(r_es_1_tr));
-
 r_es_1_ba_tr = window_tr(r_es_1_ba);
 R_es_1_ba_tr = abs(fft(r_es_1_ba_tr));
 
@@ -105,9 +98,6 @@ r_es_1_bl_tr = window_tr(r_es_1_bl);
 R_es_1_bl_tr = abs(fft(r_es_1_bl_tr));
 
 %Hamming window
-r_es_1_ha = window_ha(r_es_1);
-R_es_1_ha = abs(fft(r_es_1_ha));
-
 r_es_1_ba_ha = window_ha(r_es_1_ba);
 R_es_1_ba_ha = abs(fft(r_es_1_ba_ha));
 
@@ -115,9 +105,6 @@ r_es_1_bl_ha = window_ha(r_es_1_bl);
 R_es_1_bl_ha = abs(fft(r_es_1_bl_ha));
 
 %Bartlett window
-r_es_1_ba = window_ba(r_es_1);
-R_es_1_ba = abs(fft(r_es_1_ba));
-
 r_es_1_ba_ba = window_ba(r_es_1_ba);
 R_es_1_ba_ba = abs(fft(r_es_1_ba_ba));
 
@@ -125,9 +112,6 @@ r_es_1_bl_ba = window_ba(r_es_1_bl);
 R_es_1_bl_ba = abs(fft(r_es_1_bl_ba));
 
 %Blackmanharris window
-r_es_1_bl = window_bl(r_es_1);
-R_es_1_bl = abs(fft(r_es_1_bl));
-
 r_es_1_ba_bl = window_bl(r_es_1_ba);
 R_es_1_ba_bl = abs(fft(r_es_1_ba_bl));
 
@@ -137,9 +121,6 @@ R_es_1_bl_bl = abs(fft(r_es_1_bl_bl));
 %Second System%
 
 %Rectangular window
-r_es_2_re = window_re(r_es_2);
-R_es_2_re = abs(fft(r_es_2_re));
-
 r_es_2_ba_re = window_re(r_es_2_ba);
 R_es_2_ba_re = abs(fft(r_es_2_ba_re));
 
@@ -147,9 +128,6 @@ r_es_2_bl_re = window_re(r_es_2_bl);
 R_es_2_bl_re = abs(fft(r_es_2_bl_re));
 
 %Triangular window
-r_es_2_tr = window_tr(r_es_2);
-R_es_2_tr = abs(fft(r_es_2_tr));
-
 r_es_2_ba_tr = window_tr(r_es_2_ba);
 R_es_2_ba_tr = abs(fft(r_es_2_ba_tr));
 
@@ -157,9 +135,6 @@ r_es_2_bl_tr = window_tr(r_es_2_bl);
 R_es_2_bl_tr = abs(fft(r_es_2_bl_tr));
 
 %Hamming window
-r_es_2_ha = window_ha(r_es_2);
-R_es_2_ha = abs(fft(r_es_2_ha));
-
 r_es_2_ba_ha = window_ha(r_es_2_ba);
 R_es_2_ba_ha = abs(fft(r_es_2_ba_ha));
 
@@ -167,9 +142,6 @@ r_es_2_bl_ha = window_ha(r_es_2_bl);
 R_es_2_bl_ha = abs(fft(r_es_2_bl_ha));
 
 %Bartlett window
-r_es_2_ba = window_ba(r_es_2);
-R_es_2_ba = abs(fft(r_es_2_ba));
-
 r_es_2_ba_ba = window_ba(r_es_2_ba);
 R_es_2_ba_ba = abs(fft(r_es_2_ba_ba));
 
@@ -177,9 +149,6 @@ r_es_2_bl_ba = window_ba(r_es_2_bl);
 R_es_2_bl_ba = abs(fft(r_es_2_bl_ba));
 
 %Blackmanharris window
-r_es_2_bl = window_bl(r_es_2);
-R_es_2_bl = abs(fft(r_es_2_bl));
-
 r_es_2_ba_bl = window_bl(r_es_2_ba);
 R_es_2_ba_bl = abs(fft(r_es_2_ba_bl));
 
