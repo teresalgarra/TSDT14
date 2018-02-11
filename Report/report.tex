@@ -4,6 +4,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[vmargin=3.5cm,hmargin=2cm]{geometry}
 \usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{fancyhdr}
@@ -44,111 +46,191 @@
 
 \section{Study 1: Modelling Signals}
 
+%%%THEORETICAL BACKGROUND%%%
+
 \subsection{Theoretical Background:}
 
 In this study we will work with white noise, which is defined as a process with constant PSD.
 
-\begin{equation}R_0 = \frac{N_0}{2}\end{equation} 
+\begin{equation}R_0 = \frac{N_0}{2}\end{equation}
 
 It is also known that the white noise is Gaussian, which means that if it is WSS, it will be SSS. As we want it to be scalled, we will use $R_x=1$.
 
-We will get this noise through some LTI filters, having:
-
-\begin{equation}R_y(f) = \frac{N_0}{2}|H(f)|^2\end{equation} 
-
-We have a low-degree low-pass filter and an ideal filter:
+So first we have the noise:
 
 \begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/ruidos.jpg}
-    \end{center}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_1.jpg}
+  \captionof{figure}{Noise}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_2.jpg}
+  \captionof{figure}{Noise in frequency domain}
+\end{minipage}
 \end{figure}
+
+We will get this noise through some LTI filters, having:
+
+\begin{equation}R_y(f) = R_x |H(f)|^2\end{equation}
+
+\newpage
+
+%%%THEORETICAL ANALYSIS%%%
 
 \subsection{Theoretical Analysis:}
 
-To get to calculate the ACF and the PSD of the result function, we have to know exactly what filters we are using. For the low-degree low-pass filter, we will use a first-order Butterworth filter:
-
-\begin{equation}H(z) = \frac{b}{a_1-a_2e^{-j2 \pi f}}\end{equation}
-
-We will use $b = a_1 = 1$ and $a_2 = 0.9$.
+To get to calculate the ACF and the PSD of the result function, we have to know exactly what filters we are using.
 
 For the ideal filter, we can use the rectangle function:
 
 \begin{equation}H[\theta] = rect(\frac{\theta}{\theta_0})\end{equation}
 
-So, we can start by calculating the theoretical PSD knowing the super-formula:
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_5.jpg}
+  \captionof{figure}{Filter in time domain}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_4.jpg}
+  \captionof{figure}{Filter frequency domain}
+\end{minipage}
+\end{figure}
 
-\begin{equation}R_y[\theta] = R_x|H(\theta)|^2\end{equation} 
+The filtered signal is:
+
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_8.jpg}
+  \captionof{figure}{Filtered signal}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_6.jpg}
+  \captionof{figure}{Filtered signal in frequency domain}
+\end{minipage}
+\end{figure}
 
 \newpage
 
+For the low-degree low-pass filter, we will use a first-order Butterworth filter:
+
+\begin{equation}H(z) = \frac{b}{a_1-a_2e^{-j2 \pi f}}\end{equation}
+
+We will use $b = a_1 = 1$ and $a_2 = 0.9$.
+
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_25.jpg}
+  \captionof{figure}{Filter}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_23.jpg}
+  \captionof{figure}{Filter in frequency domain}
+\end{minipage}
+\end{figure}
+
+The filtered signal is:
+
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_28.jpg}
+  \captionof{figure}{Filtered signal}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_26.jpg}
+  \captionof{figure}{Filtered signal in frequency domain}
+\end{minipage}
+\end{figure}
+
+\newpage
+
+So, we can start by calculating the theoretical PSD knowing the super-formula:
+
+\begin{equation}R_y[\theta] = R_x|H(\theta)|^2\end{equation}
+
 As we are working with White Gaussian Noise, its PSD it's going to be $\frac{N_0}{2}$ as said before, therefore we have:
 
-\begin{equation}R_y[\theta] = \frac{N_0}{2}|H(\theta)|^2\end{equation} 
-
-For the low-degree filter, the result is:
-
-\begin{equation}R_y[\theta] = \frac{N_0}{2}|\frac{b}{a_1-a_2e^{-j2 \pi f}}|^2 = \frac{N_0}{2|1-0.9e^{-j2 \pi f}|^2} \end{equation} 
+\begin{equation}R_y[\theta] = \frac{N_0}{2}|H(\theta)|^2\end{equation}
 
 For the ideal filter, the result is:
 
-\begin{equation}R_y[\theta] = \frac{N_0}{2}|rect(\frac{\theta}{\theta_0})|^2 = \frac{N_0}{2}rect(\frac{\theta}{\theta_0}) = \frac{N_0}{2} if \theta < \theta_0 \end{equation} 
+\begin{equation}R_y[\theta] = \frac{N_0}{2}|rect(\frac{\theta}{\theta_0})|^2 = \frac{N_0}{2}rect(\frac{\theta}{\theta_0}) = \frac{N_0}{2} if \theta < \theta_0 \end{equation}
+
+For the low-degree filter, the result is:
+
+\begin{equation}R_y[\theta] = \frac{N_0}{2}|\frac{b}{a_1-a_2e^{-j2 \pi f}}|^2 = \frac{N_0}{2|1-0.9e^{-j2 \pi f}|^2} \end{equation}
 
 Let's get on to the graphs.
 
 \newpage
 
-\subsubsection{Low-degree filter:}
-
-We get the following PSD when we get the noise through the low-degree low-pass filter:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab1_redo_figure3.jpg}
-    \end{center}
-\end{figure}
-
-Doing the inverse Fourier transform of the PSD, we get the theoretical ACF, which is:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_figure20.jpg}
-    \end{center}
-\end{figure}
-
-\newpage
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_figure4.jpg}
-    \end{center}
-\end{figure}
-
-\newpage
-
 \subsubsection{Ideal filter:}
+
+We get the following ACF:
+
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_9.jpg}
+  \captionof{figure}{Theoretical ACF plotted}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_10.jpg}
+  \captionof{figure}{Theoretical ACF stemed}
+\end{minipage}
+\end{figure}
 
 We get the following PSD:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab3_figure9_1.jpg}
-    \end{center}
-\end{figure}
-
-With the same calculations as before, we get the ACF:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_figure1.jpg}
+      \includegraphics[width=0.6\textwidth]{images/lab1_15.jpg}
+      \captionof{figure}{Theoretical PSD}
     \end{center}
 \end{figure}
 
 \newpage
 
+\subsubsection{Low-degree filter:}
+
+We get the following ACF:
+
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_29.jpg}
+  \captionof{figure}{Theoretical ACF plotted}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_30.jpg}
+  \captionof{figure}{Theoretical ACF stemed}
+\end{minipage}
+\end{figure}
+
+We get the following PSD:
+
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_figure2.jpg}
+      \includegraphics[width=0.6\textwidth]{images/lab1_35.jpg}
+      \captionof{figure}{Theoretical PSD}
     \end{center}
 \end{figure}
 
@@ -472,7 +554,7 @@ An AM-SC modulator:
   Y[n] =X[n]cos(\Omega_{0} n)
 \end{equation}
 
-As we can see, non of them is LTI, which means that the output might or might not be Gaussian, and which also means that the PSD does not follow the formula we normally use, but an specific formula for the kind of non-linearity that the system presents. 
+As we can see, non of them is LTI, which means that the output might or might not be Gaussian, and which also means that the PSD does not follow the formula we normally use, but an specific formula for the kind of non-linearity that the system presents.
 
 Therefore, we have three special formulas:
 
@@ -667,7 +749,7 @@ Finally, this is the plot of the historiogram of the AM-SC modulator:
 
 \subsection{Estimations:}
 
-We will plot the estimations for the PSD. We will smooth them with a rectangular window. 
+We will plot the estimations for the PSD. We will smooth them with a rectangular window.
 
 If we get the signal through the squarer, the resulting PSD is:
 
@@ -699,7 +781,7 @@ Lastly, the PSD resulting from AM-SC modulating the signal is:
 
 \begin{itemize}
 
-\item We can assume that the theoretical calculations for the PSD as pretty accurate, since the estimated plots are a more curved or smoothed version of the calculated PSD, given that no real process has such an abrupt change in its PSD. 
+\item We can assume that the theoretical calculations for the PSD as pretty accurate, since the estimated plots are a more curved or smoothed version of the calculated PSD, given that no real process has such an abrupt change in its PSD.
 
 \item In the periodograms, we can see how differently the signal changes depending on the system. On the AM-SC modulator, we have two peaks in the middle, whereas in the squarer, we have two symmetrical decreasing signals on the corner of the plot, for example. This can give us an idea of how the system will work.
 

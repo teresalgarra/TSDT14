@@ -69,7 +69,7 @@ R_hd_es_bl = fft(r_hd_es_bl);
 %%Theoretical functions%%
 
 %Basic lowpassfilter (1/(1+j*f/fc))
-H_ld_th = 1./(1-fc_ld*exp(-i*2*pi*f));
+H_ld_th = 1./(1-fc_ld*exp(-1i*2*pi*f));
 h_ld_th = ifft(H_ld_th, 'symmetric');
 
 %Final signal
@@ -144,17 +144,17 @@ plot(t, y_hd_th, 'c');
 figure;     %9
 plot(t, r_hd_th, 'm');
 figure;     %10
-stem(t(1:20),r_hd_th(1:20), 'b'); %xlim([-0.2,20.2]);
+stem(t(1:1:end),r_hd_th(1:1:end), 'b'); %xlim([-0.1,1.1]);
 %Theoretical ACF Bartlett
 figure;     %11
 plot(t, r_hd_th_ba, 'm');
 figure;     %12
-stem(t(1:20),r_hd_th_ba(1:20), 'b'); %xlim([-0.2,20.2]);
+stem(t(1:1:end),r_hd_th_ba(1:1:end), 'b'); %xlim([-2.0,2.0]);
 %Theoretical ACF Blackman
 figure;     %13
 plot(t, r_hd_th_bl, 'm');
 figure;     %14
-stem(t(1:20),r_hd_th_bl(1:20), 'b'); %xlim([-0.2,20.2]);
+stem(t(1:1:end),r_hd_th_bl(1:1:end), 'b'); %xlim([-2.0,2.0]);
 %Theoretical PSD
 figure;     %15
 plot(f,R_hd_th, 'c'); xlim([0,1]);
@@ -163,17 +163,17 @@ plot(f,R_hd_th, 'c'); xlim([0,1]);
 figure;     %16
 plot(t, r_hd_es, 'm');
 figure;     %17
-stem(t(1:20),r_hd_es(1:20), 'b'); %xlim([-0.2,20.2]);
+stem(t(1:1:end),r_hd_es(1:1:end), 'b'); %xlim([-0.2,20.2]);
 %Estimated ACF Bartlett
 figure;     %18
 plot(t, r_hd_es_ba, 'm');
 figure;     %19
-stem(t(1:20),r_hd_es_ba(1:20), 'b'); %xlim([-0.2,20.2]);
+stem(t(1:1:end),r_hd_es_ba(1:1:end), 'b'); %xlim([-0.2,20.2]);
 %Estimated ACF Blackman
 figure;     %20
 plot(t, r_hd_es_bl, 'm');
 figure;     %21
-stem(t(1:20),r_hd_es_bl(1:20), 'b'); %xlim([-0.2,20.2]);
+stem(t(1:1:end),r_hd_es_bl(1:1:end), 'b'); %xlim([-0.2,20.2]);
 %Estimated PSD
 figure;     %22
 plot(f,R_hd_es, 'c'); xlim([0,1]);
@@ -203,17 +203,17 @@ plot(t, y_ld_th, 'c');
 figure;     %29
 plot(t, r_ld_th, 'm');
 figure;     %30
-stem(t(1:20),r_ld_th(1:20), 'b'); %xlim([-0.2,20.2]);
+stem(t(1:1:end),r_ld_th(1:1:end), 'b'); %xlim([-0.2,20.2]);
 %Theoretical ACF Bartlett
 figure;     %31
 plot(t, r_ld_th_ba, 'm');
 figure;     %32
-stem(t(1:20),r_ld_th_ba(1:20), 'b'); %xlim([-0.2,20.2]);
+stem(t(1:1:end),r_ld_th_ba(1:1:end), 'b'); %xlim([-0.2,20.2]);
 %Theoretical ACF Blackman
 figure;     %33
 plot(t, r_ld_th_bl, 'm');
 figure;     %34
-stem(t(1:20),r_ld_th_bl(1:20), 'b'); %xlim([-0.2,20.2]);
+stem(t(1:1:end),r_ld_th_bl(1:1:end), 'b'); %xlim([-0.2,20.2]);
 %Theoretical PSD
 figure;     %35
 plot(f,R_ld_th, 'c'); xlim([0,1]);
@@ -222,17 +222,17 @@ plot(f,R_ld_th, 'c'); xlim([0,1]);
 figure;     %36
 plot(t, r_ld_es, 'm');
 figure;     %37
-stem(t(1:20),r_ld_es(1:20), 'b'); %xlim([-0.2,20.2]);
+stem(t(1:1:end),r_ld_es(1:1:end), 'b'); %xlim([-0.2,20.2]);
 %Estimated ACF Bartlett
 figure;     %38
 plot(t, r_ld_es_ba, 'm');
 figure;     %39
-stem(t(1:20),r_ld_es_ba(1:20), 'b'); %xlim([-0.2,20.2]);
+stem(t(1:1:end),r_ld_es_ba(1:1:end), 'b'); %xlim([-0.2,20.2]);
 %Estimated ACF Blackman
 figure;     %40
 plot(t, r_ld_es_bl, 'm');
 figure;     %41
-stem(t(1:20),r_ld_es_bl(1:20), 'b'); %xlim([-0.2,20.2]);
+stem(t(1:1:end),r_ld_es_bl(1:1:end), 'b'); %xlim([-0.2,20.2]);
 %Estimated PSD
 figure;     %42
 plot(f,R_ld_es, 'c'); xlim([0,1]);

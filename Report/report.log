@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.11.26)  12 JAN 2018 09:38
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.11.26)  11 FEB 2018 12:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -413,6 +413,27 @@ File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
 \Gin@req@height=\dimen112
 \Gin@req@width=\dimen113
 )
+(/usr/share/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
+
+(/usr/share/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2016/05/22 v1.7-166 caption3 kernel (AR)
+Package caption3 Info: TeX engine: e-TeX on input line 67.
+\captionmargin=\dimen114
+\captionmargin@=\dimen115
+\captionwidth=\dimen116
+\caption@tempdima=\dimen117
+\caption@indent=\dimen118
+\caption@parindent=\dimen119
+\caption@hangindent=\dimen120
+)
+\c@ContinuedFloat=\count91
+)
+(/usr/share/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2016/05/22 v1.1-161 Sub-captions (AR)
+\c@subfigure=\count92
+\c@subtable=\count93
+)
 (/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2017/09/02 v2.17a AMS math features
 \@mathmargin=\skip43
@@ -424,46 +445,46 @@ Package: amstext 2000/06/29 v2.01 AMS text
 (/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks18
-\ex@=\dimen114
+\ex@=\dimen121
 ))
 (/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen115
+\pmbraise@=\dimen122
 )
 (/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count91
+\inf@bad=\count94
 LaTeX Info: Redefining \frac on input line 213.
-\uproot@=\count92
-\leftroot@=\count93
+\uproot@=\count95
+\leftroot@=\count96
 LaTeX Info: Redefining \overline on input line 375.
-\classnum@=\count94
-\DOTSCASE@=\count95
+\classnum@=\count97
+\DOTSCASE@=\count98
 LaTeX Info: Redefining \ldots on input line 472.
 LaTeX Info: Redefining \dots on input line 475.
 LaTeX Info: Redefining \cdots on input line 596.
 \Mathstrutbox@=\box26
 \strutbox@=\box27
-\big@size=\dimen116
+\big@size=\dimen123
 LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
-\macc@depth=\count96
-\c@MaxMatrixCols=\count97
+\macc@depth=\count99
+\c@MaxMatrixCols=\count100
 \dotsspace@=\muskip10
-\c@parentequation=\count98
-\dspbrk@lvl=\count99
+\c@parentequation=\count101
+\dspbrk@lvl=\count102
 \tag@help=\toks19
-\row@=\count100
-\column@=\count101
-\maxfields@=\count102
+\row@=\count103
+\column@=\count104
+\maxfields@=\count105
 \andhelp@=\toks20
-\eqnshift@=\dimen117
-\alignsep@=\dimen118
-\tagshift@=\dimen119
-\tagwidth@=\dimen120
-\totwidth@=\dimen121
-\lineht@=\dimen122
+\eqnshift@=\dimen124
+\alignsep@=\dimen125
+\tagshift@=\dimen126
+\tagwidth@=\dimen127
+\totwidth@=\dimen128
+\lineht@=\dimen129
 \@envbody=\toks21
 \multlinegap=\skip44
 \multlinetaggap=\skip45
@@ -476,15 +497,15 @@ Package: mathtools 2017/10/30 v1.20 mathematical typesetting tools
 
 (/usr/share/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count103
-\calc@Bcount=\count104
-\calc@Adimen=\dimen123
-\calc@Bdimen=\dimen124
+\calc@Acount=\count106
+\calc@Bcount=\count107
+\calc@Adimen=\dimen130
+\calc@Bdimen=\dimen131
 \calc@Askip=\skip46
 \calc@Bskip=\skip47
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count105
+\calc@Ccount=\count108
 \calc@Cskip=\skip48
 )
 (/usr/share/texmf-dist/tex/latex/mathtools/mhsetup.sty
@@ -494,15 +515,15 @@ LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
-\g_MT_multlinerow_int=\count106
-\l_MT_multwidth_dim=\dimen125
+\g_MT_multlinerow_int=\count109
+\l_MT_multwidth_dim=\dimen132
 \origjot=\skip49
-\l_MT_shortvdotswithinadjustabove_dim=\dimen126
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen127
-\l_MT_above_intertext_sep=\dimen128
-\l_MT_below_intertext_sep=\dimen129
-\l_MT_above_shortintertext_sep=\dimen130
-\l_MT_below_shortintertext_sep=\dimen131
+\l_MT_shortvdotswithinadjustabove_dim=\dimen133
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen134
+\l_MT_above_intertext_sep=\dimen135
+\l_MT_below_intertext_sep=\dimen136
+\l_MT_above_shortintertext_sep=\dimen137
+\l_MT_below_shortintertext_sep=\dimen138
 )
 (/usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2017/06/30 v3.9a Extensive control of page headers and footer
@@ -519,18 +540,18 @@ s
 ) (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 26.
-LaTeX Font Info:    ... okay on input line 26.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -568,16 +589,16 @@ LaTeX Font Info:    ... okay on input line 26.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count107
-\scratchdimen=\dimen132
+\scratchcounter=\count110
+\scratchdimen=\dimen139
 \scratchbox=\box28
-\nofMPsegments=\count108
-\nofMParguments=\count109
+\nofMPsegments=\count111
+\nofMParguments=\count112
 \everyMPshowfont=\toks23
-\MPscratchCnt=\count110
-\MPscratchDim=\dimen133
-\MPnumerator=\count111
-\makeMPintoPDFobject=\count112
+\MPscratchCnt=\count113
+\MPscratchDim=\dimen140
+\MPnumerator=\count114
+\makeMPintoPDFobject=\count115
 \everyMPtoPDFconversion=\toks24
 ) (/usr/share/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
@@ -631,489 +652,941 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
+
 
 LaTeX Warning: No \author given.
 
 <images/portada.jpeg, id=1, 501.875pt x 501.875pt>
 File: images/portada.jpeg Graphic file (type jpg)
 <use images/portada.jpeg>
-Package pdftex.def Info: images/portada.jpeg  used on input line 40. on input l
-ine 40.
+Package pdftex.def Info: images/portada.jpeg  used on input line 42. on input l
+ine 42.
 Package pdftex.def Info: Requested size: 250.93687pt x 250.93687pt on input lin
-e 40.
+e 42.
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/portada.jpeg>]
-<images/ruidos.jpg, id=9, 562.1pt x 421.575pt>
-File: images/ruidos.jpg Graphic file (type jpg)
-<use images/ruidos.jpg>
-Package pdftex.def Info: images/ruidos.jpg  used on input line 63. on input lin
-e 63.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 63.
+<images/lab1_1.jpg, id=9, 562.1pt x 421.575pt>
+File: images/lab1_1.jpg Graphic file (type jpg)
+<use images/lab1_1.jpg>
+Package pdftex.def Info: images/lab1_1.jpg  used on input line 65. on input lin
+e 65.
+Package pdftex.def Info: Requested size: 241.84843pt x 181.38306pt on input lin
+e 65.
+<images/lab1_2.jpg, id=10, 562.1pt x 421.575pt>
+File: images/lab1_2.jpg Graphic file (type jpg)
+<use images/lab1_2.jpg>
+Package pdftex.def Info: images/lab1_2.jpg  used on input line 70. on input lin
+e 70.
+Package pdftex.def Info: Requested size: 241.84843pt x 181.38306pt on input lin
+e 70.
 
-[2 <./images/ruidos.jpg>] [3]
-<images/lab1_redo_figure3.jpg, id=22, 563.10374pt x 422.57875pt>
-File: images/lab1_redo_figure3.jpg Graphic file (type jpg)
-<use images/lab1_redo_figure3.jpg>
-Package pdftex.def Info: images/lab1_redo_figure3.jpg  used on input line 107. 
-on input line 107.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.7949pt on input line
- 107.
-<images/lab2_figure20.jpg, id=23, 556.0775pt x 427.5975pt>
-File: images/lab2_figure20.jpg Graphic file (type jpg)
-<use images/lab2_figure20.jpg>
-Package pdftex.def Info: images/lab2_figure20.jpg  used on input line 115. on i
-nput line 115.
-Package pdftex.def Info: Requested size: 290.22107pt x 223.16756pt on input lin
-e 115.
- [4 <./images/lab1_redo_figure3.jpg> <./images/lab2_figure20.jpg>]
-<images/lab2_figure4.jpg, id=28, 562.1pt x 421.575pt>
-File: images/lab2_figure4.jpg Graphic file (type jpg)
-<use images/lab2_figure4.jpg>
-Package pdftex.def Info: images/lab2_figure4.jpg  used on input line 123. on in
-put line 123.
+[2 <./images/lab1_1.jpg> <./images/lab1_2.jpg>]
+<images/lab1_5.jpg, id=18, 562.1pt x 421.575pt>
+File: images/lab1_5.jpg Graphic file (type jpg)
+<use images/lab1_5.jpg>
+Package pdftex.def Info: images/lab1_5.jpg  used on input line 95. on input lin
+e 95.
+Package pdftex.def Info: Requested size: 241.84843pt x 181.38306pt on input lin
+e 95.
+<images/lab1_4.jpg, id=19, 562.1pt x 421.575pt>
+File: images/lab1_4.jpg Graphic file (type jpg)
+<use images/lab1_4.jpg>
+Package pdftex.def Info: images/lab1_4.jpg  used on input line 100. on input li
+ne 100.
+Package pdftex.def Info: Requested size: 241.84843pt x 181.38306pt on input lin
+e 100.
+<images/lab1_8.jpg, id=20, 562.1pt x 421.575pt>
+File: images/lab1_8.jpg Graphic file (type jpg)
+<use images/lab1_8.jpg>
+Package pdftex.def Info: images/lab1_8.jpg  used on input line 111. on input li
+ne 111.
+Package pdftex.def Info: Requested size: 241.84843pt x 181.38306pt on input lin
+e 111.
+<images/lab1_6.jpg, id=21, 562.1pt x 421.575pt>
+File: images/lab1_6.jpg Graphic file (type jpg)
+<use images/lab1_6.jpg>
+Package pdftex.def Info: images/lab1_6.jpg  used on input line 116. on input li
+ne 116.
+Package pdftex.def Info: Requested size: 241.84843pt x 181.38306pt on input lin
+e 116.
+ [3 <./images/lab1_5.jpg> <./images/lab1_4.jpg> <./images/lab1_8.jpg> <./images
+/lab1_6.jpg>]
+<images/lab1_25.jpg, id=25, 562.1pt x 421.575pt>
+File: images/lab1_25.jpg Graphic file (type jpg)
+<use images/lab1_25.jpg>
+Package pdftex.def Info: images/lab1_25.jpg  used on input line 133. on input l
+ine 133.
+Package pdftex.def Info: Requested size: 241.84843pt x 181.38306pt on input lin
+e 133.
+<images/lab1_23.jpg, id=26, 562.1pt x 421.575pt>
+File: images/lab1_23.jpg Graphic file (type jpg)
+<use images/lab1_23.jpg>
+Package pdftex.def Info: images/lab1_23.jpg  used on input line 138. on input l
+ine 138.
+Package pdftex.def Info: Requested size: 241.84843pt x 181.38306pt on input lin
+e 138.
+<images/lab1_28.jpg, id=27, 562.1pt x 421.575pt>
+File: images/lab1_28.jpg Graphic file (type jpg)
+<use images/lab1_28.jpg>
+Package pdftex.def Info: images/lab1_28.jpg  used on input line 149. on input l
+ine 149.
+Package pdftex.def Info: Requested size: 241.84843pt x 181.38306pt on input lin
+e 149.
+<images/lab1_26.jpg, id=28, 562.1pt x 421.575pt>
+File: images/lab1_26.jpg Graphic file (type jpg)
+<use images/lab1_26.jpg>
+Package pdftex.def Info: images/lab1_26.jpg  used on input line 154. on input l
+ine 154.
+Package pdftex.def Info: Requested size: 241.84843pt x 181.38306pt on input lin
+e 154.
+ [4 <./images/lab1_25.jpg> <./images/lab1_23.jpg> <./images/lab1_28.jpg> <./ima
+ges/lab1_26.jpg>]
+[5]
+<images/lab1_9.jpg, id=37, 562.1pt x 421.575pt>
+File: images/lab1_9.jpg Graphic file (type jpg)
+<use images/lab1_9.jpg>
+Package pdftex.def Info: images/lab1_9.jpg  used on input line 189. on input li
+ne 189.
+Package pdftex.def Info: Requested size: 241.84843pt x 181.38306pt on input lin
+e 189.
+<images/lab1_10.jpg, id=38, 562.1pt x 421.575pt>
+File: images/lab1_10.jpg Graphic file (type jpg)
+<use images/lab1_10.jpg>
+Package pdftex.def Info: images/lab1_10.jpg  used on input line 194. on input l
+ine 194.
+Package pdftex.def Info: Requested size: 241.84843pt x 181.38306pt on input lin
+e 194.
+<images/lab1_15.jpg, id=39, 562.1pt x 421.575pt>
+File: images/lab1_15.jpg Graphic file (type jpg)
+<use images/lab1_15.jpg>
+Package pdftex.def Info: images/lab1_15.jpg  used on input line 203. on input l
+ine 203.
 Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 123.
- [5 <./images/lab2_figure4.jpg>]
-<images/lab3_figure9_1.jpg, id=32, 562.1pt x 421.575pt>
-File: images/lab3_figure9_1.jpg Graphic file (type jpg)
-<use images/lab3_figure9_1.jpg>
-Package pdftex.def Info: images/lab3_figure9_1.jpg  used on input line 135. on 
-input line 135.
+e 203.
+ [6 <./images/lab1_9.jpg> <./images/lab1_10.jpg> <./images/lab1_15.jpg>]
+<images/lab1_29.jpg, id=44, 562.1pt x 421.575pt>
+File: images/lab1_29.jpg Graphic file (type jpg)
+<use images/lab1_29.jpg>
+Package pdftex.def Info: images/lab1_29.jpg  used on input line 218. on input l
+ine 218.
+Package pdftex.def Info: Requested size: 241.84843pt x 181.38306pt on input lin
+e 218.
+<images/lab1_30.jpg, id=45, 562.1pt x 421.575pt>
+File: images/lab1_30.jpg Graphic file (type jpg)
+<use images/lab1_30.jpg>
+Package pdftex.def Info: images/lab1_30.jpg  used on input line 223. on input l
+ine 223.
+Package pdftex.def Info: Requested size: 241.84843pt x 181.38306pt on input lin
+e 223.
+<images/lab1_35.jpg, id=46, 562.1pt x 421.575pt>
+File: images/lab1_35.jpg Graphic file (type jpg)
+<use images/lab1_35.jpg>
+Package pdftex.def Info: images/lab1_35.jpg  used on input line 232. on input l
+ine 232.
 Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 135.
-<images/lab2_figure1.jpg, id=33, 562.1pt x 421.575pt>
-File: images/lab2_figure1.jpg Graphic file (type jpg)
-<use images/lab2_figure1.jpg>
-Package pdftex.def Info: images/lab2_figure1.jpg  used on input line 143. on in
-put line 143.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 143.
- [6 <./images/lab3_figure9_1.jpg> <./images/lab2_figure1.jpg>]
-<images/lab2_figure2.jpg, id=37, 562.1pt x 421.575pt>
-File: images/lab2_figure2.jpg Graphic file (type jpg)
-<use images/lab2_figure2.jpg>
-Package pdftex.def Info: images/lab2_figure2.jpg  used on input line 151. on in
-put line 151.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 151.
- [7 <./images/lab2_figure2.jpg>]
-<images/lab1_figure1_3.jpg, id=42, 562.1pt x 421.575pt>
-File: images/lab1_figure1_3.jpg Graphic file (type jpg)
-<use images/lab1_figure1_3.jpg>
-Package pdftex.def Info: images/lab1_figure1_3.jpg  used on input line 165. on 
-input line 165.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 165.
-<images/lab2_figure3.jpg, id=43, 562.1pt x 421.575pt>
-File: images/lab2_figure3.jpg Graphic file (type jpg)
-<use images/lab2_figure3.jpg>
-Package pdftex.def Info: images/lab2_figure3.jpg  used on input line 173. on in
-put line 173.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 173.
- [8 <./images/lab1_figure1_3.jpg> <./images/lab2_figure3.jpg>]
-File: images/lab2_figure2.jpg Graphic file (type jpg)
-<use images/lab2_figure2.jpg>
-Package pdftex.def Info: images/lab2_figure2.jpg  used on input line 181. on in
-put line 181.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 181.
- [9]
-<images/lab1_redo_figure13.jpg, id=50, 563.10374pt x 422.57875pt>
-File: images/lab1_redo_figure13.jpg Graphic file (type jpg)
-<use images/lab1_redo_figure13.jpg>
-Package pdftex.def Info: images/lab1_redo_figure13.jpg  used on input line 193.
- on input line 193.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.7949pt on input line
- 193.
-File: images/lab2_figure1.jpg Graphic file (type jpg)
-<use images/lab2_figure1.jpg>
-Package pdftex.def Info: images/lab2_figure1.jpg  used on input line 201. on in
-put line 201.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 201.
- [10 <./images/lab1_redo_figure13.jpg>]
-File: images/lab2_figure4.jpg Graphic file (type jpg)
-<use images/lab2_figure4.jpg>
-Package pdftex.def Info: images/lab2_figure4.jpg  used on input line 209. on in
-put line 209.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 209.
- [11]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 219.
+e 232.
+
+[7 <./images/lab1_29.jpg> <./images/lab1_30.jpg> <./images/lab1_35.jpg>]
+
+LaTeX Warning: File `images/lab1_figure1_3.jpg' not found on input line 247.
+
+
+! Package pdftex.def Error: File `images/lab1_figure1_3.jpg' not found: using d
+raft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.247 ...0.6\textwidth]{images/lab1_figure1_3.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab2_figure3.jpg' not found on input line 255.
+
+
+! Package pdftex.def Error: File `images/lab2_figure3.jpg' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.255 ...h=0.6\textwidth]{images/lab2_figure3.jpg}
+                                                  
+? 
+[8]
+
+LaTeX Warning: File `images/lab2_figure2.jpg' not found on input line 263.
+
+
+! Package pdftex.def Error: File `images/lab2_figure2.jpg' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.263 ...h=0.6\textwidth]{images/lab2_figure2.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab1_redo_figure13.jpg' not found on input line 275
+.
+
+
+! Package pdftex.def Error: File `images/lab1_redo_figure13.jpg' not found: usi
+ng draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.275 ...textwidth]{images/lab1_redo_figure13.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab2_figure1.jpg' not found on input line 283.
+
+
+! Package pdftex.def Error: File `images/lab2_figure1.jpg' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.283 ...h=0.6\textwidth]{images/lab2_figure1.jpg}
+                                                  
+? 
+[9] [10] [11]
+
+LaTeX Warning: File `images/lab2_figure4.jpg' not found on input line 291.
+
+
+! Package pdftex.def Error: File `images/lab2_figure4.jpg' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.291 ...h=0.6\textwidth]{images/lab2_figure4.jpg}
+                                                  
+? 
+[12]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 301.
 
  (/usr/share/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 219.
- [12]
-<images/lab2_figure11.jpg, id=60, 562.1pt x 421.575pt>
-File: images/lab2_figure11.jpg Graphic file (type jpg)
-<use images/lab2_figure11.jpg>
-Package pdftex.def Info: images/lab2_figure11.jpg  used on input line 251. on i
-nput line 251.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 251.
-<images/lab2_figure13.jpg, id=61, 562.1pt x 421.575pt>
-File: images/lab2_figure13.jpg Graphic file (type jpg)
-<use images/lab2_figure13.jpg>
-Package pdftex.def Info: images/lab2_figure13.jpg  used on input line 259. on i
-nput line 259.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 259.
-File: images/lab2_figure1.jpg Graphic file (type jpg)
-<use images/lab2_figure1.jpg>
-Package pdftex.def Info: images/lab2_figure1.jpg  used on input line 271. on in
-put line 271.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 271.
- [13 <./images/lab2_figure11.jpg> <./images/lab2_figure13.jpg>]
-File: images/lab2_figure2.jpg Graphic file (type jpg)
-<use images/lab2_figure2.jpg>
-Package pdftex.def Info: images/lab2_figure2.jpg  used on input line 277. on in
-put line 277.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 277.
- [14]
-<images/lab2_redo_figure13.jpg, id=70, 563.10374pt x 422.57875pt>
-File: images/lab2_redo_figure13.jpg Graphic file (type jpg)
-<use images/lab2_redo_figure13.jpg>
-Package pdftex.def Info: images/lab2_redo_figure13.jpg  used on input line 287.
- on input line 287.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.7949pt on input line
- 287.
-<images/lab2_redo_figure14.jpg, id=71, 563.10374pt x 422.57875pt>
-File: images/lab2_redo_figure14.jpg Graphic file (type jpg)
-<use images/lab2_redo_figure14.jpg>
-Package pdftex.def Info: images/lab2_redo_figure14.jpg  used on input line 293.
- on input line 293.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.7949pt on input line
- 293.
- [15 <./images/lab2_redo_figure13.jpg> <./images/lab2_redo_figure14.jpg>]
-<images/lab2_redo_figure2.jpg, id=75, 563.10374pt x 422.57875pt>
-File: images/lab2_redo_figure2.jpg Graphic file (type jpg)
-<use images/lab2_redo_figure2.jpg>
-Package pdftex.def Info: images/lab2_redo_figure2.jpg  used on input line 303. 
-on input line 303.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.7949pt on input line
- 303.
-<images/lab2_redo_figure3.jpg, id=76, 563.10374pt x 422.57875pt>
-File: images/lab2_redo_figure3.jpg Graphic file (type jpg)
-<use images/lab2_redo_figure3.jpg>
-Package pdftex.def Info: images/lab2_redo_figure3.jpg  used on input line 311. 
-on input line 311.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.7949pt on input line
- 311.
- [16 <./images/lab2_redo_figure2.jpg> <./images/lab2_redo_figure3.jpg>]
-<images/lab2_redo_figure4.jpg, id=80, 563.10374pt x 422.57875pt>
-File: images/lab2_redo_figure4.jpg Graphic file (type jpg)
-<use images/lab2_redo_figure4.jpg>
-Package pdftex.def Info: images/lab2_redo_figure4.jpg  used on input line 321. 
-on input line 321.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.7949pt on input line
- 321.
-<images/lab2_redo_figure5.jpg, id=81, 563.10374pt x 422.57875pt>
-File: images/lab2_redo_figure5.jpg Graphic file (type jpg)
-<use images/lab2_redo_figure5.jpg>
-Package pdftex.def Info: images/lab2_redo_figure5.jpg  used on input line 329. 
-on input line 329.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.7949pt on input line
- 329.
- [17 <./images/lab2_redo_figure4.jpg> <./images/lab2_redo_figure5.jpg>]
-<images/lab2_redo_figure6.jpg, id=85, 563.10374pt x 422.57875pt>
-File: images/lab2_redo_figure6.jpg Graphic file (type jpg)
-<use images/lab2_redo_figure6.jpg>
-Package pdftex.def Info: images/lab2_redo_figure6.jpg  used on input line 339. 
-on input line 339.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.7949pt on input line
- 339.
-<images/lab2_redo_figure7.jpg, id=86, 563.10374pt x 422.57875pt>
-File: images/lab2_redo_figure7.jpg Graphic file (type jpg)
-<use images/lab2_redo_figure7.jpg>
-Package pdftex.def Info: images/lab2_redo_figure7.jpg  used on input line 347. 
-on input line 347.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.7949pt on input line
- 347.
- [18 <./images/lab2_redo_figure6.jpg> <./images/lab2_redo_figure7.jpg>]
-File: images/lab2_figure3.jpg Graphic file (type jpg)
-<use images/lab2_figure3.jpg>
-Package pdftex.def Info: images/lab2_figure3.jpg  used on input line 359. on in
-put line 359.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 359.
-File: images/lab2_figure2.jpg Graphic file (type jpg)
-<use images/lab2_figure2.jpg>
-Package pdftex.def Info: images/lab2_figure2.jpg  used on input line 365. on in
-put line 365.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 365.
- [19]
-File: images/lab2_figure3.jpg Graphic file (type jpg)
-<use images/lab2_figure3.jpg>
-Package pdftex.def Info: images/lab2_figure3.jpg  used on input line 375. on in
-put line 375.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 375.
-File: images/lab2_figure2.jpg Graphic file (type jpg)
-<use images/lab2_figure2.jpg>
-Package pdftex.def Info: images/lab2_figure2.jpg  used on input line 381. on in
-put line 381.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 381.
- [20]
-File: images/lab1_figure1_3.jpg Graphic file (type jpg)
-<use images/lab1_figure1_3.jpg>
-Package pdftex.def Info: images/lab1_figure1_3.jpg  used on input line 391. on 
-input line 391.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 391.
-<images/lab2_redo_figure15.jpg, id=97, 563.10374pt x 422.57875pt>
-File: images/lab2_redo_figure15.jpg Graphic file (type jpg)
-<use images/lab2_redo_figure15.jpg>
-Package pdftex.def Info: images/lab2_redo_figure15.jpg  used on input line 399.
- on input line 399.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.7949pt on input line
- 399.
- [21 <./images/lab2_redo_figure15.jpg>]
-<images/lab2_redo_figure16.jpg, id=101, 563.10374pt x 422.57875pt>
-File: images/lab2_redo_figure16.jpg Graphic file (type jpg)
-<use images/lab2_redo_figure16.jpg>
-Package pdftex.def Info: images/lab2_redo_figure16.jpg  used on input line 409.
- on input line 409.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.7949pt on input line
- 409.
-<images/lab2_figure10.jpg, id=102, 562.1pt x 421.575pt>
-File: images/lab2_figure10.jpg Graphic file (type jpg)
-<use images/lab2_figure10.jpg>
-Package pdftex.def Info: images/lab2_figure10.jpg  used on input line 417. on i
-nput line 417.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 417.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 301.
+ [13]
 
-[22 <./images/lab2_redo_figure16.jpg> <./images/lab2_figure10.jpg>]
-<images/lab2_figure12.jpg, id=106, 562.1pt x 421.575pt>
-File: images/lab2_figure12.jpg Graphic file (type jpg)
-<use images/lab2_figure12.jpg>
-Package pdftex.def Info: images/lab2_figure12.jpg  used on input line 427. on i
-nput line 427.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 427.
-<images/lab2_figure14.jpg, id=107, 562.1pt x 421.575pt>
-File: images/lab2_figure14.jpg Graphic file (type jpg)
-<use images/lab2_figure14.jpg>
-Package pdftex.def Info: images/lab2_figure14.jpg  used on input line 435. on i
-nput line 435.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 435.
- [23 <./images/lab2_figure12.jpg> <./images/lab2_figure14.jpg>] [24] [25]
-<images/lab3_figure1_1.jpg, id=119, 562.1pt x 421.575pt>
-File: images/lab3_figure1_1.jpg Graphic file (type jpg)
-<use images/lab3_figure1_1.jpg>
-Package pdftex.def Info: images/lab3_figure1_1.jpg  used on input line 514. on 
-input line 514.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 514.
-<images/lab3_figure1_2.jpg, id=120, 562.1pt x 421.575pt>
-File: images/lab3_figure1_2.jpg Graphic file (type jpg)
-<use images/lab3_figure1_2.jpg>
-Package pdftex.def Info: images/lab3_figure1_2.jpg  used on input line 522. on 
-input line 522.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 522.
- [26 <./images/lab3_figure1_1.jpg> <./images/lab3_figure1_2.jpg>]
-<images/lab3_figure2_1.jpg, id=124, 562.1pt x 421.575pt>
-File: images/lab3_figure2_1.jpg Graphic file (type jpg)
-<use images/lab3_figure2_1.jpg>
-Package pdftex.def Info: images/lab3_figure2_1.jpg  used on input line 534. on 
-input line 534.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 534.
-<images/lab3_figure2_2.jpg, id=125, 562.1pt x 421.575pt>
-File: images/lab3_figure2_2.jpg Graphic file (type jpg)
-<use images/lab3_figure2_2.jpg>
-Package pdftex.def Info: images/lab3_figure2_2.jpg  used on input line 542. on 
-input line 542.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 542.
- [27 <./images/lab3_figure2_1.jpg> <./images/lab3_figure2_2.jpg>]
-<images/lab3_figure2_3.jpg, id=129, 562.1pt x 421.575pt>
-File: images/lab3_figure2_3.jpg Graphic file (type jpg)
-<use images/lab3_figure2_3.jpg>
-Package pdftex.def Info: images/lab3_figure2_3.jpg  used on input line 552. on 
-input line 552.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 552.
- [28 <./images/lab3_figure2_3.jpg>]
-File: images/lab3_figure9_1.jpg Graphic file (type jpg)
-<use images/lab3_figure9_1.jpg>
-Package pdftex.def Info: images/lab3_figure9_1.jpg  used on input line 566. on 
-input line 566.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 566.
-<images/lab3_figure9_2.jpg, id=133, 562.1pt x 421.575pt>
-File: images/lab3_figure9_2.jpg Graphic file (type jpg)
-<use images/lab3_figure9_2.jpg>
-Package pdftex.def Info: images/lab3_figure9_2.jpg  used on input line 574. on 
-input line 574.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 574.
- [29 <./images/lab3_figure9_2.jpg>]
-<images/lab3_figure9_3.jpg, id=137, 562.1pt x 421.575pt>
-File: images/lab3_figure9_3.jpg Graphic file (type jpg)
-<use images/lab3_figure9_3.jpg>
-Package pdftex.def Info: images/lab3_figure9_3.jpg  used on input line 584. on 
-input line 584.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 584.
-<images/lab3_figure9_4.jpg, id=138, 562.1pt x 421.575pt>
-File: images/lab3_figure9_4.jpg Graphic file (type jpg)
-<use images/lab3_figure9_4.jpg>
-Package pdftex.def Info: images/lab3_figure9_4.jpg  used on input line 592. on 
-input line 592.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 592.
- [30 <./images/lab3_figure9_3.jpg> <./images/lab3_figure9_4.jpg>]
-<images/lab3_figure10.jpg, id=142, 169.38281pt x 124.21407pt>
-File: images/lab3_figure10.jpg Graphic file (type jpg)
-<use images/lab3_figure10.jpg>
-Package pdftex.def Info: images/lab3_figure10.jpg  used on input line 606. on i
-nput line 606.
-Package pdftex.def Info: Requested size: 290.22107pt x 212.83658pt on input lin
-e 606.
-<images/lab3_figure10_1.jpg, id=143, 562.1pt x 421.575pt>
-File: images/lab3_figure10_1.jpg Graphic file (type jpg)
-<use images/lab3_figure10_1.jpg>
-Package pdftex.def Info: images/lab3_figure10_1.jpg  used on input line 614. on
- input line 614.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 614.
- [31 <./images/lab3_figure10.jpg> <./images/lab3_figure10_1.jpg>]
-<images/lab3_figure10_4.jpg, id=148, 562.1pt x 421.575pt>
-File: images/lab3_figure10_4.jpg Graphic file (type jpg)
-<use images/lab3_figure10_4.jpg>
-Package pdftex.def Info: images/lab3_figure10_4.jpg  used on input line 624. on
- input line 624.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 624.
-<images/lab3_redo_33.jpg, id=149, 563.10374pt x 422.57875pt>
-File: images/lab3_redo_33.jpg Graphic file (type jpg)
-<use images/lab3_redo_33.jpg>
-Package pdftex.def Info: images/lab3_redo_33.jpg  used on input line 634. on in
-put line 634.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.7949pt on input line
- 634.
+LaTeX Warning: File `images/lab2_figure11.jpg' not found on input line 333.
 
-[32 <./images/lab3_figure10_4.jpg> <./images/lab3_redo_33.jpg>]
-<images/lab3_redo_34.jpg, id=153, 563.10374pt x 422.57875pt>
-File: images/lab3_redo_34.jpg Graphic file (type jpg)
-<use images/lab3_redo_34.jpg>
-Package pdftex.def Info: images/lab3_redo_34.jpg  used on input line 644. on in
-put line 644.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.7949pt on input line
- 644.
-<images/lab3_redo_35.jpg, id=154, 563.10374pt x 422.57875pt>
-File: images/lab3_redo_35.jpg Graphic file (type jpg)
-<use images/lab3_redo_35.jpg>
-Package pdftex.def Info: images/lab3_redo_35.jpg  used on input line 652. on in
-put line 652.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.7949pt on input line
- 652.
- [33 <./images/lab3_redo_34.jpg> <./images/lab3_redo_35.jpg>]
-<images/lab3_redo_36.jpg, id=158, 563.10374pt x 422.57875pt>
-File: images/lab3_redo_36.jpg Graphic file (type jpg)
-<use images/lab3_redo_36.jpg>
-Package pdftex.def Info: images/lab3_redo_36.jpg  used on input line 662. on in
-put line 662.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.7949pt on input line
- 662.
- [34 <./images/lab3_redo_36.jpg>]
-<images/lab3_redo_26.jpg, id=162, 563.10374pt x 422.57875pt>
-File: images/lab3_redo_26.jpg Graphic file (type jpg)
-<use images/lab3_redo_26.jpg>
-Package pdftex.def Info: images/lab3_redo_26.jpg  used on input line 676. on in
-put line 676.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.7949pt on input line
- 676.
-<images/lab3_redo_27.jpg, id=163, 563.10374pt x 422.57875pt>
-File: images/lab3_redo_27.jpg Graphic file (type jpg)
-<use images/lab3_redo_27.jpg>
-Package pdftex.def Info: images/lab3_redo_27.jpg  used on input line 684. on in
-put line 684.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.7949pt on input line
- 684.
 
-[35 <./images/lab3_redo_26.jpg> <./images/lab3_redo_27.jpg>]
-<images/lab3_redo_28.jpg, id=167, 563.10374pt x 422.57875pt>
-File: images/lab3_redo_28.jpg Graphic file (type jpg)
-<use images/lab3_redo_28.jpg>
-Package pdftex.def Info: images/lab3_redo_28.jpg  used on input line 694. on in
-put line 694.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.7949pt on input line
- 694.
- [36 <./images/lab3_redo_28.jpg>] [37]
-<images/lab4_figure11.jpg, id=175, 562.1pt x 421.575pt>
-File: images/lab4_figure11.jpg Graphic file (type jpg)
-<use images/lab4_figure11.jpg>
-Package pdftex.def Info: images/lab4_figure11.jpg  used on input line 758. on i
-nput line 758.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 758.
-<images/lab4_figure12.jpg, id=176, 562.1pt x 421.575pt>
-File: images/lab4_figure12.jpg Graphic file (type jpg)
-<use images/lab4_figure12.jpg>
-Package pdftex.def Info: images/lab4_figure12.jpg  used on input line 766. on i
-nput line 766.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 766.
- [38 <./images/lab4_figure11.jpg> <./images/lab4_figure12.jpg>]
-<images/lab4_figure7.jpg, id=180, 562.1pt x 421.575pt>
-File: images/lab4_figure7.jpg Graphic file (type jpg)
-<use images/lab4_figure7.jpg>
-Package pdftex.def Info: images/lab4_figure7.jpg  used on input line 778. on in
-put line 778.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 778.
-<images/lab4_figure8.jpg, id=181, 562.1pt x 421.575pt>
-File: images/lab4_figure8.jpg Graphic file (type jpg)
-<use images/lab4_figure8.jpg>
-Package pdftex.def Info: images/lab4_figure8.jpg  used on input line 786. on in
-put line 786.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 786.
- [39 <./images/lab4_figure7.jpg> <./images/lab4_figure8.jpg>]
-<images/lab4_figure9.jpg, id=185, 562.1pt x 421.575pt>
-File: images/lab4_figure9.jpg Graphic file (type jpg)
-<use images/lab4_figure9.jpg>
-Package pdftex.def Info: images/lab4_figure9.jpg  used on input line 796. on in
-put line 796.
-Package pdftex.def Info: Requested size: 290.22107pt x 217.66354pt on input lin
-e 796.
- [40 <./images/lab4_figure9.jpg>] (./report.aux) ) 
+! Package pdftex.def Error: File `images/lab2_figure11.jpg' not found: using dr
+aft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.333 ...=0.6\textwidth]{images/lab2_figure11.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab2_figure13.jpg' not found on input line 341.
+
+
+! Package pdftex.def Error: File `images/lab2_figure13.jpg' not found: using dr
+aft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.341 ...=0.6\textwidth]{images/lab2_figure13.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab2_figure1.jpg' not found on input line 353.
+
+
+! Package pdftex.def Error: File `images/lab2_figure1.jpg' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.353 ...h=0.6\textwidth]{images/lab2_figure1.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab2_figure2.jpg' not found on input line 359.
+
+
+! Package pdftex.def Error: File `images/lab2_figure2.jpg' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.359 ...h=0.6\textwidth]{images/lab2_figure2.jpg}
+                                                  
+? 
+[14] [15]
+
+LaTeX Warning: File `images/lab2_redo_figure13.jpg' not found on input line 369
+.
+
+
+! Package pdftex.def Error: File `images/lab2_redo_figure13.jpg' not found: usi
+ng draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.369 ...textwidth]{images/lab2_redo_figure13.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab2_redo_figure14.jpg' not found on input line 375
+.
+
+
+! Package pdftex.def Error: File `images/lab2_redo_figure14.jpg' not found: usi
+ng draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.375 ...textwidth]{images/lab2_redo_figure14.jpg}
+                                                  
+? 
+[16] [17]
+
+LaTeX Warning: File `images/lab2_redo_figure2.jpg' not found on input line 385.
+
+
+
+! Package pdftex.def Error: File `images/lab2_redo_figure2.jpg' not found: usin
+g draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.385 ...\textwidth]{images/lab2_redo_figure2.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab2_redo_figure3.jpg' not found on input line 393.
+
+
+
+! Package pdftex.def Error: File `images/lab2_redo_figure3.jpg' not found: usin
+g draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.393 ...\textwidth]{images/lab2_redo_figure3.jpg}
+                                                  
+? 
+[18] [19]
+
+LaTeX Warning: File `images/lab2_redo_figure4.jpg' not found on input line 403.
+
+
+
+! Package pdftex.def Error: File `images/lab2_redo_figure4.jpg' not found: usin
+g draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.403 ...\textwidth]{images/lab2_redo_figure4.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab2_redo_figure5.jpg' not found on input line 411.
+
+
+
+! Package pdftex.def Error: File `images/lab2_redo_figure5.jpg' not found: usin
+g draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.411 ...\textwidth]{images/lab2_redo_figure5.jpg}
+                                                  
+? 
+[20] [21]
+
+LaTeX Warning: File `images/lab2_redo_figure6.jpg' not found on input line 421.
+
+
+
+! Package pdftex.def Error: File `images/lab2_redo_figure6.jpg' not found: usin
+g draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.421 ...\textwidth]{images/lab2_redo_figure6.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab2_redo_figure7.jpg' not found on input line 429.
+
+
+
+! Package pdftex.def Error: File `images/lab2_redo_figure7.jpg' not found: usin
+g draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.429 ...\textwidth]{images/lab2_redo_figure7.jpg}
+                                                  
+? 
+[22] [23]
+
+LaTeX Warning: File `images/lab2_figure3.jpg' not found on input line 441.
+
+
+! Package pdftex.def Error: File `images/lab2_figure3.jpg' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.441 ...h=0.6\textwidth]{images/lab2_figure3.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab2_figure2.jpg' not found on input line 447.
+
+
+! Package pdftex.def Error: File `images/lab2_figure2.jpg' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.447 ...h=0.6\textwidth]{images/lab2_figure2.jpg}
+                                                  
+? 
+[24] [25]
+
+LaTeX Warning: File `images/lab2_figure3.jpg' not found on input line 457.
+
+
+! Package pdftex.def Error: File `images/lab2_figure3.jpg' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.457 ...h=0.6\textwidth]{images/lab2_figure3.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab2_figure2.jpg' not found on input line 463.
+
+
+! Package pdftex.def Error: File `images/lab2_figure2.jpg' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.463 ...h=0.6\textwidth]{images/lab2_figure2.jpg}
+                                                  
+? 
+[26] [27]
+
+LaTeX Warning: File `images/lab1_figure1_3.jpg' not found on input line 473.
+
+
+! Package pdftex.def Error: File `images/lab1_figure1_3.jpg' not found: using d
+raft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.473 ...0.6\textwidth]{images/lab1_figure1_3.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab2_redo_figure15.jpg' not found on input line 481
+.
+
+
+! Package pdftex.def Error: File `images/lab2_redo_figure15.jpg' not found: usi
+ng draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.481 ...textwidth]{images/lab2_redo_figure15.jpg}
+                                                  
+? 
+[28] [29]
+
+LaTeX Warning: File `images/lab2_redo_figure16.jpg' not found on input line 491
+.
+
+
+! Package pdftex.def Error: File `images/lab2_redo_figure16.jpg' not found: usi
+ng draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.491 ...textwidth]{images/lab2_redo_figure16.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab2_figure10.jpg' not found on input line 499.
+
+
+! Package pdftex.def Error: File `images/lab2_figure10.jpg' not found: using dr
+aft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.499 ...=0.6\textwidth]{images/lab2_figure10.jpg}
+                                                  
+? 
+[30] [31]
+
+LaTeX Warning: File `images/lab2_figure12.jpg' not found on input line 509.
+
+
+! Package pdftex.def Error: File `images/lab2_figure12.jpg' not found: using dr
+aft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.509 ...=0.6\textwidth]{images/lab2_figure12.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab2_figure14.jpg' not found on input line 517.
+
+
+! Package pdftex.def Error: File `images/lab2_figure14.jpg' not found: using dr
+aft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.517 ...=0.6\textwidth]{images/lab2_figure14.jpg}
+                                                  
+? 
+[32] [33] [34] [35]
+
+LaTeX Warning: File `images/lab3_figure1_1.jpg' not found on input line 596.
+
+
+! Package pdftex.def Error: File `images/lab3_figure1_1.jpg' not found: using d
+raft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.596 ...0.6\textwidth]{images/lab3_figure1_1.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab3_figure1_2.jpg' not found on input line 604.
+
+
+! Package pdftex.def Error: File `images/lab3_figure1_2.jpg' not found: using d
+raft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.604 ...0.6\textwidth]{images/lab3_figure1_2.jpg}
+                                                  
+? 
+[36] [37]
+
+LaTeX Warning: File `images/lab3_figure2_1.jpg' not found on input line 616.
+
+
+! Package pdftex.def Error: File `images/lab3_figure2_1.jpg' not found: using d
+raft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.616 ...0.6\textwidth]{images/lab3_figure2_1.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab3_figure2_2.jpg' not found on input line 624.
+
+
+! Package pdftex.def Error: File `images/lab3_figure2_2.jpg' not found: using d
+raft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.624 ...0.6\textwidth]{images/lab3_figure2_2.jpg}
+                                                  
+? 
+[38] [39]
+
+LaTeX Warning: File `images/lab3_figure2_3.jpg' not found on input line 634.
+
+
+! Package pdftex.def Error: File `images/lab3_figure2_3.jpg' not found: using d
+raft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.634 ...0.6\textwidth]{images/lab3_figure2_3.jpg}
+                                                  
+? 
+[40] [41]
+
+LaTeX Warning: File `images/lab3_figure9_1.jpg' not found on input line 648.
+
+
+! Package pdftex.def Error: File `images/lab3_figure9_1.jpg' not found: using d
+raft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.648 ...0.6\textwidth]{images/lab3_figure9_1.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab3_figure9_2.jpg' not found on input line 656.
+
+
+! Package pdftex.def Error: File `images/lab3_figure9_2.jpg' not found: using d
+raft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.656 ...0.6\textwidth]{images/lab3_figure9_2.jpg}
+                                                  
+? 
+[42]
+
+LaTeX Warning: File `images/lab3_figure9_3.jpg' not found on input line 666.
+
+
+! Package pdftex.def Error: File `images/lab3_figure9_3.jpg' not found: using d
+raft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.666 ...0.6\textwidth]{images/lab3_figure9_3.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab3_figure9_4.jpg' not found on input line 674.
+
+
+! Package pdftex.def Error: File `images/lab3_figure9_4.jpg' not found: using d
+raft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.674 ...0.6\textwidth]{images/lab3_figure9_4.jpg}
+                                                  
+? 
+[43] [44]
+
+LaTeX Warning: File `images/lab3_figure10.jpg' not found on input line 688.
+
+
+! Package pdftex.def Error: File `images/lab3_figure10.jpg' not found: using dr
+aft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.688 ...=0.6\textwidth]{images/lab3_figure10.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab3_figure10_1.jpg' not found on input line 696.
+
+
+! Package pdftex.def Error: File `images/lab3_figure10_1.jpg' not found: using 
+draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.696 ....6\textwidth]{images/lab3_figure10_1.jpg}
+                                                  
+? 
+[45] [46]
+
+LaTeX Warning: File `images/lab3_figure10_4.jpg' not found on input line 706.
+
+
+! Package pdftex.def Error: File `images/lab3_figure10_4.jpg' not found: using 
+draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.706 ....6\textwidth]{images/lab3_figure10_4.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab3_redo_33.jpg' not found on input line 716.
+
+
+! Package pdftex.def Error: File `images/lab3_redo_33.jpg' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.716 ...h=0.6\textwidth]{images/lab3_redo_33.jpg}
+                                                  
+? 
+[47] [48]
+
+LaTeX Warning: File `images/lab3_redo_34.jpg' not found on input line 726.
+
+
+! Package pdftex.def Error: File `images/lab3_redo_34.jpg' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.726 ...h=0.6\textwidth]{images/lab3_redo_34.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab3_redo_35.jpg' not found on input line 734.
+
+
+! Package pdftex.def Error: File `images/lab3_redo_35.jpg' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.734 ...h=0.6\textwidth]{images/lab3_redo_35.jpg}
+                                                  
+? 
+[49] [50]
+
+LaTeX Warning: File `images/lab3_redo_36.jpg' not found on input line 744.
+
+
+! Package pdftex.def Error: File `images/lab3_redo_36.jpg' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.744 ...h=0.6\textwidth]{images/lab3_redo_36.jpg}
+                                                  
+? 
+[51] [52]
+
+LaTeX Warning: File `images/lab3_redo_26.jpg' not found on input line 758.
+
+
+! Package pdftex.def Error: File `images/lab3_redo_26.jpg' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.758 ...h=0.6\textwidth]{images/lab3_redo_26.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab3_redo_27.jpg' not found on input line 766.
+
+
+! Package pdftex.def Error: File `images/lab3_redo_27.jpg' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.766 ...h=0.6\textwidth]{images/lab3_redo_27.jpg}
+                                                  
+? 
+[53]
+
+LaTeX Warning: File `images/lab3_redo_28.jpg' not found on input line 776.
+
+
+! Package pdftex.def Error: File `images/lab3_redo_28.jpg' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.776 ...h=0.6\textwidth]{images/lab3_redo_28.jpg}
+                                                  
+? 
+[54] [55] [56]
+
+LaTeX Warning: File `images/lab4_figure11.jpg' not found on input line 840.
+
+
+! Package pdftex.def Error: File `images/lab4_figure11.jpg' not found: using dr
+aft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.840 ...=0.6\textwidth]{images/lab4_figure11.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab4_figure12.jpg' not found on input line 848.
+
+
+! Package pdftex.def Error: File `images/lab4_figure12.jpg' not found: using dr
+aft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.848 ...=0.6\textwidth]{images/lab4_figure12.jpg}
+                                                  
+? 
+[57]
+
+LaTeX Warning: File `images/lab4_figure7.jpg' not found on input line 860.
+
+
+! Package pdftex.def Error: File `images/lab4_figure7.jpg' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.860 ...h=0.6\textwidth]{images/lab4_figure7.jpg}
+                                                  
+? 
+
+LaTeX Warning: File `images/lab4_figure8.jpg' not found on input line 868.
+
+
+! Package pdftex.def Error: File `images/lab4_figure8.jpg' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.868 ...h=0.6\textwidth]{images/lab4_figure8.jpg}
+                                                  
+? 
+[58] [59]
+
+LaTeX Warning: File `images/lab4_figure9.jpg' not found on input line 878.
+
+
+! Package pdftex.def Error: File `images/lab4_figure9.jpg' not found: using dra
+ft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.878 ...h=0.6\textwidth]{images/lab4_figure9.jpg}
+                                                  
+? 
+[60] [61] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 4266 strings out of 492985
- 60899 string characters out of 6138637
- 135341 words of memory out of 5000000
- 7707 multiletter control sequences out of 15000+600000
- 10362 words of font info for 37 fonts, out of 8000000 for 9000
+ 5265 strings out of 492985
+ 76632 string characters out of 6138637
+ 156605 words of memory out of 5000000
+ 8684 multiletter control sequences out of 15000+600000
+ 10530 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,7n,43p,481b,262s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cme
-x10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/
-share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></u
-sr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on report.pdf (40 pages, 1057035 bytes).
+ 41i,7n,43p,481b,341s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></
+usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.p
+fb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/font
+s/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmti10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+tt10.pfb>
+Output written on report.pdf (61 pages, 546854 bytes).
 PDF statistics:
- 228 PDF objects out of 1000 (max. 8388607)
- 124 compressed objects within 2 object streams
+ 267 PDF objects out of 1000 (max. 8388607)
+ 173 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 246 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 
