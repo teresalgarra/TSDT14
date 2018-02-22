@@ -138,59 +138,59 @@ plot(t,r_hd, 'm');
 figure;     %7
 stem(t,r_hd, 'b'); xlim([-20,20]);
 %Estimated PSD
-figure;     %12
+figure;     %8
 plot(f,R_hd, 'c'); xlim([0,1]);
 
 %Improved functions
 
 %Rectangular window
 %Improved ACF
-figure;     %13
+figure;     %9
 plot(t, r_hd_re, 'm');
-figure;     %14
+figure;     %10
 stem(t,r_hd_re, 'b'); xlim([-20,20]);
 %Improved PSD
-figure;     %19
+figure;     %11
 plot(f, R_hd_re, 'c'); xlim([0,1]);
 
 %Triangular window
 %Improved ACF
-figure;     %20
+figure;     %12
 plot(t, r_hd_tr, 'm');
-figure;     %21
+figure;     %13
 stem(t,r_hd_tr, 'b'); xlim([-20,20]);
 %Improved PSD
-figure;     %26
+figure;     %14
 plot(f, R_hd_tr, 'c'); xlim([0,1]);
 
 %Hamming window
 %Improved ACF
-figure;     %27
+figure;     %15
 plot(t, r_hd_ha, 'm');
-figure;     %28
+figure;     %16
 stem(t,r_hd_ha, 'b'); xlim([-20,20]);
 %Improved PSD
-figure;     %33
+figure;     %17
 plot(f, R_hd_ha, 'c'); xlim([0,1]);
 
 %Bartlett window
 %Improved ACF
-figure;     %34
+figure;     %18
 plot(t, r_hd_ba, 'm');
-figure;     %35
+figure;     %19
 stem(t,r_hd_ba, 'b'); xlim([-20,20]);
 %Improved PSD
-figure;     %40
+figure;     %20
 plot(f, R_hd_ba, 'c'); xlim([0,1]);
 
 %Blackmanharris window
 %Improved ACF
-figure;     %41
+figure;     %21
 plot(t, r_hd_bl, 'm');
-figure;     %42
+figure;     %22
 stem(t,r_hd_bl, 'b'); xlim([-20,20]);
 %Improved PSD
-figure;     %47
+figure;     %23
 plot(f, R_hd_bl, 'c'); xlim([0,1]);
 
 
@@ -199,62 +199,62 @@ plot(f, R_hd_bl, 'c'); xlim([0,1]);
 %Estimations
 
 %Estimated ACF
-figure;     %48
+figure;     %24
 plot(t,r_ld, 'm');
-figure;     %49
+figure;     %25
 stem(t,r_ld, 'b'); xlim([-20,20]);
 %Estimated PSD
-figure;     %54
+figure;     %26
 plot(f,R_ld, 'c'); xlim([0,1]);
 
 %Improved functions
 
 %Rectangular window
 %Improved ACF
-figure;     %55
+figure;     %27
 plot(t, r_ld_re, 'm');
-figure;     %56
+figure;     %28
 stem(t,r_ld_re, 'b'); xlim([-20,20]);
 %Improved PSD
-figure;     %61
+figure;     %29
 plot(f, R_ld_re, 'c'); xlim([0,1]);
 
 %Triangular window
 %Improved ACF
-figure;     %62
+figure;     %30
 plot(t, r_ld_tr, 'm');
-figure;     %63
+figure;     %31
 stem(t,r_ld_tr, 'b'); xlim([-20,20]);
 %Improved PSD
-figure;     %68
+figure;     %32
 plot(f, R_ld_tr, 'c'); xlim([0,1]);
 
 %Hamming window
 %Improved ACF
-figure;     %69
+figure;     %33
 plot(t, r_ld_ha, 'm');
-figure;     %70
+figure;     %34
 stem(t,r_ld_ha, 'b'); xlim([-20,20]);
 %Improved PSD
-figure;     %75
+figure;     %35
 plot(f, R_ld_ha, 'c'); xlim([0,1]);
 
 %Bartlett window
 %Improved ACF
-figure;     %76
+figure;     %36
 plot(t, r_ld_ba, 'm');
-figure;     %77
+figure;     %37
 stem(t,r_ld_ba, 'b'); xlim([-20,20]);
 %Improved PSD
-figure;     %82
+figure;     %38
 plot(f, R_ld_ba, 'c'); xlim([0,1]);
 
 %Blackmanharris window
 %Improved ACF
-figure;     %83
+figure;     %39
 plot(t, r_ld_bl, 'm');
-figure;     %84
+figure;     %40
 stem(t,r_ld_bl, 'b'); xlim([-20,20]);
 %Improved PSD
-figure;     %89
+figure;     %41
 plot(f, R_ld_bl, 'c'); xlim([0,1]);
