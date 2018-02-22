@@ -238,58 +238,98 @@ We get the following PSD:
 
 \subsection{Estimations:}
 
-\subsubsection{Low-degree filter:}
+\subsubsection{Ideal filter}
 
-We will start with the low-degree filter. We will use a first order Butterworth filter. The estimated PSD that we get comes from multiplying the squared absolute value of the filter by the PSD of the input signal, so we get:
+For the ideal filter, we will use a tenth order butterworth filter.
+
+We get the following PSD:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab1_figure1_3.jpg}
+      \includegraphics[width=0.6\textwidth]{images/lab1_22.jpg}
+      \captionof{figure}{Estimated PSD}
     \end{center}
 \end{figure}
 
-Then, for the ACF we use Bartlett's estimation, a funcion that I've defined in a separate script. The result is:
+If we estimate by the Bartlett method, we get the following ACF:
+
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_18.jpg}
+  \captionof{figure}{Estimated by Bartlett ACF plotted}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_19.jpg}
+  \captionof{figure}{Estimated by Bartlett ACF stemed}
+\end{minipage}
+\end{figure}
+
+\newpage
+
+If we estimate by the Blackman-Harris method, we get the following ACF:
+
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_20.jpg}
+  \captionof{figure}{Estimated by Blackman-Harris ACF plotted}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_21.jpg}
+  \captionof{figure}{Estimated by Blackman-Harris ACF stemed}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Low-degree filter}
+
+For the low-degree filter, we will use a first order butterworth filter.
+
+We get the following PSD:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_figure3.jpg}
+      \includegraphics[width=0.6\textwidth]{images/lab1_42.jpg}
+      \captionof{figure}{Estimated PSD}
     \end{center}
 \end{figure}
 
 \newpage
 
+If we estimate by the Bartlett method, we get the following ACF:
+
 \begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_figure2.jpg}
-    \end{center}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_38.jpg}
+  \captionof{figure}{Estimated by Bartlett ACF plotted}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_39.jpg}
+  \captionof{figure}{Estimated by Bartlett ACF stemed}
+\end{minipage}
 \end{figure}
 
-\newpage
-
-\subsubsection{Ideal filter:}
-
-For the ideal filter, the process is exactly the same, but using a tenth order butterworth filter. We get the following PSD, which closed up shows that it's a bit more abrupt that the one from the low-degree filter. It goes symmetric from 0.5 until 1 as the other one.
+If we estimate by the Blackman-Harris method, we get the following ACF:
 
 \begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab1_redo_figure13.jpg}
-    \end{center}
-\end{figure}
-
-We get the following ACF:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_figure1.jpg}
-    \end{center}
-\end{figure}
-
-\newpage
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_figure4.jpg}
-    \end{center}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_40.jpg}
+  \captionof{figure}{Estimated by Blackman-Harris ACF plotted}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab1_41.jpg}
+  \captionof{figure}{Estimated by Blackman-Harris ACF stemed}
+\end{minipage}
 \end{figure}
 
 \newpage
@@ -298,23 +338,14 @@ We get the following ACF:
 
 \begin{itemize}
 
-\item Low-degree filter:
-
-\begin{enumerate}
-
-\item For the low-degree low-pass filter we can see that, regarding the PSD, the estimation does not differ much from the theoretical calculation, as it is almost the same plot.
-\item For the ACF, it's also accurate, since the low-degree filter is already not very precise, so the estimations work well.
-
-\end{enumerate}
-
 \item Ideal filter:
 
-\begin{enumerate}
+As we can see, the changes from the ideal filter to a tenth order filter are really big. Maybe it would have been more accurate to pick a 15th order filter, or something even bigger. The PSD goes from being a step to being a curve, and the ACF goes from having a peak in 0 to having it in 0.5, so the changes are bigger than desirable.
+There is not a big difference between the Bartlett estimation and the Blackman-Harris one.
 
-\item For the ideal filter, things definitely differ, as the PSD is a much more smoother curve than the abrupt step that we get in the theoretical calculation.
-\item The ACF is much more irregular, our estimation does not give us the steady, straight line that we get in our calculations.
+\item Low-degree filter:
 
-\end{enumerate}
+The changes from this filter to the estimated one are also really big. The PSD is not as expected, and more than a curve it's almost a down-going straight line. The ACF has the same problem as the ideal filter, the peak has been moved to 0.5 in stead of 0.
 
 \end{itemize}
 
@@ -324,205 +355,583 @@ We get the following ACF:
 
 \subsection{Theoretical Background:}
 
-In this second study, the aim is to improve the estimates done in the first study. We will use the same White Gaussian noise and both filters. In order to improve our estimations, we have several ways of doing it. We can use \textit{windows}, in which case we have a few possibilities, of which we will explore three of them, \textit{rectangular window}, \textit{Blackman-Harris window} and a \textit{triangle window}.
+In this second study, the aim is to improve the estimates done in the first study.
+We will use the same White Gaussian noise and both filters.
+In order to improve our estimations, we will use \textit{windows}, in which case we have a few possibilities,
+of which we will explore:
 
-Here we show the Blackman-Harris window:
+\begin{itemize}
+  \item \textit{Rectangular window}
+  \item \textit{Triangle window}.
+  \item \textit{Hamming window}.
+  \item \textit{Bartlett window}
+  \item \textit{Blackman-Harris window}.
+\end{itemize}
+
+Here we show the different windows used:
 
 \begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_figure11.jpg}
-    \end{center}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_1.jpg}
+  \captionof{figure}{Rectangular window}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_2.jpg}
+  \captionof{figure}{Triangular window}
+\end{minipage}
 \end{figure}
 
-And the triangle window:
+\newpage
 
 \begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_figure13.jpg}
-    \end{center}
-\end{figure}
-
-\subsection{Improved Estimations:}
-
-\subsubsection{Ideal filter:}
-
-We will start exploring the ACF of the ideal filter. Using the previously defined functions, we get this plots:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_figure1.jpg}
-    \end{center}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_3.jpg}
+  \captionof{figure}{Hamming window}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_4.jpg}
+  \captionof{figure}{Bartlett window}
+\end{minipage}
 \end{figure}
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_figure2.jpg}
+      \includegraphics[width=0.6\textwidth]{images/lab2_5.jpg}
+      \captionof{figure}{Blackman-Harris window}
     \end{center}
 \end{figure}
 
 \newpage
 
-We can also estimate the ACF with the Bartlett method, having these results:
+\subsection{Improved Estimates: Ideal filter}
+
+For this section we will take the estimations done during the first study with the tenth degree Butterworth filter.
+
+We have the following PSD:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_redo_figure13.jpg}
+      \includegraphics[width=0.6\textwidth]{images/lab2_12.jpg}
+      \captionof{figure}{Estimated PSD}
     \end{center}
 \end{figure}
 
+If we estimate by the Bartlett method, we get the following ACF:
+
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_8.jpg}
+  \captionof{figure}{Estimated by Bartlett ACF plotted}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_9.jpg}
+  \captionof{figure}{Estimated by Bartlett ACF stemed}
+\end{minipage}
+\end{figure}
+
+\newpage
+
+If we estimate by the Blackman-Harris method, we get the following ACF:
+
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_10.jpg}
+  \captionof{figure}{Estimated by Blackman-Harris ACF plotted}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_11.jpg}
+  \captionof{figure}{Estimated by Blackman-Harris ACF stemed}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Rectangular Window:}
+
+Here we will get our filtered signal by a filter which is our rectangular window. There are the results:
+
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_redo_figure14.jpg}
+      \includegraphics[width=0.6\textwidth]{images/lab2_19.jpg}
+      \captionof{figure}{Improved PSD}
     \end{center}
 \end{figure}
 
 \newpage
 
-We now get on to the theoretical PSD we get from the filtered signal:
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_15.jpg}
+  \captionof{figure}{Improved ACF plotted (Bartlett)}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_16.jpg}
+  \captionof{figure}{Improved ACF stemed (Bartlett)}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_17.jpg}
+  \captionof{figure}{Improved ACF plotted (Blackman-Harris)}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_18.jpg}
+  \captionof{figure}{Improved ACF stemed (Blackman-Harris)}
+\end{minipage}
+\end{figure}
+
+\newpage
+
+\subsubsection{Triangular Window:}
+
+Here we will get our filtered signal by triangle window. We get:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_redo_figure2.jpg}
+      \includegraphics[width=0.6\textwidth]{images/lab2_26.jpg}
+      \captionof{figure}{Improved PSD}
     \end{center}
 \end{figure}
 
-Moving on to the estimations, here we have the original estimated periodogram for our signal.
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_22.jpg}
+  \captionof{figure}{Improved ACF plotted (Bartlett)}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_23.jpg}
+  \captionof{figure}{Improved ACF stemed (Bartlett)}
+\end{minipage}
+\end{figure}
+
+\newpage
+
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_24.jpg}
+  \captionof{figure}{Improved ACF plotted (Blackman-Harris)}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_25.jpg}
+  \captionof{figure}{Improved ACF stemed (Blackman-Harris)}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Hamming Window:}
+
+Here we will get our filtered signal by the Hamming window. Here are the results:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_redo_figure3.jpg}
+      \includegraphics[width=0.6\textwidth]{images/lab2_33.jpg}
+      \captionof{figure}{Improved PSD}
     \end{center}
 \end{figure}
 
 \newpage
 
-Now we calculate the averaged periodogram:
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_29.jpg}
+  \captionof{figure}{Improved ACF plotted (Bartlett)}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_30.jpg}
+  \captionof{figure}{Improved ACF stemed (Bartlett)}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_31.jpg}
+  \captionof{figure}{Improved ACF plotted (Blackman-Harris)}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_32.jpg}
+  \captionof{figure}{Improved ACF stemed (Blackman-Harris)}
+\end{minipage}
+\end{figure}
+
+\newpage
+
+\subsubsection{Bartlett Window:}
+
+Here we will get our filtered signal by the Bartlett rectangular window. We get:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_redo_figure4.jpg}
+      \includegraphics[width=0.6\textwidth]{images/lab2_40.jpg}
+      \captionof{figure}{Improved PSD}
     \end{center}
 \end{figure}
 
-And finally we move on to our improved estimations. Here we have the smoothed periodogram with the rectangular window:
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_36.jpg}
+  \captionof{figure}{Improved ACF plotted (Bartlett)}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_37.jpg}
+  \captionof{figure}{Improved ACF stemed (Bartlett)}
+\end{minipage}
+\end{figure}
+
+\newpage
+
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_38.jpg}
+  \captionof{figure}{Improved ACF plotted (Blackman-Harris)}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_39.jpg}
+  \captionof{figure}{Improved ACF stemed (Blackman-Harris)}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Blackman-Harris Window:}
+
+Here we will get our filtered signal by the Blackman-Harris window. Here are the results:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_redo_figure5.jpg}
+      \includegraphics[width=0.6\textwidth]{images/lab2_47.jpg}
+      \captionof{figure}{Improved PSD}
     \end{center}
 \end{figure}
 
 \newpage
 
-This is the periodrogram gotten through the Blackman-Harris window:
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_43.jpg}
+  \captionof{figure}{Improved ACF plotted (Bartlett)}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_44.jpg}
+  \captionof{figure}{Improved ACF stemed (Bartlett)}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_45.jpg}
+  \captionof{figure}{Improved ACF plotted (Blackman-Harris)}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_46.jpg}
+  \captionof{figure}{Improved ACF stemed (Blackman-Harris)}
+\end{minipage}
+\end{figure}
+
+\newpage
+
+\subsection{Improved Estimates: Low-degree filter:}
+
+Let's move on to the low-degree filter. As before, for this section we will take the estimations done during the first study
+with the first degree Butterworth filter.
+
+We have the following PSD:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_redo_figure6.jpg}
+      \includegraphics[width=0.6\textwidth]{images/lab2_54.jpg}
+      \captionof{figure}{Estimated PSD}
     \end{center}
 \end{figure}
 
-And this is the one we get through the triangle window:
+If we estimate by the Bartlett method, we get the following ACF:
+
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_50.jpg}
+  \captionof{figure}{Estimated by Bartlett ACF plotted}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_51.jpg}
+  \captionof{figure}{Estimated by Bartlett ACF stemed}
+\end{minipage}
+\end{figure}
+
+\newpage
+
+If we estimate by the Blackman-Harris method, we get the following ACF:
+
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_52.jpg}
+  \captionof{figure}{Estimated by Blackman-Harris ACF plotted}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_53.jpg}
+  \captionof{figure}{Estimated by Blackman-Harris ACF stemed}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Rectangular Window:}
+
+Here we will get our filtered signal by a filter which is our rectangular window. There are the results:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_redo_figure7.jpg}
+      \includegraphics[width=0.6\textwidth]{images/lab2_61.jpg}
+      \captionof{figure}{Improved PSD}
     \end{center}
 \end{figure}
 
 \newpage
 
-\subsubsection{Low-degree filter:}
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_57.jpg}
+  \captionof{figure}{Improved ACF plotted (Bartlett)}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_58.jpg}
+  \captionof{figure}{Improved ACF stemed (Bartlett)}
+\end{minipage}
+\end{figure}
 
-Let's move on to the low-degree filter, starting with the ACF:
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_59.jpg}
+  \captionof{figure}{Improved ACF plotted (Blackman-Harris)}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_60.jpg}
+  \captionof{figure}{Improved ACF stemed (Blackman-Harris)}
+\end{minipage}
+\end{figure}
+
+\newpage
+
+\subsubsection{Triangular Window:}
+
+Here we will get our filtered signal by triangle window. We get:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_figure3.jpg}
+      \includegraphics[width=0.6\textwidth]{images/lab2_68.jpg}
+      \captionof{figure}{Improved PSD}
     \end{center}
 \end{figure}
 
 \begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_64.jpg}
+  \captionof{figure}{Improved ACF plotted (Bartlett)}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_65.jpg}
+  \captionof{figure}{Improved ACF stemed (Bartlett)}
+\end{minipage}
+\end{figure}
+
+\newpage
+
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_66.jpg}
+  \captionof{figure}{Improved ACF plotted (Blackman-Harris)}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_67.jpg}
+  \captionof{figure}{Improved ACF stemed (Blackman-Harris)}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Hamming Window:}
+
+Here we will get our filtered signal by the Hamming window. Here are the results:
+
+\begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_figure2.jpg}
+      \includegraphics[width=0.6\textwidth]{images/lab2_75.jpg}
+      \captionof{figure}{Improved PSD}
     \end{center}
 \end{figure}
 
 \newpage
 
-We can also estimate the ACF with the Bartlett method, having these results:
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_71.jpg}
+  \captionof{figure}{Improved ACF plotted (Bartlett)}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_72.jpg}
+  \captionof{figure}{Improved ACF stemed (Bartlett)}
+\end{minipage}
+\end{figure}
+
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_73.jpg}
+  \captionof{figure}{Improved ACF plotted (Blackman-Harris)}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_74.jpg}
+  \captionof{figure}{Improved ACF stemed (Blackman-Harris)}
+\end{minipage}
+\end{figure}
+
+\newpage
+
+\subsubsection{Bartlett Window:}
+
+Here we will get our filtered signal by the Bartlett rectangular window. We get:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_figure3.jpg}
+      \includegraphics[width=0.6\textwidth]{images/lab2_82.jpg}
+      \captionof{figure}{Improved PSD}
     \end{center}
 \end{figure}
 
 \begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_78.jpg}
+  \captionof{figure}{Improved ACF plotted (Bartlett)}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_79.jpg}
+  \captionof{figure}{Improved ACF stemed (Bartlett)}
+\end{minipage}
+\end{figure}
+
+\newpage
+
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_80.jpg}
+  \captionof{figure}{Improved ACF plotted (Blackman-Harris)}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_81.jpg}
+  \captionof{figure}{Improved ACF stemed (Blackman-Harris)}
+\end{minipage}
+\end{figure}
+
+\subsubsection{Blackman-Harris Window:}
+
+Here we will get our filtered signal by the Blackman-Harris window. Here are the results:
+
+\begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_figure2.jpg}
+      \includegraphics[width=0.6\textwidth]{images/lab2_89.jpg}
+      \captionof{figure}{Improved PSD}
     \end{center}
 \end{figure}
 
 \newpage
 
-We now get on to the theoretical PSD we get from the filtered signal:
-
 \begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab1_figure1_3.jpg}
-    \end{center}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_85.jpg}
+  \captionof{figure}{Improved ACF plotted (Bartlett)}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_86.jpg}
+  \captionof{figure}{Improved ACF stemed (Bartlett)}
+\end{minipage}
 \end{figure}
 
-Going to the estimations, here we have the original estimated periodogram for our signal.
-
 \begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_redo_figure15.jpg}
-    \end{center}
-\end{figure}
-
-\newpage
-
-Now we calculate the averaged periodogram:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_redo_figure16.jpg}
-    \end{center}
-\end{figure}
-
-And finally, the improved estimations. Here we have the periodogram taken through the rectangular window:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_figure10.jpg}
-    \end{center}
-\end{figure}
-
-\newpage
-
-This is the periodrogram gotten through the Blackman-Harris window:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_figure12.jpg}
-    \end{center}
-\end{figure}
-
-And this is the one we get through the triangle window:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab2_figure14.jpg}
-    \end{center}
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_87.jpg}
+  \captionof{figure}{Improved ACF plotted (Blackman-Harris)}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab2_88.jpg}
+  \captionof{figure}{Improved ACF stemed (Blackman-Harris)}
+\end{minipage}
 \end{figure}
 
 \newpage
 
 \subsection{Final Conclusion:}
 
-As we can see, the ones we estimate are much more smoothier and have an unique line or curve, in stead of being a messy signal with ups and downs as are they raw and averaged periodograms. The look much more like the theoretical PSD we get, meaning they have a cleaner and closer approach to the calculations we have done before-hand. Still, they're much smoother and less abrupt than the estimations for the ideal filter, since, after all, they are still estimations.
+As we can see, it's easier to work with smoothed graphs, for we can see the features of each plot better and it's not a messy drawing.
+It's like filtering the noise again.
+
+Tha Blackman-Harris window was the most aggresive one, followed by the Hamming window. The other windows respect more the natural form of the plot.
 
 \newpage
 
@@ -589,63 +998,25 @@ Knowing the value of $R_x(\tau)$, and therefore the value of $r_x(\tau)$, we tra
 
 \newpage
 
-As done in the previous studies, we will use input noise:
+As done in the previous studies, we will use input noise. We will get it through in ideal low-pass filter, having the following result:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab3_figure1_1.jpg}
+    \includegraphics[width=0.6\textwidth]{images/lab3_6.jpg}
+    \captionof{figure}{Filtered Signal}
     \end{center}
 \end{figure}
-
-We will get it through in ideal low-pass filter, having the following result:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab3_figure1_2.jpg}
-    \end{center}
-\end{figure}
-
-\newpage
-
-The systems have the following representation:
-
-This is the squarer system:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab3_figure2_1.jpg}
-    \end{center}
-\end{figure}
-
-This is the half-wave rectifier:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab3_figure2_2.jpg}
-    \end{center}
-\end{figure}
-
-\newpage
-
-This is the AM-SC modulator:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab3_figure2_3.jpg}
-    \end{center}
-\end{figure}
-
-As it is obvious from the equations, the two first systems are only positive, whereas the third one isn't necessarily positive, it can have negative values.
 
 \newpage
 
 \subsection{Theoretical Analysis:}
 
-First we can start with the PSD. We use the funtions that we have already used in previous studies, resulting in a PSD for the filter signal with the following plot:
+First we can start with the filtered signal's PSD. We use the funtions that we have already used in previous studies, resulting in a PSD for the filter signal with the following plot:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab3_figure9_1.jpg}
+    \includegraphics[width=0.6\textwidth]{images/lab1_15.jpg}
+    \captionof{figure}{PSD of the filtered signal}
     \end{center}
 \end{figure}
 
@@ -653,7 +1024,8 @@ If we get the signal through the squarer, the resulting PSD is:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab3_figure9_2.jpg}
+    \includegraphics[width=0.6\textwidth]{images/lab3_7.jpg}
+    \captionof{figure}{PSD of the signal through the squarer}
     \end{center}
 \end{figure}
 
@@ -663,7 +1035,8 @@ The PSD that we get after applying the half-wave rectifier to the filtered signa
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab3_figure9_3.jpg}
+    \includegraphics[width=0.6\textwidth]{images/lab3_8.jpg}
+    \captionof{figure}{PSD of the signal through the half-wave rectifier}
     \end{center}
 \end{figure}
 
@@ -671,77 +1044,8 @@ Lastly, the PSD resulting from AM-SC modulating the signal is:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab3_figure9_4.jpg}
-    \end{center}
-\end{figure}
-
-\newpage
-
-\subsection{Periodograms and historiograms:}
-
-We can continue with the periodograms of the three non-linear systems.
-
-For the squarer, the plot resulting of applying our defined Periodogram function is:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab3_figure10.jpg}
-    \end{center}
-\end{figure}
-
-Then we have the following plot for the half-wave rectifier:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab3_figure10_1.jpg}
-    \end{center}
-\end{figure}
-
-\newpage
-
-Then, we get this periodogram for the AM-SC modulator:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab3_figure10_4.jpg}
-    \end{center}
-\end{figure}
-
-The last thing we will calculate in this section is the historiogram of each one of our systems.
-
-First, the historiogram of our signal Y:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab3_redo_33.jpg}
-    \end{center}
-\end{figure}
-
-\newpage
-
-This is the one for the squarer:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab3_redo_34.jpg}
-    \end{center}
-\end{figure}
-
-We have the following historiogram for the half-wave rectifier:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab3_redo_35.jpg}
-    \end{center}
-\end{figure}
-
-\newpage
-
-Finally, this is the plot of the historiogram of the AM-SC modulator:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab3_redo_36.jpg}
+    \includegraphics[width=0.6\textwidth]{images/lab3_9.jpg}
+    \captionof{figure}{PSD of the signal through the AM-SC modulator}
     \end{center}
 \end{figure}
 
@@ -749,45 +1053,246 @@ Finally, this is the plot of the historiogram of the AM-SC modulator:
 
 \subsection{Estimations:}
 
-We will plot the estimations for the PSD. We will smooth them with a rectangular window.
+We can continue with the estimations the three non-linear systems.
 
 If we get the signal through the squarer, the resulting PSD is:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab3_redo_26.jpg}
-    \end{center}
-\end{figure}
-
-The PSD that we get after applying the half-wave rectifier to the filtered signal is:
-
-\begin{figure}[!hp]
-    \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab3_redo_27.jpg}
+    \includegraphics[width=0.6\textwidth]{images/lab3_16.jpg}
+    \captionof{figure}{PSD of the signal through the squarer}
     \end{center}
 \end{figure}
 
 \newpage
 
+The PSD that we get after applying the half-wave rectifier to the filtered signal is:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab3_18.jpg}
+    \captionof{figure}{PSD of the signal through the Half-Wave Rectifier}
+    \end{center}
+\end{figure}
+
 Lastly, the PSD resulting from AM-SC modulating the signal is:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab3_redo_28.jpg}
+    \includegraphics[width=0.6\textwidth]{images/lab3_20.jpg}
+    \captionof{figure}{PSD of the signal through the AM-SC modulator}
     \end{center}
 \end{figure}
 
+\newpage
+
+\subsection{Improved Estimations:}
+
+Here we will smooth the precious plots as done in Study 2:
+
+\subsubsection{Rectangular Window:}
+
+First we have the squarer PSD:
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab3_22.jpg}
+    \captionof{figure}{Improved PSD of the signal through the squarer}
+    \end{center}
+\end{figure}
+
+Then we have the half-wave rectifier PSD:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab3_32.jpg}
+    \captionof{figure}{Improved PSD of the signal through the Half-Wave Rectifier}
+    \end{center}
+\end{figure}
+
+\newpage
+
+Lastly, we have the AM-SC modulator PSD:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab3_42.jpg}
+    \captionof{figure}{Improved PSD of the signal through the AM-SC modulator}
+    \end{center}
+\end{figure}
+
+\subsubsection{Triangular Window:}
+
+First we have the squarer PSD:
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab3_24.jpg}
+    \captionof{figure}{Improved PSD of the signal through the squarer}
+    \end{center}
+\end{figure}
+
+\newpage
+
+Then we have the half-wave rectifier PSD:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab3_34.jpg}
+    \captionof{figure}{Improved PSD of the signal through the Half-Wave Rectifier}
+    \end{center}
+\end{figure}
+
+Lastly, we have the AM-SC modulator PSD:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab3_44.jpg}
+    \captionof{figure}{Improved PSD of the signal through the AM-SC modulator}
+    \end{center}
+\end{figure}
+
+\newpage
+
+\subsubsection{Hamming Window:}
+
+First we have the squarer PSD:
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab3_26.jpg}
+    \captionof{figure}{Improved PSD of the signal through the squarer}
+    \end{center}
+\end{figure}
+
+Then we have the half-wave rectifier PSD:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab3_36.jpg}
+    \captionof{figure}{Improved PSD of the signal through the Half-Wave Rectifier}
+    \end{center}
+\end{figure}
+
+\newpage
+
+Lastly, we have the AM-SC modulator PSD:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab3_46.jpg}
+    \captionof{figure}{Improved PSD of the signal through the AM-SC modulator}
+    \end{center}
+\end{figure}
+
+\subsubsection{Bartlett Window:}
+
+First we have the squarer PSD:
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab3_28.jpg}
+    \captionof{figure}{Improved PSD of the signal through the squarer}
+    \end{center}
+\end{figure}
+
+\newpage
+
+Then we have the half-wave rectifier PSD:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab3_38.jpg}
+    \captionof{figure}{Improved PSD of the signal through the Half-Wave Rectifier}
+    \end{center}
+\end{figure}
+
+Lastly, we have the AM-SC modulator PSD:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab3_48.jpg}
+    \captionof{figure}{Improved PSD of the signal through the AM-SC modulator}
+    \end{center}
+\end{figure}
+
+\newpage
+
+\subsubsection{Blackman-Harris Window:}
+
+First we have the squarer PSD:
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab3_30.jpg}
+    \captionof{figure}{Improved PSD of the signal through the squarer}
+    \end{center}
+\end{figure}
+
+Then we have the half-wave rectifier PSD:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab3_40.jpg}
+    \captionof{figure}{Improved PSD of the signal through the Half-Wave Rectifier}
+    \end{center}
+\end{figure}
+
+\newpage
+
+Lastly, we have the AM-SC modulator PSD:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab3_50.jpg}
+    \captionof{figure}{Improved PSD of the signal through the AM-SC modulator}
+    \end{center}
+\end{figure}
+
+\newpage
+
+\subsection{Historiograms:}
+
+Here we have the historiogram of each one of our systems.
+
+First, the historiogram of our signal Y:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab3_52.jpg}
+    \captionof{figure}{Historiogram of the filtered signal}
+    \end{center}
+\end{figure}
+
+If we get the signal through the squarer, the resulting Historiogram is:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab3_53.jpg}
+    \captionof{figure}{Historiogram of the signal through the squarer}
+    \end{center}
+\end{figure}
+
+\newpage
+
+The Historiogram that we get after applying the half-wave rectifier to the filtered signal is:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab3_54.jpg}
+    \captionof{figure}{Historiogram of the signal through the half-wave rectifier}
+    \end{center}
+\end{figure}
+
+Lastly, the Historiogram resulting from AM-SC modulating the signal is:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab3_55.jpg}
+    \captionof{figure}{Historiogram of the signal through the AM-SC Modulator}
+    \end{center}
+\end{figure}
+
+\newpage
+
 \subsection{Final Comparation:}
 
-\begin{itemize}
-
-\item We can assume that the theoretical calculations for the PSD as pretty accurate, since the estimated plots are a more curved or smoothed version of the calculated PSD, given that no real process has such an abrupt change in its PSD.
-
-\item In the periodograms, we can see how differently the signal changes depending on the system. On the AM-SC modulator, we have two peaks in the middle, whereas in the squarer, we have two symmetrical decreasing signals on the corner of the plot, for example. This can give us an idea of how the system will work.
-
-\item Lastly, the historiograms are very different among them. We can see how well distributed is the one from our signal Y, and then how the squarer and the half-wave rectifier make it only positive and way more abrupt. With the AM-SC modulator, we still have the negative part but it becomes, once again, more abrupt, with a remarkable slop.
-
-\end{itemize}
+My conclusion is that the half-wave rectifier is not a WSS system, because the PSD doesn't exist. The other two are WSS because the PSD exists and the plots make sense.
 
 \newpage
 
@@ -810,6 +1315,24 @@ We hace two special operations:
 \end{equation}
 
 These represent two ways in which signals can be manipulated. We will get our every-study low-pass filtered White Gaussian Noise through these systems, to see if they're still WSS and to analize what happends with the PSDs of the signals that are being manipulated in this way in our every-day life situations.
+
+The signals resulting from those systems are:
+
+\begin{figure}[!hp]
+\centering
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab4_13.jpg}
+  \captionof{figure}{Signal resulting from the first system}
+\end{minipage}%
+\begin{minipage}{.5\textwidth}
+  \centering
+  \includegraphics[width=1\linewidth]{images/lab4_16.jpg}
+  \captionof{figure}{Signal resulting from the second system}
+\end{minipage}
+\end{figure}
+
+\newpage
 
 We have to calculate the PSD from the ACF:
 
@@ -837,7 +1360,8 @@ First we will start showing the plots of the theoretical PSD. Here is the PSD of
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab4_figure11.jpg}
+    \includegraphics[width=0.6\textwidth]{images/lab4_8.jpg}
+    \captionof{figure}{PSD of the signal through the first system}
     \end{center}
 \end{figure}
 
@@ -845,7 +1369,8 @@ And here we have the PSD of the signal after the second system:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab4_figure12.jpg}
+      \includegraphics[width=0.6\textwidth]{images/lab4_9.jpg}
+      \captionof{figure}{PSD of the signal through the second system}
     \end{center}
 \end{figure}
 
@@ -853,35 +1378,145 @@ And here we have the PSD of the signal after the second system:
 
 \subsection{Estimations:}
 
-Leaving behind the theoretical calculations, we can move one to the estimations done, so we will go to the PSD estimation for the first case:
+We can continue with the estimations the two systems.
+
+If we get the signal through the first system, the resulting PSD is:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab4_figure7.jpg}
+    \includegraphics[width=0.6\textwidth]{images/lab4_19.jpg}
+    \captionof{figure}{PSD of the signal through the first system}
     \end{center}
 \end{figure}
 
-This plot is the PSD estimation for the first system:
+The PSD that we get after applying the second system to the filtered signal is:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab4_figure8.jpg}
+    \includegraphics[width=0.6\textwidth]{images/lab4_21.jpg}
+    \captionof{figure}{PSD of the signal through the second system}
     \end{center}
 \end{figure}
 
 \newpage
 
-And this is the PSD associated to the last manipulation described:
+\subsection{Improved Estimations:}
+
+Here we will smooth the precious plots as done in Study 2:
+
+\subsubsection{Rectangular Window:}
+
+First we have the first system:
 
 \begin{figure}[!hp]
     \begin{center}
-    \includegraphics[width=0.6\textwidth]{images/lab4_figure9.jpg}
+    \includegraphics[width=0.6\textwidth]{images/lab4_23.jpg}
+    \captionof{figure}{Improved PSD of the signal through the first system}
     \end{center}
 \end{figure}
 
+Then we have the second system:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab4_33.jpg}
+    \captionof{figure}{Improved PSD of the signal through the second system}
+    \end{center}
+\end{figure}
+
+\newpage
+
+\subsubsection{Triangular Window:}
+
+First we have the first system:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab4_25.jpg}
+    \captionof{figure}{Improved PSD of the signal through the first system}
+    \end{center}
+\end{figure}
+
+Then we have the second system:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab4_35.jpg}
+    \captionof{figure}{Improved PSD of the signal through the second system}
+    \end{center}
+\end{figure}
+
+\newpage
+
+\subsubsection{Hamming Window:}
+
+First we have the first system:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab4_27.jpg}
+    \captionof{figure}{Improved PSD of the signal through the first system}
+    \end{center}
+\end{figure}
+
+Then we have the second system:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab4_37.jpg}
+    \captionof{figure}{Improved PSD of the signal through the second system}
+    \end{center}
+\end{figure}
+
+\newpage
+
+\subsubsection{Bartlett Window:}
+
+First we have the first system:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab4_29.jpg}
+    \captionof{figure}{Improved PSD of the signal through the first system}
+    \end{center}
+\end{figure}
+
+Then we have the second system:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab4_39.jpg}
+    \captionof{figure}{Improved PSD of the signal through the second system}
+    \end{center}
+\end{figure}
+
+\newpage
+
+\subsubsection{Blackman-Harris Window:}
+
+First we have the first system:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab4_31.jpg}
+    \captionof{figure}{Improved PSD of the signal through the first system}
+    \end{center}
+\end{figure}
+
+Then we have the second system:
+
+\begin{figure}[!hp]
+    \begin{center}
+    \includegraphics[width=0.6\textwidth]{images/lab4_41.jpg}
+    \captionof{figure}{Improved PSD of the signal through the second system}
+    \end{center}
+\end{figure}
+
+\newpage
+
 \subsection{Final Comparation:}
 
-As we can see, the estimated PSD is a messy version of the theoretical PSD, so we can assume that, if we filter it and smoothed it, we would have the same PSD. That shows that the calculations are correct, but that the systems are putting a lot of noise in the resulting plots.
+Both systmes are relatively similar when it comes to plotting the PSD. If we don't smooth the graphics, the plots are caotic and hard to read, but after putting the through a window (I think the rectangular window is the best here) it's easier to see that the first system is a bit smoother than the second one, because there are less differences between the peaks. 
 
 \vspace{4cm}
 

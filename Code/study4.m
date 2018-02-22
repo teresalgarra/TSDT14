@@ -3,11 +3,11 @@ clc;
 close all;
 
 N = 16;
+x=randn(1,2^N);
+X = (1/N)*fft(x);
 Ts = 1;
 dt = Ts/2^N;
 fs = 1/dt;
-x=randn(1,2^N);
-X = (1/N)*fft(x);
 Rx = 1;
 T = Ts/2^N; %sampling length.
 fc  = 1; %Si no funciona algo, igual aquí es 10
@@ -32,10 +32,8 @@ h_th = ifft(H_th, 'symmetric');
 Y_th = X.*H_th;
 y_th = ifft(Y_th,'symmetric');
 
-%First PSD
-R_th = zeros(1,N);
-R_th(abs(w) <wc ) = 1;
-R_th(abs(w) >1-wc ) = 1;
+%Theoretical PSD
+R_th = abs(H_th).^2;
 
 %First System's PSD
 R_th_1 = rectpuls((w-1/2)/(2*wc));
@@ -45,115 +43,43 @@ R_th_2 = 1/4*(rectpuls((w-1/2)/(2*wc))) + 1/4*(rectpuls(w/(2*wc))+rectpuls((w-1)
 
 %%Estimated functions%%
 
-%10th degree filter
-wc = 2*pi*fc;
-[b,a] = butter(10,2*wc,'s');
+%20th degree filter
+wc_hd = 2*pi*fc_hd;
+[b,a] = butter(20,2*wc_hd,'s');
 H_es = (polyval(b,f)./polyval(a,f));
-h_es = ifft(H_es, 'symmetric');
+h_es = ifft(H_hd_es, 'symmetric');
 
 %Filtered signal
 Y_es = X.*H_es;
 y_es = ifft(Y_es,'symmetric');
 
+%%Results%%
+r_es = acf(y_es);
+R_es = fft(r_es);
+
 %Systems
-s1 = cos(pi*t);
-s2 = cos(pi*t/2).*cos(pi*t/2);
+s1 = X.*(-1)^(f);
+
+
+%No sé? Decimar!
+sequence = zeros(1,2^N);
+sequence(2*f) = 1;
+s2 = X.*sequence;
 
 %First System
 y_es_1 = y_es.*s1;
 Y_es_1 = abs(fft(y_es_1));
 
-r_es_1_ba = es_bartlett(y_es_1);
-R_es_1_ba = abs(fft(r_es_1_ba));
-
-r_es_1_bl = es_blackman(y_es_1);
-R_es_1_bl = abs(fft(r_es_1_bl));
+r_es_1 = acf(y_es_1);
+R_es_1 = abs(fft(r_es_1));
 
 %Second System
 y_es_2 = y_es.*s2;
 Y_es_2 = abs(fft(y_es_2));
 
-r_es_2_ba = es_bartlett(y_es_2);
-R_es_2_ba = abs(fft(r_es_2_ba));
+r_es_2 = acf(y_es_2);
+R_es_2 = abs(fft(r_es_2));
 
-r_es_2_bl = es_blackman(y_es_2);
-R_es_2_bl = abs(fft(r_es_2_bl));
-
-%%Smoothed Calculations%%
-
-%First System%
-
-%Rectangular window
-r_es_1_ba_re = window_re(r_es_1_ba);
-R_es_1_ba_re = abs(fft(r_es_1_ba_re));
-
-r_es_1_bl_re = window_re(r_es_1_bl);
-R_es_1_bl_re = abs(fft(r_es_1_bl_re));
-
-%Triangular window
-r_es_1_ba_tr = window_tr(r_es_1_ba);
-R_es_1_ba_tr = abs(fft(r_es_1_ba_tr));
-
-r_es_1_bl_tr = window_tr(r_es_1_bl);
-R_es_1_bl_tr = abs(fft(r_es_1_bl_tr));
-
-%Hamming window
-r_es_1_ba_ha = window_ha(r_es_1_ba);
-R_es_1_ba_ha = abs(fft(r_es_1_ba_ha));
-
-r_es_1_bl_ha = window_ha(r_es_1_bl);
-R_es_1_bl_ha = abs(fft(r_es_1_bl_ha));
-
-%Bartlett window
-r_es_1_ba_ba = window_ba(r_es_1_ba);
-R_es_1_ba_ba = abs(fft(r_es_1_ba_ba));
-
-r_es_1_bl_ba = window_ba(r_es_1_bl);
-R_es_1_bl_ba = abs(fft(r_es_1_bl_ba));
-
-%Blackmanharris window
-r_es_1_ba_bl = window_bl(r_es_1_ba);
-R_es_1_ba_bl = abs(fft(r_es_1_ba_bl));
-
-r_es_1_bl_bl = window_bl(r_es_1_bl);
-R_es_1_bl_bl = abs(fft(r_es_1_bl_bl));
-
-%Second System%
-
-%Rectangular window
-r_es_2_ba_re = window_re(r_es_2_ba);
-R_es_2_ba_re = abs(fft(r_es_2_ba_re));
-
-r_es_2_bl_re = window_re(r_es_2_bl);
-R_es_2_bl_re = abs(fft(r_es_2_bl_re));
-
-%Triangular window
-r_es_2_ba_tr = window_tr(r_es_2_ba);
-R_es_2_ba_tr = abs(fft(r_es_2_ba_tr));
-
-r_es_2_bl_tr = window_tr(r_es_2_bl);
-R_es_2_bl_tr = abs(fft(r_es_2_bl_tr));
-
-%Hamming window
-r_es_2_ba_ha = window_ha(r_es_2_ba);
-R_es_2_ba_ha = abs(fft(r_es_2_ba_ha));
-
-r_es_2_bl_ha = window_ha(r_es_2_bl);
-R_es_2_bl_ha = abs(fft(r_es_2_bl_ha));
-
-%Bartlett window
-r_es_2_ba_ba = window_ba(r_es_2_ba);
-R_es_2_ba_ba = abs(fft(r_es_2_ba_ba));
-
-r_es_2_bl_ba = window_ba(r_es_2_bl);
-R_es_2_bl_ba = abs(fft(r_es_2_bl_ba));
-
-%Blackmanharris window
-r_es_2_ba_bl = window_bl(r_es_2_ba);
-R_es_2_ba_bl = abs(fft(r_es_2_ba_bl));
-
-r_es_2_bl_bl = window_bl(r_es_2_bl);
-R_es_2_bl_bl = abs(fft(r_es_2_bl_bl));
 
 %%%PLOT ZONE%%%
 
@@ -183,7 +109,7 @@ plot(t,y_th, 'c');
 
 %Initial PSD
 figure;     %7
-plot(w, R_th_1, 'm'); xlim([0,1]);
+plot(w, R_th, 'm'); xlim([0,1]);
 
 %First System PSD
 figure;     %8
@@ -225,80 +151,8 @@ plot(t,abs(Y_es_2), 'm');
 
 %First System PSD
 figure;     %19
-plot(w, R_es_1_ba, 'b'); xlim([0,1]);
-figure;     %20
-plot(w, R_es_1_bl, 'c'); xlim([0,1]);
+plot(w, R_es_1, 'b'); xlim([0,1]);
 
 %Second System PSD
-figure;     %21
-plot(w, R_es_2_ba, 'b'); xlim([0,1]);
-figure;     %22
-plot(w, R_es_2_bl, 'c'); xlim([0,1]);
-
-%%Smoothed Calculations%%
-
-%%Smoothed Calculations%%
-
-%First System PSD%
-
-%Rectangular window
-figure;     %23
-plot(w, R_es_1_ba_re, 'm'); xlim([0,1]);
-figure;     %24
-plot(w, R_es_1_bl_re, 'b'); xlim([0,1]);
-
-%Triangular window
-figure;     %25
-plot(w, R_es_1_ba_tr, 'm'); xlim([0,1]);
-figure;     %26
-plot(w, R_es_1_bl_tr, 'b'); xlim([0,1]);
-
-%Hamming window
-figure;     %27
-plot(w, R_es_1_ba_ha, 'm'); xlim([0,1]);
-figure;     %28
-plot(w, R_es_1_bl_ha, 'b'); xlim([0,1]);
-
-%Bartlett window
-figure;     %29
-plot(w, R_es_1_ba_ba, 'm'); xlim([0,1]);
-figure;     %30
-plot(w, R_es_1_bl_ba, 'b'); xlim([0,1]);
-
-%Blackmanharris window
-figure;     %31
-plot(w, R_es_1_ba_bl, 'm'); xlim([0,1]);
-figure;     %32
-plot(w, R_es_1_bl_bl, 'b'); xlim([0,1]);
-
-%Second System PSD%
-
-%Rectangular window
-figure;     %33
-plot(w, R_es_2_ba_re, 'm'); xlim([0,1]);
-figure;     %34
-plot(w, R_es_2_bl_re, 'b'); xlim([0,1]);
-
-%Triangular window
-figure;     %35
-plot(w, R_es_2_ba_tr, 'm'); xlim([0,1]);
-figure;     %36
-plot(w, R_es_2_bl_tr, 'b'); xlim([0,1]);
-
-%Hamming window
-figure;     %37
-plot(w, R_es_2_ba_ha, 'm'); xlim([0,1]);
-figure;     %38
-plot(w, R_es_2_bl_ha, 'b'); xlim([0,1]);
-
-%Bartlett window
-figure;     %39
-plot(w, R_es_2_ba_ba, 'm'); xlim([0,1]);
-figure;     %40
-plot(w, R_es_2_bl_ba, 'b'); xlim([0,1]);
-
-%Blackmanharris window
-figure;     %41
-plot(w, R_es_2_ba_bl, 'm'); xlim([0,1]);
-figure;     %42
-plot(w, R_es_2_bl_bl, 'b'); xlim([0,1]);
+figure;     %20
+plot(w, R_es_2, 'b'); xlim([0,1]);
