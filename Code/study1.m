@@ -27,7 +27,7 @@ Y_hd = X.*H_hd;
 y_hd = ifft(Y_hd);
 
 %%Theoretical Results%%
-R_hd_th = 10*abs(H_hd).^2;
+R_hd_th = 5*abs(H_hd).^2;
 r_hd_th = 10*2*2*0.1*sinc(2*0.1*nn);
 
 %%Estimated Results%%
