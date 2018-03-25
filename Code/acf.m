@@ -1,6 +1,6 @@
 function [acf_estimated] = acf(x)
 
-%ACF estimation by the Bartlett Method
+  %ACF estimation by the Bartlett Method.
 
     N = max(size(x));
     acf_estimated = zeros(1,N);

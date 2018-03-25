@@ -1,47 +1,58 @@
+%% STUDY 2: IMPROVING ESTIMATES %%
+%% First part: Low Degree Filter %%
+
+%The estimated spectra from Study 1 are rough. The aim is to improve those estimates using averaging and smoothing.
+%I have divided the study in two scripts so it doesn't take too long to plot each one of the filters.
+
+%For the averaging I have three functions that work the same but with different values. The low one leaves the periodogram still a bit raw,
+%the medium value it's the best one, and the highest value becomes inaccurate and the periodogram becomes distorted.
+
+%For the smoothing I will be using five windows: rectangular, triangular, Hamming, Bartlett and Blackman-Harris.
+
 clear;
 clc;
 close all;
 
 %%Data%%
-N = 2^16;
-x=randn(1,N)*sqrt(10);
-X = fft(x, N);
-Rx = 10;
+N = 2^16;                             %Number of samples
+x=randn(1,N)*sqrt(10);                %Random noise with power Spectral Density 10
+X = fft(x, N);                        %Random noise in the frequency domain
+Rx = 10;                              %Power Spectral Density of the noise
 
 %%Vectors%%
-Ts = 1;
-nn = ((-N)/2)+1:Ts:(N)/2;
-ff= linspace(0,1,N);
-tt = 0:Ts:(N)-1;
+Ts = 1;                               %Step for the vectos
+nn = ((-N)/2)+1:Ts:(N)/2;             %Integer vector for plotting
+ff= linspace(0,1,N);                  %Frequency vector for plotting
+tt = 0:Ts:(N)-1;                      %Natural vector for plotting
 
 %Windows
-t_w = -32:Ts:32;
-w_re = window(@rectwin,65);
-w_tr = window(@triang,65);
-w_ha = window(@hamming,65);
-w_ba = window(@bartlett,65);
-w_bl = window(@blackmanharris,65);
+t_w = -32:Ts:32;                      %Vector for plotting the windows (length=65)
+w_re = window(@rectwin,65);           %Rectangular window
+w_tr = window(@triang,65);            %Triangular window
+w_ha = window(@hamming,65);           %Hamming window
+w_ba = window(@bartlett,65);          %Bartlett window
+w_bl = window(@blackmanharris,65);    %Blackman-Harris window
 
-%%%LOW DEGREE FILTER%%%
+%%%LOW DEGREE FILTER%%%               %This is taken from study 1.
 
-%%Filter%%
-H_ld = 0.5*(1+exp(-1i*2*pi*ff));
+%%Low Degree Filter%%
+H_ld = 0.5*(1+exp(-1i*2*pi*ff));      %This filter is easier than the Butterworth definition, there are no fractions
 
 %%Filtered signal%%
-Y_ld = X.*H_ld;
-y_ld = ifft(Y_ld);
+Y_ld = X.*H_ld;                       %For the frequency domain, I just multiply the input and the filter
+y_ld = ifft(Y_ld);                    %To switch to time domain, I use the inverse Fourier Transform
 
 %%Theoretical Results%%
-R_ld_th = abs(5.*(1+cos(2*pi*ff)));
+R_ld_th = abs(5.*(1+cos(2*pi*ff)));   %I used Euler's theorem to turn the exponential into trigonometric functions
 
-r_ld_th = zeros(1,N);
-r_ld_th(1, N/2) = 5;
+r_ld_th = zeros(1,N);                 %Checking the table of Fourier Transforms, the ACF is three impulses, two for
+r_ld_th(1, N/2) = 5;                  %the cosine and one fot the independent term
 r_ld_th(1,N/2-1) = 2.5;
 r_ld_th(1,N/2+1) = 2.5;
 
 %%Estimated Results%%
-r_ld_es = acf(y_ld);
-R_ld_es = abs(fft(r_ld_es));
+r_ld_es = acf(y_ld);                  %I use the defined function
+R_ld_es = abs(fft(r_ld_es));          %I go to frequency domain to get the PSD
 
 %%Improved functions%%
 
