@@ -1,191 +1,353 @@
+%% STUDY 3: NON-LTI SYSTEMS %%
+
+%I am given a series of non-linear systems: a squarer, a half-wave rectifier
+%and a AM-SC Modulator. I will compare them to the filtered signal I get from
+%the ideal filter through the PSD.
+
 clear;
 clc;
 close all;
 
-N = 16;
-Ts = 1;
-dt = Ts/2^N;
-fs = 1/dt;
-x=randn(1,2^N);
-X = (1/N)*fft(x);
-Rx = 1;
-T = Ts/2^N; %sampling length.
-fc  = 1; %Si no funciona algo, igual aquí es 10
-wc = 0.1;
-fc_hd  = 1;
+%% SQUARER %%
 
-w = linspace(0, 1, 2^N);
-n = linspace(0, 2^N, 2^N);
+%%Data%%
+N = 2^16;                             %Number of samples
+Rx = 10;                              %Power Spectral Density of the noise
+x=randn(1,N)*sqrt(Rx);                %Random noise with poffer Spectral Density 10
+X = fft(x, N);                        %Random noise in the frequency domain
+L = 100;                              %Beans value for the historiograms
 
-f = linspace(0,Ts,2^N);
-t = linspace(0,Ts,2^N);
+%%Vectors%%
+Ts = 1;                               %Step for the vectos
+ff= linspace(0,Ts,N);                 %Frequency vector for plotting
 
-%Theoretical Calculations
+%%LINEAR FILTER%%
 
-%Ideal filter (rectangle)
-space = linspace(0,99.99,10000);
-H_th = zeros(size(X));
-H_th(abs(space)<fc_hd) = 1;
-h_th = ifft(H_th, 'symmetric');
+%%High Degree filter%%                %I will approximate an ideal filter with a rectangle
+H = linspace(0,1,N);
+H(1:0.1*N) = 1;                       %The cut-off frequency is 0.1
+H(0.1*N+1:0.9*N) = 0;
+H(0.9*N+1:N) = 1;                     %It's digital, so it's periodical, so it goes up again in 1-0.1 = 0.9
 
-%Filtered signal
-Y_th = X.*H_th;
-y_th = ifft(Y_th,'symmetric');
+%%Filtered signal%%
+Y = X.*H;                             %For the frequency domain, I just multiply the input and the filter
+y = ifft(Y);                          %To switch to time domain, I use the inverse Fourier Transform
 
-%First PSD
-R_th = zeros(1,N);
-R_th(abs(w) <wc ) = 1;
-R_th(abs(w) >1-wc ) = 1;
+%%Theoretical Results%%
+R_th = Rx*abs(H).^2;                  %The formula is 0.5*Rx*abs(filter)^2
 
-%Squarer PSD
-R_th_sq = 4*wc*(tripuls(w/(4*wc))+tripuls((w-1)/(4*wc)));
-R_th_sq(1) = R_th_sq(1) + 4*wc^2;
+%%Estimated Results%%
+r_es = acf(y);                        %I use the defined function
+R_es = abs(fft(r_es));                %I go to frequency domain to get the PSD
 
-%Half-Wave Rectifier PSD
-R_th_hw = 1/(4*pi)*(tripuls(w/(4*wc))+tripuls((w-1)/(4*wc)))+...
-    +1/4*(rectpuls(w/(2*wc))+rectpuls((w-1)/(2*wc)));
-R_th_hw(1) = R_th_hw(1)+wc/pi;
+%%SQUARER%%
 
-%AM-SC Modulator PSD
-t0 = (2*pi*(wc+0.2));
-t1=t0/(2*pi);
-R_th_am = 1/4*(rectpuls((w-t1)/(2*wc))+rectpuls((w-1-t1)/(2*wc))) + 1/4*(rectpuls((w+t1)/(2*wc))+rectpuls((w-1+t1)/(2*wc)));
+%Theoretical PSD
+R_th_sq = 4*Rx*(tripuls(ff/(4*0.1))+tripuls((ff-1)/(4*0.1)));     %I get this from the tables in the book
 
-%%Estimated functions%%
-
-%10th degree filter
-wc = 2*pi*fc;
-[b,a] = butter(10,2*wc,'s');
-H_es = (polyval(b,f)./polyval(a,f));
-h_es = ifft(H_es, 'symmetric');
-
-%Filtered signal
-Y_es = X.*H_es;
-y_es = ifft(Y_es,'symmetric');
-
-%Squarer PSD
-y_es_sq = y_es.^2;
-Y_es_sq = abs(fft(y_es_sq));
-
-r_es_sq_ba = es_bartlett(y_es_sq);
-R_es_sq_ba = abs(fft(r_es_sq_ba));
-
-r_es_sq_bl = es_blackman(y_es_sq);
-R_es_sq_bl = abs(fft(r_es_sq_bl));
-
-%Half-Wave Rectifier PSD
-y_es_hw = zeros(1,2^N);
-Y_es_hw = abs(fft(y_es_hw));
-
-r_es_hw_ba = es_bartlett(y_es_hw);
-R_es_hw_ba = abs(fft(r_es_hw_ba));
-
-r_es_hw_bl = es_blackman(y_es_hw);
-R_es_hw_bl = abs(fft(r_es_hw_bl));
-
-%AM-SC Modulator PSD
-y_es_am = y_es.*cos(t0*n);
-Y_es_am = abs(fft(y_es_am));
-
-r_es_am_ba = es_bartlett(y_es_am);
-R_es_am_ba = abs(fft(r_es_am_ba));
-
-r_es_am_bl = es_blackman(y_es_am);
-R_es_am_bl = abs(fft(r_es_am_bl));
-
-%%Historiograms%%
-
-L = 100;
-l = linspace(0,1,L);
+%Estimated PSD
+y_sq = real(y.^2);                    %I square the whole filtered signal
+r_es_sq = acf(y_sq);                  %I use the defined function
+R_es_sq = abs(fft(r_es_sq));          %I go to frequency domain to get the PSD
 
 %%%PLOT ZONE%%%
 
-%%Theoretical Calculations%%
+%Theoretical PSD
+figure;
+plot(ff, R_th_sq, 'b'); xlim([0,1]);
+title('Theoretical PSD (Squarer)');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/R_th_sq','-dpng');
 
-%%Systems%%
+%Comparation of theoretical PSDs
+figure;
+subplot(2,1,1);
+plot(ff, R_th_sq, 'b'); xlim([0,1]);
+title('Theoretical PSD (Squarer)');
+subplot(2,1,2);
+plot(ff, R_th, 'r'); xlim([0,1]);
+title('Theoretical PSD');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_sq_th','-dpng');
 
-%Filter
-figure;     %1
-plot(f,H_es, 'm');
-%Filter absolute value
-figure;     %2
-plot(f,abs(H_es), 'b');
-%Filter in time domain
-figure;     %3
-plot(t,h_es, 'c');
+%Estimated PSD
+figure;
+plot(ff, R_es_sq, 'b'); xlim([0,1]);
+title('Estimated PSD (Squarer)');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/R_es_sq','-dpng');
 
-%Filtered signal
-figure;     %4
-plot(f,Y_th, 'm');
-%Filtered signal absolute value
-figure;     %5
-plot(f,abs(Y_th), 'b');
-%Filtered signal in time domain
-figure;     %6
-plot(t,y_th, 'c');
+%Estimated PSD Close Up
+figure;
+plot(ff, R_es_sq, 'b'); xlim([0,1]); ylim([0,200]);
+title('Estimated PSD (Squarer), details');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/R_es_sq_zoom','-dpng');
 
-%Squarer PSD
-figure;     %7
-plot(f, R_th_sq, 'm'); xlim([0,1]);
+%Comparation of estimated PSDs
+figure;
+subplot(2,1,1);
+plot(ff, R_es_sq, 'b'); xlim([0,1]); ylim([0,200]);
+title('Estimated PSD (Squarer)');
+subplot(2,1,2);
+plot(ff, R_es, 'r'); xlim([0,1]);
+title('Estimated PSD');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_sq_es','-dpng');
 
-%Half-Wave Rectifier PSD
-figure;     %8
-plot(f, R_th_hw, 'b'); xlim([0,1]);
+%Comparations
+figure;
+subplot(3,1,1);
+plot(ff, R_es_sq, 'b'); xlim([0,1]);
+title('Estimated PSD (Squarer)');
+subplot(3,1,2);
+plot(ff, R_es_sq, 'b'); xlim([0,1]); ylim([0,200]);
+title('Estimated PSD (Squarer), details');
+subplot(3,1,3);
+plot(ff, R_th_sq, 'r'); xlim([0,1]);
+title('Theoretical PSD (Squarer)');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_sq','-dpng');
 
-%AM-SC Modulator PSD
-figure;     %9
-plot(f, R_th_am, 'c'); xlim([0,1]);
+%Histogram
+figure;
+hist(y_sq, L, 'b');  xlim([-0.05,30]);
+title('Histogram (Squarer)');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/hist_sq','-dpng');
 
-%%Estimated Calculations%%
+%% HALF-WAVE RECTIFIER %%
 
-%Filtered signal
-figure;     %10
-plot(f,Y_es), 'm';
-%Filtered signal absolute value
-figure;     %11
-plot(f,abs(Y_es), 'b');
-%Filtered signal in time domain
-figure;     %12
-plot(t,y_es, 'c');
-%Squarer signal in time domain
-figure;     %13
-plot(t,y_es_sq, 'm');
-%Half-Wave signal in time domain
-figure;     %14
-plot(t,y_es_hw, 'b');
-%AM_SC Modulator signal in time domain
-figure;     %15
-plot(t,y_es_am, 'c');
+%%Data%%
+N = 2^16;                             %Number of samples
+Rx = 10;                              %Power Spectral Density of the noise
+x=randn(1,N)*sqrt(Rx);                %Random noise with poffer Spectral Density 10
+X = fft(x, N);                        %Random noise in the frequency domain
+L = 100;                              %Beans value for the historiograms
 
-%Squarer PSD
-figure;     %16
-plot(f, R_es_sq_ba, 'm'); xlim([0,1]);
-figure;     %17
-plot(f, R_es_sq_bl, 'b'); xlim([0,1]);
+%%Vectors%%
+Ts = 1;                               %Step for the vectos
+ff= linspace(0,Ts,N);                 %Frequency vector for plotting
 
-%Half-Wave Rectifier PSD
-figure;     %18
-plot(f, R_es_hw_ba, 'm'); xlim([0,1]);
-figure;     %19
-plot(f, R_es_hw_bl, 'b'); xlim([0,1]);
+%%LINEAR FILTER%%
 
-%AM-SC Modulator PSD
-figure;     %20
-plot(f, R_es_am_ba, 'm'); xlim([0,1]);
-figure;     %21
-plot(f, R_es_am_bl, 'b'); xlim([0,1]);
+%%High Degree filter%%                %I will approximate an ideal filter with a rectangle
+H = linspace(0,1,N);
+H(1:0.1*N) = 1;                       %The cut-off frequency is 0.1
+H(0.1*N+1:0.9*N) = 0;
+H(0.9*N+1:N) = 1;                     %It's digital, so it's periodical, so it goes up again in 1-0.1 = 0.9
 
-%%Historiograms%
+%%Filtered signal%%
+Y = X.*H;                             %For the frequency domain, I just multiply the input and the filter
+y = ifft(Y);                          %To switch to time domain, I use the inverse Fourier Transform
 
-%Filtered signal
-figure;     %22
-hist(y_es, L, 'm');
-%Squarer
-figure;     %23
-hist(y_es_sq, L, 'b');
-%Half-Wave Rectifier
-figure;     %24
-hist(y_es_hw, L, 'c');
-%AM_SC Modulator
-figure;     %25
-hist(y_es_am, L, 'g');
+%%Theoretical Results%%
+R_th = Rx*abs(H).^2;                  %The formula is 0.5*Rx*abs(filter)^2
+
+%%Estimated Results%%
+r_es = acf(y);                        %I use the defined function
+R_es = abs(fft(r_es));                %I go to frequency domain to get the PSD
+
+%%HALF-WAVE RECTIFIER%%
+
+%Theoretical PSD
+R_th_hw = Rx/(4*pi)*(tripuls(ff/(4*0.1))+tripuls((ff-1)/(4*0.1)))+Rx/4*(rectpuls(ff/(2*0.1))+rectpuls((ff-1)/(2*0.1)));     %I get this from the tables in the book
+R_th_hw(1) = R_th_hw(1) + 0.5*Rx/(2*pi);
+
+%Estimated PSD
+y_hw = real(hw_rectifier(y, N));      %I use the defined function
+r_es_hw = acf(y_hw);                  %I use the defined function
+R_es_hw = abs(fft(r_es_hw));          %I go to frequency domain to get the PSD
+
+%%%PLOT ZONE%%%
+
+%Theoretical PSD
+figure;
+plot(ff, R_th_hw, 'b'); xlim([0,1]);
+title('Theoretical PSD (Half-Wave Rectifier)');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/R_th_hw','-dpng');
+
+%Comparation of theoretical PSDs
+figure;
+subplot(2,1,1);
+plot(ff, R_th_hw, 'b'); xlim([0,1]);
+title('Theoretical PSD (Half-Wave Rectifier)');
+subplot(2,1,2);
+plot(ff, R_th, 'r'); xlim([0,1]);
+title('Theoretical PSD');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_hw_th','-dpng');
+
+%Estimated PSD
+figure;
+plot(ff, R_es_hw, 'b'); xlim([0,1]);
+title('Estimated PSD (Half-Wave Rectifier)');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/R_es_hw','-dpng');
+
+%Estimated PSD Close Up
+figure;
+plot(ff, R_es_hw, 'b'); xlim([0,1]); ylim([0,30]);
+title('Estimated PSD (Half-Wave Rectifier), details');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/R_es_hw_zoom','-dpng');
+
+%Comparation of estimated PSDs
+figure;
+subplot(2,1,1);
+plot(ff, R_es_hw, 'b'); xlim([0,1]); ylim([0,30]);
+title('Estimated PSD (Half-Wave Rectifier)');
+subplot(2,1,2);
+plot(ff, R_es, 'r'); xlim([0,1]);
+title('Estimated PSD');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_hw_es','-dpng');
+
+%Comparations
+figure;
+subplot(3,1,1);
+plot(ff, R_es_hw, 'b'); xlim([0,1]);
+title('Estimated PSD (Half-Wave Rectifier)');
+subplot(3,1,2);
+plot(ff, R_es_hw, 'b'); xlim([0,1]); ylim([0,30]);
+title('Estimated PSD (Half-Wave Rectifier), details');
+subplot(3,1,3);
+plot(ff, R_th_hw, 'r'); xlim([0,1]);
+title('Theoretical PSD (Half-Wave Rectifier)');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_hw','-dpng');
+
+%Histogram
+figure;
+hist(y_hw, L, 'b'); xlim([-0.05,5]);
+title('Histogram (Half-Wave Rectifier)');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/hist_hw','-dpng');
+
+%% AM-SC MODULATOR %%
+
+%%Data%%
+N = 2^16;                             %Number of samples
+Rx = 10;                              %Power Spectral Density of the noise
+x=randn(1,N)*sqrt(Rx);                %Random noise with poffer Spectral Density 10
+X = fft(x, N);                        %Random noise in the frequency domain
+L = 100;                              %Beans value for the historiograms
+
+%%Vectors%%
+Ts = 1;                               %Step for the vectos
+ff = linspace(0,Ts,N);                %Frequency vector for plotting
+nn = linspace(0,N,N);                 %Vector for the carrier
+
+%%LINEAR FILTER%%
+
+%%High Degree filter%%                %I will approximate an ideal filter with a rectangle
+H = linspace(0,1,N);
+H(1:0.1*N) = 1;                       %The cut-off frequency is 0.1
+H(0.1*N+1:0.9*N) = 0;
+H(0.9*N+1:N) = 1;                     %It's digital, so it's periodical, so it goes up again in 1-0.1 = 0.9
+
+%%Filtered signal%%
+Y = X.*H;                             %For the frequency domain, I just multiply the input and the filter
+y = ifft(Y);                          %To switch to time domain, I use the inverse Fourier Transform
+
+%%Theoretical Results%%
+R_th = Rx*abs(H).^2;                  %The formula is 0.5*Rx*abs(filter)^2
+
+%%Estimated Results%%
+r_es = acf(y);                        %I use the defined function
+R_es = abs(fft(r_es));                %I go to frequency domain to get the PSD
+
+%%AM-SC MODULATOR%%
+
+%Theoretical PSD
+R_th_am = Rx*1/4*(rectpuls((ff-0.25)/(0.2))+rectpuls((ff-1-0.25)/(0.2))) + Rx*1/4*(rectpuls((ff+0.25)/(0.2))+rectpuls((ff-1+0.25)/(0.2)));     %I get this from the tables in the book
+
+%Estimated PSD
+carrier = cos(nn*2*pi*0.25);          %I define a carrier for our modulation
+y_am = real(y.*carrier);              %I modulate multiplying the signal and the carrier
+r_es_am = acf(y_am);                  %I use the defined function
+R_es_am = abs(fft(r_es_am));          %I go to frequency domain to get the PSD
+
+%%%PLOT ZONE%%%
+
+%Theoretical PSD
+figure;
+plot(ff, R_th_am, 'b'); xlim([0,1]);
+title('Theoretical PSD (AM-SC Modulator)');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/R_th_am','-dpng');
+
+%Comparation of theoretical PSDs
+figure;
+subplot(2,1,1);
+plot(ff, R_th_am, 'b'); xlim([0,1]);
+title('Theoretical PSD (AM-SC Modulator)');
+subplot(2,1,2);
+plot(ff, R_th, 'r'); xlim([0,1]);
+title('Theoretical PSD');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_am_th','-dpng');
+
+%Estimated PSD
+figure;
+plot(ff, R_es_am, 'b'); xlim([0,1]);
+title('Estimated PSD (AM-SC Modulator)');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/R_es_am','-dpng');
+
+%Comparation of estimated PSDs
+figure;
+subplot(2,1,1);
+plot(ff, R_es_am, 'b'); xlim([0,1]);
+title('Estimated PSD (AM-SC Modulator)');
+subplot(2,1,2);
+plot(ff, R_es, 'r'); xlim([0,1]);
+title('Estimated PSD');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_am_es','-dpng');
+
+%Comparations
+figure;
+subplot(2,1,1);
+plot(ff, R_es_am, 'b'); xlim([0,1]);
+title('Estimated PSD (AM-SC Modulator)');
+subplot(2,1,2);
+plot(ff, R_th_am, 'r'); xlim([0,1]);
+title('Theoretical PSD (AM-SC Modulator)');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_am','-dpng');
+
+%Histogram
+figure;
+hist(y_am, L, 'b');
+title('Histogram (AM-SC Modulator)');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/hist_am','-dpng');
+
+%% COMPARATIONS %%
+
+figure;
+subplot(4,1,1);
+plot(ff, R_th_sq, 'b'); xlim([0,1]);
+title('Theoretical PSD (Squarer)');
+subplot(4,1,2);
+plot(ff, R_th_hw, 'b'); xlim([0,1]);
+title('Theoretical PSD (Half-wave rectifier)');
+subplot(4,1,3);
+plot(ff, R_th_am, 'b'); xlim([0,1]);
+title('Theoretical PSD (AM-SC Modulator)');
+subplot(4,1,4);
+plot(ff, R_th, 'r'); xlim([0,1]);
+title('Theoretical PSD (Original)');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_th','-dpng');
+
+figure;
+subplot(4,1,1);
+plot(ff, R_es_sq, 'b'); xlim([0,1]); ylim([0,200]);
+title('Estimated PSD (Squarer)');
+subplot(4,1,2);
+plot(ff, R_es_hw, 'b'); xlim([0,1]); ylim([0,30]);
+title('Estimated PSD (Half-wave rectifier)');
+subplot(4,1,3);
+plot(ff, R_es_am, 'b'); xlim([0,1]); ylim([0,50]);
+title('Estimated PSD (AM-SC Modulator)');
+subplot(4,1,4);
+plot(ff, R_es, 'r'); xlim([0,1]);
+title('Estimated PSD (Original)');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_es','-dpng');
+
+figure;
+subplot(4,1,1);
+hist(y_sq, L, 'b'); xlim([-0.05,30]);
+title('Histogram (Squarer)');
+subplot(4,1,2);
+hist(y_hw, L, 'b'); xlim([-0.05,5]);
+title('Histogram (Half-wave rectifier)');
+subplot(4,1,3);
+hist(y_am, L, 'b');
+title('Histogram (AM-SC Modulator)');
+subplot(4,1,4);
+hist(real(y), L, 'r');
+title('Histogram (Original)');
+print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_hist','-dpng');

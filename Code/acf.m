@@ -1,6 +1,7 @@
 function [acf_estimated] = acf(x)
 
-  %ACF estimation by the Bartlett Method.
+  %This function estimates the ACF by the Bartlett Method.
+  %I use a double loop to apply the formula found in the book.
 
     N = max(size(x));
     acf_estimated = zeros(1,N);
