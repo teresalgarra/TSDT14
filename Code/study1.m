@@ -46,6 +46,8 @@ R_hd_es = abs(fft(r_hd_es));          %I go to frequency domain to get the PSD
 figure;
 plot(ff, abs(H_hd), 'b'); axis tight;
 title('Filter (absolute value)');
+xlabel('\theta');
+ylabel('|H(\theta)|');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study1/H_hd_th','-dpng');
 
 %Theoretical ACF
@@ -53,15 +55,21 @@ figure;
 subplot(2,1,1);
 plot(nn, r_hd_th, 'b'); axis tight;
 title('Theoretical ACF Plotted');
+xlabel('k');
+ylabel('rx[k]');
 subplot(2,1,2);
 stem(nn, r_hd_th, 'b'); xlim([-20,20]);
 title('Theoretical ACF Stemed');
+xlabel('k');
+ylabel('rx[k]');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study1/r_hd_th','-dpng');
 
 %Theoretical PSD
 figure;
 plot(ff, R_hd_th, 'b'); xlim([0,1]);
 title('Theoretical PSD');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study1/R_hd_th','-dpng');
 
 %Estimated ACF
@@ -69,15 +77,21 @@ figure;
 subplot(2,1,1);
 plot(nn, r_hd_es, 'b'); axis tight;
 title('Estimated ACF Plotted');
+xlabel('k');
+ylabel('rx[k]');
 subplot(2,1,2);
 stem(nn, r_hd_es, 'b'); xlim([-20,20]);
 title('Estimated ACF Stemed');
+xlabel('k');
+ylabel('rx[k]');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study1/r_hd_es','-dpng');
 
 %Estimated PSD
 figure;
 plot(ff, R_hd_es, 'b'); xlim([0,1]);
 title('Estimated PSD');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study1/R_hd_es','-dpng');
 
 %Comparations
@@ -85,27 +99,39 @@ figure;
 subplot(2,1,1);
 plot(nn, r_hd_th, 'b'); axis tight;
 title('Theoretical ACF Plotted');
+xlabel('k');
+ylabel('rx[k]');
 subplot(2,1,2);
 plot(nn, r_hd_es, 'b'); axis tight;
 title('Estimated ACF Plotted');
+xlabel('k');
+ylabel('rx[k]');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study1/comp_r_hd_plot','-dpng');
 
 figure;
 subplot(2,1,1);
 stem(nn, r_hd_th, 'b'); xlim([-20,20]);
 title('Theoretical ACF Stemed');
+xlabel('k');
+ylabel('rx[k]');
 subplot(2,1,2);
 stem(nn, r_hd_es, 'b'); xlim([-20,20]);
 title('Estimated ACF Stemed');
+xlabel('k');
+ylabel('rx[k]');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study1/comp_r_hd_stem','-dpng');
 
 figure;
 subplot(2,1,1);
 plot(ff, R_hd_th, 'b'); xlim([0,1]);
 title('Theoretical PSD');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(2,1,2);
 plot(ff, R_hd_es, 'b'); xlim([0,1]);
 title('Estimated PSD');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study1/comp_R_hd','-dpng');
 
 %% LOW-DEGREE FILTER %%
@@ -147,6 +173,8 @@ R_ld_es = abs(fft(r_ld_es));          %I go to frequency domain to get the PSD
 figure;
 plot(ff, abs(H_ld), 'b'); axis tight;
 title('Filter (absolute value)');
+xlabel('\theta');
+ylabel('|H(\theta)|');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study1/H_ld_th','-dpng');
 
 %Theoretical ACF
@@ -154,15 +182,21 @@ figure;
 subplot(2,1,1);
 plot(nn, r_ld_th, 'b'); axis tight;
 title('Theoretical ACF Plotted');
+xlabel('k');
+ylabel('rx[k]');
 subplot(2,1,2);
 stem(nn, r_ld_th, 'b'); xlim([-20,20]);
 title('Theoretical ACF Stemed');
+xlabel('k');
+ylabel('rx[k]');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study1/r_ld_th','-dpng');
 
 %Theoretical PSD
 figure;
 plot(ff, R_ld_th, 'b'); xlim([0,1]);
 title('Theoretical PSD');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study1/R_ld_th','-dpng');
 
 %Estimated ACF
@@ -170,15 +204,21 @@ figure;
 subplot(2,1,1);
 plot(nn, r_ld_es, 'b'); axis tight;
 title('Estimated ACF Plotted');
+xlabel('k');
+ylabel('rx[k]');
 subplot(2,1,2);
 stem(nn, r_ld_es, 'b'); xlim([-20,20]);
 title('Estimated ACF Stemed');
+xlabel('k');
+ylabel('rx[k]');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study1/r_ld_es','-dpng');
 
 %Estimated PSD
 figure;
 plot(ff, R_ld_es, 'b'); xlim([0,1]);
 title('Estimated PSD');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study1/R_ld_es','-dpng');
 
 %Comparations
@@ -186,25 +226,37 @@ figure;
 subplot(2,1,1);
 plot(nn, r_ld_th, 'b'); axis tight;
 title('Theoretical ACF Plotted');
+xlabel('k');
+ylabel('rx[k]');
 subplot(2,1,2);
 plot(nn, r_ld_es, 'b'); axis tight;
 title('Estimated ACF Plotted');
+xlabel('k');
+ylabel('rx[k]');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study1/comp_r_ld_plot','-dpng');
 
 figure;
 subplot(2,1,1);
 stem(nn, r_ld_th, 'b'); xlim([-20,20]);
 title('Theoretical ACF Stemed');
+xlabel('k');
+ylabel('rx[k]');
 subplot(2,1,2);
 stem(nn, r_ld_es, 'b'); xlim([-20,20]);
 title('Estimated ACF Stemed');
+xlabel('k');
+ylabel('rx[k]');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study1/comp_r_ld_stem','-dpng');
 
 figure;
 subplot(2,1,1);
 plot(ff, R_ld_th, 'b'); xlim([0,1]);
 title('Theoretical PSD');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(2,1,2);
 plot(ff, R_ld_es, 'b'); xlim([0,1]);
 title('Estimated PSD');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study1/comp_R_ld','-dpng');

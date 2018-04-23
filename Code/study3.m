@@ -56,6 +56,8 @@ R_es_sq = abs(fft(r_es_sq));          %I go to frequency domain to get the PSD
 figure;
 plot(ff, R_th_sq, 'b'); xlim([0,1]);
 title('Theoretical PSD (Squarer)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/R_th_sq','-dpng');
 
 %Comparation of theoretical PSDs
@@ -63,21 +65,29 @@ figure;
 subplot(2,1,1);
 plot(ff, R_th_sq, 'b'); xlim([0,1]);
 title('Theoretical PSD (Squarer)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(2,1,2);
 plot(ff, R_th, 'r'); xlim([0,1]);
 title('Theoretical PSD');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_sq_th','-dpng');
 
 %Estimated PSD
 figure;
 plot(ff, R_es_sq, 'b'); xlim([0,1]);
 title('Estimated PSD (Squarer)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/R_es_sq','-dpng');
 
 %Estimated PSD Close Up
 figure;
 plot(ff, R_es_sq, 'b'); xlim([0,1]); ylim([0,200]);
 title('Estimated PSD (Squarer), details');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/R_es_sq_zoom','-dpng');
 
 %Comparation of estimated PSDs
@@ -85,9 +95,13 @@ figure;
 subplot(2,1,1);
 plot(ff, R_es_sq, 'b'); xlim([0,1]); ylim([0,200]);
 title('Estimated PSD (Squarer)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(2,1,2);
 plot(ff, R_es, 'r'); xlim([0,1]);
 title('Estimated PSD');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_sq_es','-dpng');
 
 %Comparations
@@ -95,12 +109,18 @@ figure;
 subplot(3,1,1);
 plot(ff, R_es_sq, 'b'); xlim([0,1]);
 title('Estimated PSD (Squarer)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(3,1,2);
 plot(ff, R_es_sq, 'b'); xlim([0,1]); ylim([0,200]);
 title('Estimated PSD (Squarer), details');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(3,1,3);
 plot(ff, R_th_sq, 'r'); xlim([0,1]);
 title('Theoretical PSD (Squarer)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_sq','-dpng');
 
 %Histogram
@@ -158,6 +178,8 @@ R_es_hw = abs(fft(r_es_hw));          %I go to frequency domain to get the PSD
 figure;
 plot(ff, R_th_hw, 'b'); xlim([0,1]);
 title('Theoretical PSD (Half-Wave Rectifier)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/R_th_hw','-dpng');
 
 %Comparation of theoretical PSDs
@@ -165,21 +187,29 @@ figure;
 subplot(2,1,1);
 plot(ff, R_th_hw, 'b'); xlim([0,1]);
 title('Theoretical PSD (Half-Wave Rectifier)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(2,1,2);
 plot(ff, R_th, 'r'); xlim([0,1]);
 title('Theoretical PSD');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_hw_th','-dpng');
 
 %Estimated PSD
 figure;
 plot(ff, R_es_hw, 'b'); xlim([0,1]);
 title('Estimated PSD (Half-Wave Rectifier)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/R_es_hw','-dpng');
 
 %Estimated PSD Close Up
 figure;
 plot(ff, R_es_hw, 'b'); xlim([0,1]); ylim([0,30]);
 title('Estimated PSD (Half-Wave Rectifier), details');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/R_es_hw_zoom','-dpng');
 
 %Comparation of estimated PSDs
@@ -187,9 +217,13 @@ figure;
 subplot(2,1,1);
 plot(ff, R_es_hw, 'b'); xlim([0,1]); ylim([0,30]);
 title('Estimated PSD (Half-Wave Rectifier)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(2,1,2);
 plot(ff, R_es, 'r'); xlim([0,1]);
 title('Estimated PSD');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_hw_es','-dpng');
 
 %Comparations
@@ -197,12 +231,18 @@ figure;
 subplot(3,1,1);
 plot(ff, R_es_hw, 'b'); xlim([0,1]);
 title('Estimated PSD (Half-Wave Rectifier)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(3,1,2);
 plot(ff, R_es_hw, 'b'); xlim([0,1]); ylim([0,30]);
 title('Estimated PSD (Half-Wave Rectifier), details');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(3,1,3);
 plot(ff, R_th_hw, 'r'); xlim([0,1]);
 title('Theoretical PSD (Half-Wave Rectifier)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_hw','-dpng');
 
 %Histogram
@@ -261,6 +301,8 @@ R_es_am = abs(fft(r_es_am));          %I go to frequency domain to get the PSD
 figure;
 plot(ff, R_th_am, 'b'); xlim([0,1]);
 title('Theoretical PSD (AM-SC Modulator)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/R_th_am','-dpng');
 
 %Comparation of theoretical PSDs
@@ -268,15 +310,21 @@ figure;
 subplot(2,1,1);
 plot(ff, R_th_am, 'b'); xlim([0,1]);
 title('Theoretical PSD (AM-SC Modulator)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(2,1,2);
 plot(ff, R_th, 'r'); xlim([0,1]);
 title('Theoretical PSD');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_am_th','-dpng');
 
 %Estimated PSD
 figure;
 plot(ff, R_es_am, 'b'); xlim([0,1]);
 title('Estimated PSD (AM-SC Modulator)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/R_es_am','-dpng');
 
 %Comparation of estimated PSDs
@@ -284,9 +332,13 @@ figure;
 subplot(2,1,1);
 plot(ff, R_es_am, 'b'); xlim([0,1]);
 title('Estimated PSD (AM-SC Modulator)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(2,1,2);
 plot(ff, R_es, 'r'); xlim([0,1]);
 title('Estimated PSD');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_am_es','-dpng');
 
 %Comparations
@@ -294,9 +346,13 @@ figure;
 subplot(2,1,1);
 plot(ff, R_es_am, 'b'); xlim([0,1]);
 title('Estimated PSD (AM-SC Modulator)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(2,1,2);
 plot(ff, R_th_am, 'r'); xlim([0,1]);
 title('Theoretical PSD (AM-SC Modulator)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_am','-dpng');
 
 %Histogram
@@ -311,30 +367,46 @@ figure;
 subplot(4,1,1);
 plot(ff, R_th_sq, 'b'); xlim([0,1]);
 title('Theoretical PSD (Squarer)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(4,1,2);
 plot(ff, R_th_hw, 'b'); xlim([0,1]);
 title('Theoretical PSD (Half-wave rectifier)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(4,1,3);
 plot(ff, R_th_am, 'b'); xlim([0,1]);
 title('Theoretical PSD (AM-SC Modulator)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(4,1,4);
 plot(ff, R_th, 'r'); xlim([0,1]);
 title('Theoretical PSD (Original)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_th','-dpng');
 
 figure;
 subplot(4,1,1);
 plot(ff, R_es_sq, 'b'); xlim([0,1]); ylim([0,200]);
 title('Estimated PSD (Squarer)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(4,1,2);
 plot(ff, R_es_hw, 'b'); xlim([0,1]); ylim([0,30]);
 title('Estimated PSD (Half-wave rectifier)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(4,1,3);
 plot(ff, R_es_am, 'b'); xlim([0,1]); ylim([0,50]);
 title('Estimated PSD (AM-SC Modulator)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(4,1,4);
 plot(ff, R_es, 'r'); xlim([0,1]);
 title('Estimated PSD (Original)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study3/comp_psd_es','-dpng');
 
 figure;

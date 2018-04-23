@@ -57,6 +57,8 @@ R_es_a = abs(fft(r_es_a));            %I go to frequency domain to get the PSD
 figure;
 plot(ff, R_th_a, 'b'); xlim([0,1]);
 title('Theoretical PSD (Alternating System)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study4/R_th_a','-dpng');
 
 %Comparation of theoretical PSDs
@@ -64,15 +66,21 @@ figure;
 subplot(2,1,1);
 plot(ff, R_th_a, 'b'); xlim([0,1]);
 title('Theoretical PSD (Alternating System)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(2,1,2);
 plot(ff, R_th, 'r'); xlim([0,1]);
 title('Theoretical PSD');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study4/comp_psd_a_th','-dpng');
 
 %Estimated PSD
 figure;
 plot(ff, R_es_a, 'b'); xlim([0,1]);
 title('Estimated PSD (Alternating System)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study4/R_es_a','-dpng');
 
 %Comparation of estimated PSDs
@@ -80,9 +88,13 @@ figure;
 subplot(2,1,1);
 plot(ff, R_es_a, 'b'); xlim([0,1]);
 title('Estimated PSD (Alternating System)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(2,1,2);
 plot(ff, R_es, 'r'); xlim([0,1]);
 title('Estimated PSD');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study4/comp_psd_a_es','-dpng');
 
 %Comparations
@@ -90,9 +102,13 @@ figure;
 subplot(2,1,1);
 plot(ff, R_es_a, 'b'); xlim([0,1]);
 title('Estimated PSD (Alternating System)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(2,1,2);
 plot(ff, R_th_a, 'r'); xlim([0,1]);
 title('Theoretical PSD (Alternating System)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study4/comp_psd_a','-dpng');
 
 %% DECIMATING SYSTEM %%
@@ -144,6 +160,8 @@ R_es_d = abs(fft(r_es_d));            %I go to frequency domain to get the PSD
 figure;
 plot(ff, R_th_d, 'b'); xlim([0,1]);
 title('Theoretical PSD (Decimating System)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study4/R_th_d','-dpng');
 
 %Comparation of theoretical PSDs
@@ -151,15 +169,21 @@ figure;
 subplot(2,1,1);
 plot(ff, R_th_d, 'b'); xlim([0,1]);
 title('Theoretical PSD (Decimating System)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(2,1,2);
 plot(ff, R_th, 'r'); xlim([0,1]);
 title('Theoretical PSD');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study4/comp_psd_d_th','-dpng');
 
 %Estimated PSD
 figure;
 plot(ff, R_es_d, 'b'); xlim([0,1]);
 title('Estimated PSD (Decimating System)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study4/R_es_d','-dpng');
 
 %Comparation of estimated PSDs
@@ -167,9 +191,13 @@ figure;
 subplot(2,1,1);
 plot(ff, R_es_d, 'b'); xlim([0,1]);
 title('Estimated PSD (Decimating System)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(2,1,2);
 plot(ff, R_es, 'r'); xlim([0,1]);
 title('Estimated PSD');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study4/comp_psd_d_es','-dpng');
 
 %Comparations
@@ -177,9 +205,13 @@ figure;
 subplot(2,1,1);
 plot(ff, R_es_d, 'b'); xlim([0,1]);
 title('Estimated PSD (Decimating System)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(2,1,2);
 plot(ff, R_th_d, 'r'); xlim([0,1]);
 title('Theoretical PSD (Decimating System)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study4/comp_psd_d','-dpng');
 
 %% COMPARATIONS %%
@@ -188,22 +220,34 @@ figure;
 subplot(3,1,1);
 plot(ff, R_th_a, 'b'); xlim([0,1]);
 title('Theoretical PSD (Alternating System)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(3,1,2);
 plot(ff, R_th_d, 'b'); xlim([0,1]);
 title('Theoretical PSD (Decimating System)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(3,1,3);
 plot(ff, R_th, 'r'); xlim([0,1]);
 title('Theoretical PSD (Original)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study4/comp_psd_th','-dpng');
 
 figure;
 subplot(3,1,1);
 plot(ff, R_es_a, 'b'); xlim([0,1]);
 title('Estimated PSD (Alternating System)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(3,1,2);
 plot(ff, R_es_d, 'b'); xlim([0,1]);
 title('Estimated PSD (Decimating System)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 subplot(3,1,3);
 plot(ff, R_es, 'r'); xlim([0,1]);
 title('Estimated PSD (Original)');
+xlabel('\theta');
+ylabel('Rx(\theta)');
 print('~/Carrera/TSDT14/TSDT14_Labs/Report/images/study4/comp_psd_es','-dpng');

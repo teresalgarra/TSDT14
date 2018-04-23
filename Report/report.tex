@@ -65,7 +65,7 @@ samples of the same process separated by a certain time. We can represent it as:
    r_x[k] = E\{X[n+k]X[n]\}
 \end{equation}
 
-The \textit{Power Expectral Density} or PSD tells us how the energy of the
+The \textit{Power Spectral Density} or PSD tells us how the energy of the
 signal distributes depending on the frequency. It can be calculated as the
 Fourier Transform of the ACF:
 
@@ -107,7 +107,8 @@ ideal filter, so we will use a rectangle to simulate this filter. Our cut-off
 frequency will be $f_c = 0.1$, so $\theta_0 = 0.2$.
 
 \begin{equation}\label{eq:High_Filter}
-  H[\theta] = rect(\frac{\theta}{\theta_0}) = rect(\frac{\theta}{0.2})
+  H[\theta] = \text{rect}(\frac{\theta}{\theta_0}) = \text{rect}
+  (\frac{\theta}{0.2})
 \end{equation}
 
 The filter is digital and, therefore, periodical, so it can be defined as:
@@ -135,8 +136,8 @@ We will start by calculating the PSD of the filtered signal. If we use formula
 
 \begin{equation}\label{eq:R_hd_th}
    R_y(\theta) = R_X(\theta) |H(\theta)|^2 =
-   R_X |rect(\frac{\theta}{\theta_0})|^2 =
-   R_X |rect(\frac{\theta}{0.2})|^2 =
+   R_X |\text{rect}(\frac{\theta}{\theta_0})|^2 =
+   R_X |\text{rect}(\frac{\theta}{0.2})|^2 =
    \begin{cases}
      10 &\quad 0 \le f < 0.1\\
      0 &\quad 0.1 \le f < 0.9\\
@@ -161,9 +162,9 @@ Transform of the PSD:
 \begin{equation}\label{eq:r_hd_th}
   \begin{split}
    & \qquad r_y[k] = \mathcal{F}^{-1}\{R_X(\theta)\} =
-   \mathcal{F}^{-1}\{R_X|rect(\frac{\theta}{\theta_0})|^2\} = \\
-   & = R_X\cdot\theta_0\cdot sinc(\theta_0 k) =
-   10\cdot0.2\cdot sinc(0.2 k) = 2\cdot sinc(0.2 k)
+   \mathcal{F}^{-1}\{R_X|\text{rect}(\frac{\theta}{\theta_0})|^2\} = \\
+   & = R_X\cdot\theta_0\cdot \text{sinc}(\theta_0 k) =
+   10\cdot0.2\cdot \text{sinc}(0.2 k) = 2\cdot \text{sinc}(0.2 k)
  \end{split}
  \end{equation}
 
@@ -180,13 +181,20 @@ The resulting graph is:
 
 \subsubsection{Low-degree Filter:}
 
-For the low-degree filter, we will use the formula:
+For the low-degree filter, we will use the filter:
+
+\begin{equation}\label{eq:H_ld_th}
+  h[k] = 0.5 \cdot (\delta[k] + \delta[k-1])
+\end{equation}
+
+Therefore, in the freuqency domain we have:
 
 \begin{equation}\label{eq:H_ld_th}
   H[\theta] = 0.5\cdot (1+e^{-i 2 \pi \theta})
 \end{equation}
 
-We multiply by $0.5$ so that the maximum value of the filter is 1 in stead of 2.
+We multiply by $0.5$ so that the maximum value of the filter is 1 in stead of
+2. \\
 
 This results in the following graph:
 
@@ -204,9 +212,9 @@ As before, we use formula \eqref{eq:LTI} to get the PSD:
    & \qquad\qquad\qquad R_y(\theta) = R_X(\theta) |H(\theta)|^2 = \\
    & = R_X |0.5 \cdot (1 + e^{-i 2 \pi \theta})|^2 =
    R_X \cdot 0.25 |(1 + e^{-i 2 \pi \theta})|^2 = \\
-   & = R_X \cdot 0.25 \cdot 2 (1 + cos(2 \pi \theta) =
-   10 \cdot 0.25 \cdot 2 (1 + cos(2 \pi \theta) = \\
-   & \qquad\qquad\qquad\quad = 5 (1 + cos(2 \pi \theta))
+   & = R_X \cdot 0.25 \cdot 2 (1 + \cos(2 \pi \theta) =
+   10 \cdot 0.25 \cdot 2 (1 + \cos(2 \pi \theta) = \\
+   & \qquad\qquad\qquad\quad = 5 (1 + \cos(2 \pi \theta))
  \end{split}
 \end{equation}
 
@@ -227,7 +235,7 @@ of the PSD:
 \begin{equation}\label{eq:r_ld_th}
   \begin{split}
      & \qquad r_y[k] = \mathcal{F}^{-1}\{R_X(\theta)\} =
-     \mathcal{F}^{-1}\{5 (1 + cos(2 \pi \theta)\} = \\
+     \mathcal{F}^{-1}\{5 (1 + \cos(2 \pi \theta)\} = \\
      & = 5\delta[k] + 2.5\delta[k-1] + 2.5\delta[k+1] =
      \begin{cases}
          2.5 &\quad k = -1\\
@@ -385,24 +393,15 @@ different ways:
   \item \textbf{Windows:}
   For the windowing technique, we will take five different windows:
 
-  \begin{itemize}
-    \item Rectangular window
-    \item Triangle window
-    \item Hamming window
-    \item Bartlett window
-    \item Blackman-Harris window
-  \end{itemize}
-
   \begin{figure}[!hp]
       \begin{center}
-        \includegraphics[width=0.6\textwidth]{images/study2/windows.png}
+        \includegraphics[width=0.6\textwidth]{images/study2/windows2.png}
       \captionof{figure}{Compared PSD}
       \end{center}
   \end{figure}
 
-  We will pad them with zeros and then use them as if they were filters to
-  smooth our graphs. We will apply them to the ACF and then we will get the
-  PSD with the Fourier Transform again.
+  We will pad them with zeros and then use them to window our estimated ACF to
+  smooth our graphs. We will get the PSD with the Fourier Transform again.
 
   \item \textbf{Averaging:}
   The basis of this technique is spliting the signal is several parts,
@@ -660,7 +659,7 @@ We have the three following systems:
 \item An AM-SC modulator:
 
 \begin{equation}\label{eq:AMSC}
-  Y[n] = X[n]cos(\omega_{carrier} n)
+  Y[n] = X[n]\cos(\omega_{carrier} n)
 \end{equation}
 
 \end{itemize}
@@ -698,7 +697,7 @@ To calculate the PSD, we just have to swith to frequency domain:
     & = 2 (R_X \ast R_X)[\theta] +
     r_X^2[0]\displaystyle\sum_{m}\delta(\theta) = \\
     & = \displaystyle\frac{1}{4} r_X^2[0]\delta(\theta) +
-    4 R_X triangle(\frac{\theta}{2 BW})
+    4 R_X \text{triangle}(\frac{\theta}{2 BW})
   \end{split}
 \end{equation}
 
@@ -731,8 +730,8 @@ We switch to the frequency domain:
   \displaystyle\frac{R_X[\theta]}{4} +
   \frac{(R_X\ast R_X)[\theta]}{4\pi r_X[0]} = \\
   & = \displaystyle\frac{R_X}{4\pi}\delta[\theta] +
-  \displaystyle\frac{R_X}{4\pi} triangle[\frac{\theta}{2 BW}] +
-  \frac{R_X}{4}rect[\frac{\theta}{2 BW}]
+  \displaystyle\frac{R_X}{4\pi} \text{triangle}[\frac{\theta}{2 BW}] +
+  \frac{R_X}{4}\text{rect}[\frac{\theta}{2 BW}]
   \end{split}
 \end{equation}
 
@@ -753,14 +752,14 @@ For the AM-SC Modulator, we are multiplying our signal by a carrier. Our
 carrier will have aplitude $A = 1$ and frequency $f_{carrier} = 0.25$.
 
 \begin{equation}\label{eq:carrier}
-  Carrier[k] = cos(\omega_{carrier} k)
+  Carrier[k] = \cos(\omega_{carrier} k)
 \end{equation}
 
 We can check on the book that the ACF formula is:
 
 \begin{equation}\label{eq:r_am}
-  r_Y[k] = \frac{A^2}{2}cos(2\pi f_{carrier} k) =
-  \frac{A^2}{2}cos(\omega_{carrier} k)
+  r_Y[k] = \frac{A^2}{2}\cos(2\pi f_{carrier} k) =
+  \frac{A^2}{2}\cos(\omega_{carrier} k)
 \end{equation}
 
 We switch to the frequency domain:
@@ -768,8 +767,8 @@ We switch to the frequency domain:
 \begin{equation}\label{eq:R_am}
   \begin{split}
   & \qquad\qquad\qquad R_Y[\theta] = \mathcal{F}\{r_Y[k]\} = \\
-  & =\displaystyle\frac{R_X}{4}(rect[\frac{\theta - f_{carrier}}{BW}] +
-  rect[\frac{\theta + f_{carrier}}{BW}])
+  & =\displaystyle\frac{R_X}{4}(\text{rect}[\frac{\theta - f_{carrier}}{BW}] +
+  \text{rect}[\frac{\theta + f_{carrier}}{BW}])
   \end{split}
 \end{equation}
 
@@ -904,7 +903,7 @@ the function we already analyzed:
 
 \newpage
 
-Lastly we can see the histogram of the squared signal:
+Lastly we can see the histogram of the modulated signal:
 
 \begin{figure}[!hp]
     \begin{center}
@@ -945,17 +944,22 @@ Here we can analyze the different histograms:
 
 \newpage
 
-We can see that the systems we studied present non-linearities in the estimated
-PSDs, because we get that peak near $f = 0$ that was not there in the original
-signal. \\
+For both the squarer and the half-wave rectifier, we get a peak near $f = 0$
+in the estimated PSD that was not there in the original signal. Also, the PSD
+is not zero from 0 to 0.2, and from 0.8 to 1 in both, which means that we have
+PSD in frequencies different from the original PSD, that is, in more
+frequencies than in the original PSD.
+If we look at the histograms, the mean is no longer $0$, we only have positive
+values and the shape of the curve is no longer Gaussian. Therefore, we can
+conclude that the two first systems are non-linear.\\
 
-Furthermore, we can also see the non-linearities looking at the histograms: our
-signal was Gaussian, and that is easy to see on the histogram of the figure. We
-know that a Gaussian input that goes through a LTI system always gives a
-Gaussian output. Nevertheless, if we look at the other histograms, we can
-appreciate that the Gaussian kind of graph has dissappeared. Therefore, if we
-didn't know that the three systems we applied are non-linear, we would have
-been able to get that information from the histograms.
+For the AM-SC modulator, we have the same original PSD but moved in the x-axis
+to the carrier frequency. Moving on to the histogram, we can see that it is
+more similar to the original one than the other two histograms. The mean is
+still $0$, and the values in which we have histogram are almost untouched, but
+the Gaussian form is lost anyway. If the input was Gaussian and the output is
+not Gaussian, we know that our system presents non-linearities, and therefore
+out modulation has some non-linearities.\\
 
 \newpage
 
@@ -1006,7 +1010,7 @@ Now to go to the PSD we have to do the Fourier Transform of the above:
   \begin{split}
     & \qquad\qquad R_Y[\theta] = \mathcal{F}\{r_Y[k]\} = \\
     & = \mathcal{F}\{r_X[k](-1)^k\} = R_X[\theta - 0.5] = \\
-    & \qquad\qquad = R_X rect(\frac{\theta - 0.5}{BW})
+    & \qquad\qquad = R_X \text{rect}(\frac{\theta - 0.5}{BW})
   \end {split}
 \end{equation}
 
@@ -1034,8 +1038,7 @@ formula, we get:
 \end{equation}
 
 A is a random variable with $A \in [0,1]$ with the same probability of being 0
-or 1. That way, $(-1)^{n+A}$ can be either 0 or 2, and in case that it is 2, we
-have $\displaystyle\frac{1}{2}$, so in the end we decimate the signal. \\
+or 1, so in the end we decimate the signal. \\
 
 Again, we have to calculate the PSD from the ACF:
 
@@ -1069,8 +1072,8 @@ Now to go to the PSD we have to do the Fourier Transform of the above:
     & \qquad R_Y[\theta] = \mathcal{F}\{r_Y[k]\} =
     \mathcal{F}\{\displaystyle\frac{1}{4}[r_X[k] + r_X[k](-1)^{k}]\} = \\
     & = \displaystyle\frac{1}{4}(R_X[\theta - 0.5] + R_X[\theta]) =
-    \displaystyle\frac{R_X}{4}(rect(\frac{\theta - 0.5}{BW}) +
-    rect(\frac{\theta}{BW})
+    \displaystyle\frac{R_X}{4}(\text{rect}(\frac{\theta - 0.5}{BW}) +
+    \text{rect}(\frac{\theta}{BW})
   \end{split}
 \end{equation}
 

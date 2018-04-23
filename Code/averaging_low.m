@@ -1,4 +1,4 @@
-Ifunction [acf_av] = averaging_low(y, N)
+function [acf_av] = averaging_low(y, N)
 
   %This function averages the ACF for study 2, using the ACF estimate function
   %within a loop and then scalating it. I define a zeros matrix and the
